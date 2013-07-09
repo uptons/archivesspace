@@ -451,16 +451,16 @@ requests.</p>
       <pre class="lines">
 
 
+98
+99
+100
 101
 102
 103
-104
-105
-106
-107</pre>
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 98</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_backend_url identifier id'>backend_url</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_Module constant id'>Module</span><span class='dot token'>.</span><span class='rubyid_const_defined? fid id'>const_defined?</span><span class='lparen token'>(</span><span class='symbol val'>:BACKEND_SERVICE_URL</span><span class='rparen token'>)</span>
@@ -501,13 +501,13 @@ requests.</p>
       <pre class="lines">
 
 
-162
-163
-164
-165</pre>
+159
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 159</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_current_backend_session identifier id'>current_backend_session</span>
   <span class='comment val'># Set by the ApplicationController</span>
@@ -534,12 +534,12 @@ requests.</p>
       <pre class="lines">
 
 
-168
-169
-170</pre>
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 165</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_current_backend_session identifier id'>current_backend_session</span><span class='assign token'>=</span><span class='lparen token'>(</span><span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:backend_session</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_val identifier id'>val</span>
@@ -565,14 +565,14 @@ requests.</p>
       <pre class="lines">
 
 
+235
 236
 237
 238
-239
-240</pre>
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 235</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_delete_request identifier id'>delete_request</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_req identifier id'>req</span> <span class='assign token'>=</span> <span class='rubyid_Net constant id'>Net</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='colon2 op'>::</span><span class='rubyid_Delete constant id'>Delete</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='dot token'>.</span><span class='rubyid_request_uri identifier id'>request_uri</span><span class='rparen token'>)</span>
@@ -600,6 +600,7 @@ requests.</p>
       <pre class="lines">
 
 
+186
 187
 188
 189
@@ -613,11 +614,10 @@ requests.</p>
 197
 198
 199
-200
-201</pre>
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 186</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_do_http_request identifier id'>do_http_request</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_req identifier id'>req</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_req identifier id'>req</span><span class='lbrack token'>[</span><span class='string val'>'X-ArchivesSpace-Session'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_current_backend_session identifier id'>current_backend_session</span>
@@ -655,6 +655,9 @@ requests.</p>
       <pre class="lines">
 
 
+143
+144
+145
 146
 147
 148
@@ -663,13 +666,10 @@ requests.</p>
 151
 152
 153
-154
-155
-156
-157</pre>
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 143</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_get_json identifier id'>get_json</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_URI constant id'>URI</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{backend_url}#{uri}&quot;</span><span class='rparen token'>)</span>
@@ -704,14 +704,14 @@ requests.</p>
       <pre class="lines">
 
 
+242
 243
 244
 245
-246
-247</pre>
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 243</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 242</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_get_response identifier id'>get_response</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_req identifier id'>req</span> <span class='assign token'>=</span> <span class='rubyid_Net constant id'>Net</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='colon2 op'>::</span><span class='rubyid_Get constant id'>Get</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='dot token'>.</span><span class='rubyid_request_uri identifier id'>request_uri</span><span class='rparen token'>)</span>
@@ -762,16 +762,16 @@ requests.</p>
       <pre class="lines">
 
 
+170
+171
+172
 173
 174
 175
-176
-177
-178
-179</pre>
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 170</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_high_priority? fid id'>high_priority?</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:request_priority</span><span class='rbrack token'>]</span>
@@ -801,15 +801,19 @@ requests.</p>
       <pre class="lines">
 
 
+179
+180
+181
 182
-183
-184</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 179</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_http_conn identifier id'>http_conn</span>
   <span class='rubyid_@http ivar id'>@http</span> <span class='opasgn op'>||=</span> <span class='rubyid_Net constant id'>Net</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='colon2 op'>::</span><span class='rubyid_Persistent constant id'>Persistent</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='string val'>'jsonmodel_client'</span>
+  <span class='rubyid_@http ivar id'>@http</span><span class='dot token'>.</span><span class='rubyid_read_timeout identifier id'>read_timeout</span> <span class='assign token'>=</span> <span class='integer val'>1200</span>
+  <span class='rubyid_@http ivar id'>@http</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -842,17 +846,17 @@ requests.</p>
       <pre class="lines">
 
 
+108
+109
+110
 111
 112
 113
 114
-115
-116
-117
-118</pre>
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 108</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_post_form identifier id'>post_form</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_URI constant id'>URI</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{backend_url}#{uri}&quot;</span><span class='rparen token'>)</span>
@@ -883,16 +887,16 @@ requests.</p>
       <pre class="lines">
 
 
+214
 215
 216
 217
 218
 219
-220
-221</pre>
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 214</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_post_json identifier id'>post_json</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='rparen token'>)</span>
   <span class='rubyid_req identifier id'>req</span> <span class='assign token'>=</span> <span class='rubyid_Net constant id'>Net</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='colon2 op'>::</span><span class='rubyid_Post constant id'>Post</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='dot token'>.</span><span class='rubyid_request_uri identifier id'>request_uri</span><span class='rparen token'>)</span>
@@ -922,6 +926,7 @@ requests.</p>
       <pre class="lines">
 
 
+223
 224
 225
 226
@@ -930,11 +935,10 @@ requests.</p>
 229
 230
 231
-232
-233</pre>
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 224</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 223</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_post_json_file identifier id'>post_json_file</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_path identifier id'>path</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_open identifier id'>open</span><span class='lparen token'>(</span><span class='rubyid_path identifier id'>path</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_fh identifier id'>fh</span><span class='bitor op'>|</span>
@@ -967,6 +971,9 @@ requests.</p>
       <pre class="lines">
 
 
+118
+119
+120
 121
 122
 123
@@ -986,13 +993,10 @@ requests.</p>
 137
 138
 139
-140
-141
-142
-143</pre>
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 118</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_stream identifier id'>stream</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_URI constant id'>URI</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{backend_url}#{uri}&quot;</span><span class='rparen token'>)</span>
@@ -1038,6 +1042,7 @@ requests.</p>
       <pre class="lines">
 
 
+203
 204
 205
 206
@@ -1045,11 +1050,10 @@ requests.</p>
 208
 209
 210
-211
-212</pre>
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 203</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_with_request_priority identifier id'>with_request_priority</span><span class='lparen token'>(</span><span class='rubyid_priority identifier id'>priority</span><span class='rparen token'>)</span>
   <span class='rubyid_old identifier id'>old</span> <span class='assign token'>=</span> <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:request_priority</span><span class='rbrack token'>]</span>
@@ -1071,7 +1075,7 @@ requests.</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:45 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:14 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

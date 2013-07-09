@@ -84,7 +84,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">backend/app/model/ASModel.rb</dd>
+    <dd class="r1 last">backend/app/model/ASModel_crud.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -149,6 +149,29 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_audit_fields-class_method" title="set_audit_fields (class method)">+ (Object) <strong>set_audit_fields</strong>(json, obj) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
     <h2>
@@ -157,6 +180,30 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_nested_records-instance_method" title="#apply_nested_records (instance method)">- (Object) <strong>apply_nested_records</strong>(json, new_record = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Several JSONModels consist of logical subrecords that are stored as
+separate models in the database (in separate tables).</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -255,6 +302,29 @@ report it against the JSONModel &#8216;property&#8217; instead.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#remove_nested_records-instance_method" title="#remove_nested_records (instance method)">- (Object) <strong>remove_nested_records</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#system_modified%3F-instance_method" title="#system_modified? (instance method)">- (Boolean) <strong>system_modified?</strong> </a>
     
 
@@ -279,7 +349,30 @@ from the client.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_from_json-instance_method" title="#update_from_json (instance method)">- (Object) <strong>update_from_json</strong>(json, extra_values = {}, apply_linked_records = true) </a>
+      <a href="#update_from_json-instance_method" title="#update_from_json (instance method)">- (Object) <strong>update_from_json</strong>(json, extra_values = {}, apply_nested_records = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate-instance_method" title="#validate (instance method)">- (Object) <strong>validate</strong> </a>
     
 
     
@@ -323,17 +416,68 @@ from the client.</p>
       <pre class="lines">
 
 
-33
-34
-35
-36</pre>
+6
+7
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 6</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_included identifier id'>included</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span><span class='rparen token'>)</span>
   <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_extend identifier id'>extend</span><span class='lparen token'>(</span><span class='rubyid_ClassMethods constant id'>ClassMethods</span><span class='rparen token'>)</span>
+  <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_include identifier id'>include</span><span class='lparen token'>(</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='rparen token'>)</span>
   <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_extend identifier id'>extend</span><span class='lparen token'>(</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_audit_fields-class_method">
+  
+    + (<tt>Object</tt>) <strong>set_audit_fields</strong>(json, obj) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 15</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_set_audit_fields identifier id'>set_audit_fields</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='lbrack token'>[</span><span class='string val'>'created_by'</span><span class='comma token'>,</span> <span class='string val'>'last_modified_by'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_field identifier id'>field</span><span class='bitor op'>|</span>
+    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='rubyid_field identifier id'>field</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_obj identifier id'>obj</span><span class='lbrack token'>[</span><span class='rubyid_field identifier id'>field</span><span class='dot token'>.</span><span class='rubyid_intern identifier id'>intern</span><span class='rbrack token'>]</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_obj identifier id'>obj</span><span class='lbrack token'>[</span><span class='rubyid_field identifier id'>field</span><span class='dot token'>.</span><span class='rubyid_intern identifier id'>intern</span><span class='rbrack token'>]</span>
+  <span class='rubyid_end end kw'>end</span>
+
+  <span class='lbrack token'>[</span><span class='string val'>'system_mtime'</span><span class='comma token'>,</span> <span class='string val'>'user_mtime'</span><span class='comma token'>,</span> <span class='string val'>'create_time'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_field identifier id'>field</span><span class='bitor op'>|</span>
+    <span class='rubyid_val identifier id'>val</span> <span class='assign token'>=</span> <span class='rubyid_obj identifier id'>obj</span><span class='lbrack token'>[</span><span class='rubyid_field identifier id'>field</span><span class='dot token'>.</span><span class='rubyid_intern identifier id'>intern</span><span class='rbrack token'>]</span>
+    <span class='rubyid_next next kw'>next</span> <span class='rubyid_if if_mod kw'>if</span> <span class='notop op'>!</span><span class='rubyid_val identifier id'>val</span>
+
+    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='rubyid_field identifier id'>field</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_val identifier id'>val</span><span class='dot token'>.</span><span class='rubyid_getutc identifier id'>getutc</span><span class='dot token'>.</span><span class='rubyid_iso8601 identifier id'>iso8601</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -348,7 +492,238 @@ from the client.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="delete-instance_method">
+  <h3 class="signature first" id="apply_nested_records-instance_method">
+  
+    - (<tt>Object</tt>) <strong>apply_nested_records</strong>(json, new_record = false) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Several JSONModels consist of logical subrecords that are stored as
+separate models in the database (in separate tables).</p>
+
+<p>When we get a JSON blob for a record with subrecords, we want to create a
+database record for each subrecords (or, if a URI referencing an existing
+subrecord was given, use the existing object), then associate those
+subrecords with the main record.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 49</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_new_record identifier id'>new_record</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_remove_nested_records identifier id'>remove_nested_records</span> <span class='rubyid_if if_mod kw'>if</span> <span class='notop op'>!</span><span class='rubyid_new_record identifier id'>new_record</span>
+
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_nested_records identifier id'>nested_records</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='bitor op'>|</span>
+    <span class='comment val'># Read the subrecords from our JSON blob and fetch or create</span>
+    <span class='comment val'># the corresponding subrecord from the database.</span>
+    <span class='rubyid_model identifier id'>model</span> <span class='assign token'>=</span> <span class='rubyid_Kernel constant id'>Kernel</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:class_name</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eqq op'>===</span> <span class='symbol val'>:one_to_one</span>
+      <span class='rubyid_add_record_method identifier id'>add_record_method</span> <span class='assign token'>=</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
+    <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eqq op'>===</span> <span class='symbol val'>:many_to_one</span>
+      <span class='rubyid_add_record_method identifier id'>add_record_method</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{nested_record[:association][:name].to_s.singularize}=&quot;</span>
+    <span class='rubyid_else else kw'>else</span>
+      <span class='rubyid_add_record_method identifier id'>add_record_method</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;add_#{nested_record[:association][:name].to_s.singularize}&quot;</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_records identifier id'>records</span> <span class='assign token'>=</span> <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:json_property</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span>
+
+    <span class='rubyid_is_array identifier id'>is_array</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eqq op'>===</span> <span class='symbol val'>:one_to_one</span> <span class='orop op'>||</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:is_array</span><span class='rbrack token'>]</span> <span class='eqq op'>===</span> <span class='rubyid_false false kw'>false</span>
+      <span class='rubyid_is_array identifier id'>is_array</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
+      <span class='rubyid_records identifier id'>records</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rubyid_records identifier id'>records</span><span class='rbrack token'>]</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_updated_records identifier id'>updated_records</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='lparen token'>(</span><span class='rubyid_records identifier id'>records</span> <span class='rubyid_or or kw'>or</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each_with_index identifier id'>each_with_index</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_json_or_uri identifier id'>json_or_uri</span><span class='comma token'>,</span> <span class='rubyid_i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='rubyid_next next kw'>next</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_json_or_uri identifier id'>json_or_uri</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
+
+      <span class='rubyid_db_record identifier id'>db_record</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
+
+      <span class='rubyid_begin begin kw'>begin</span>
+        <span class='rubyid_needs_linking identifier id'>needs_linking</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+
+        <span class='rubyid_if if kw'>if</span> <span class='rubyid_json_or_uri identifier id'>json_or_uri</span><span class='dot token'>.</span><span class='rubyid_kind_of? fid id'>kind_of?</span> <span class='rubyid_String constant id'>String</span>
+          <span class='comment val'># A URI.  Just grab its database ID and look it up.</span>
+                  <span class='rubyid_db_record identifier id'>db_record</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='lbrack token'>[</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:jsonmodel</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_id_for identifier id'>id_for</span><span class='lparen token'>(</span><span class='rubyid_json_or_uri identifier id'>json_or_uri</span><span class='rparen token'>)</span><span class='rbrack token'>]</span>
+          <span class='rubyid_updated_records identifier id'>updated_records</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_json_or_uri identifier id'>json_or_uri</span>
+        <span class='rubyid_else else kw'>else</span>
+          <span class='comment val'># Create a database record for the JSON blob and return its ID</span>
+          <span class='rubyid_subrecord_json identifier id'>subrecord_json</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:jsonmodel</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_from_hash identifier id'>from_hash</span><span class='lparen token'>(</span><span class='rubyid_json_or_uri identifier id'>json_or_uri</span><span class='comma token'>,</span> <span class='rubyid_true true kw'>true</span><span class='comma token'>,</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
+
+          <span class='comment val'># The value of subrecord_json can be mutated by the various</span>
+          <span class='comment val'># transformations performed by the model layer.  Make sure we</span>
+          <span class='comment val'># keep the modified version of the JSON here.</span>
+          <span class='rubyid_updated_records identifier id'>updated_records</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_subrecord_json identifier id'>subrecord_json</span>
+
+          <span class='rubyid_if if kw'>if</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span> <span class='colon op'>:</span><span class='rubyid_ensure_exists identifier id'>ensure_exists</span>
+            <span class='comment val'># Give our classes an opportunity to provide their own logic here</span>
+            <span class='rubyid_db_record identifier id'>db_record</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_ensure_exists identifier id'>ensure_exists</span><span class='lparen token'>(</span><span class='rubyid_subrecord_json identifier id'>subrecord_json</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
+          <span class='rubyid_else else kw'>else</span>
+            <span class='rubyid_extra_opts identifier id'>extra_opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+
+            <span class='rubyid_if if kw'>if</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:key</span><span class='rbrack token'>]</span>
+              <span class='rubyid_extra_opts identifier id'>extra_opts</span><span class='lbrack token'>[</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:key</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span>
+
+              <span class='comment val'># We'll skip the call to the .add method because this step</span>
+              <span class='comment val'># will have already linked the nested record to this one.</span>
+              <span class='rubyid_needs_linking identifier id'>needs_linking</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
+            <span class='rubyid_end end kw'>end</span>
+
+            <span class='rubyid_db_record identifier id'>db_record</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_create_from_json identifier id'>create_from_json</span><span class='lparen token'>(</span><span class='rubyid_subrecord_json identifier id'>subrecord_json</span><span class='comma token'>,</span> <span class='rubyid_extra_opts identifier id'>extra_opts</span><span class='rparen token'>)</span>
+          <span class='rubyid_end end kw'>end</span>
+        <span class='rubyid_end end kw'>end</span>
+
+        <span class='rubyid_if if kw'>if</span> <span class='rubyid_db_record identifier id'>db_record</span><span class='dot token'>.</span><span class='rubyid_system_modified? fid id'>system_modified?</span>
+          <span class='comment val'># If the subrecord got changed by the system, mark ourselves as</span>
+          <span class='comment val'># modified too.</span>
+          <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_mark_as_system_modified identifier id'>mark_as_system_modified</span>
+        <span class='rubyid_end end kw'>end</span>
+
+        <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_add_record_method identifier id'>add_record_method</span><span class='comma token'>,</span> <span class='rubyid_db_record identifier id'>db_record</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='rubyid_db_record identifier id'>db_record</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_needs_linking identifier id'>needs_linking</span><span class='rparen token'>)</span>
+      <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_Sequel constant id'>Sequel</span><span class='colon2 op'>::</span><span class='rubyid_ValidationFailed constant id'>ValidationFailed</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
+        <span class='comment val'># Modify the exception keys by prefixing each with the path up until this point.</span>
+        <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='rubyid_do do kw'>do</span>
+          <span class='rubyid_if if kw'>if</span> <span class='rubyid_@errors ivar id'>@errors</span>
+            <span class='rubyid_prefix identifier id'>prefix</span> <span class='assign token'>=</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:json_property</span><span class='rbrack token'>]</span>
+            <span class='rubyid_prefix identifier id'>prefix</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{prefix}/#{i}&quot;</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_is_array identifier id'>is_array</span>
+
+            <span class='rubyid_new_errors identifier id'>new_errors</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+            <span class='rubyid_@errors ivar id'>@errors</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_k identifier id'>k</span><span class='comma token'>,</span> <span class='rubyid_v identifier id'>v</span><span class='bitor op'>|</span>
+              <span class='rubyid_new_errors identifier id'>new_errors</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;#{prefix}/#{k}&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_v identifier id'>v</span>
+            <span class='rubyid_end end kw'>end</span>
+
+            <span class='rubyid_@errors ivar id'>@errors</span> <span class='assign token'>=</span> <span class='rubyid_new_errors identifier id'>new_errors</span>
+          <span class='rubyid_end end kw'>end</span>
+        <span class='rubyid_end end kw'>end</span>
+
+        <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_e identifier id'>e</span>
+      <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:json_property</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_is_array identifier id'>is_array</span> <span class='integer val'>? </span><span class='rubyid_updated_records identifier id'>updated_records</span> <span class='colon op'>:</span> <span class='rubyid_updated_records identifier id'>updated_records</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
   
     - (<tt>Object</tt>) <strong>delete</strong> 
   
@@ -373,31 +748,27 @@ dependencies first.</p>
       <pre class="lines">
 
 
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 221</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete identifier id'>delete</span>
-  <span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_linked_records identifier id'>linked_records</span><span class='lbrack token'>[</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='rbrack token'>]</span> <span class='rubyid_or or kw'>or</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_linked_record identifier id'>linked_record</span><span class='bitor op'>|</span>
-    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_remove_existing_linked_records identifier id'>remove_existing_linked_records</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='rubyid_linked_record identifier id'>linked_record</span><span class='rparen token'>)</span>
-  <span class='rubyid_end end kw'>end</span>
-
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_remove_nested_records identifier id'>remove_nested_records</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_prepare_for_deletion identifier id'>prepare_for_deletion</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 
   <span class='rubyid_super super kw'>super</span>
@@ -406,7 +777,9 @@ dependencies first.</p>
 
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_uri identifier id'>uri</span>
     <span class='rubyid_Tombstone constant id'>Tombstone</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='symbol val'>:uri</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
-    <span class='rubyid_RealtimeIndexing constant id'>RealtimeIndexing</span><span class='dot token'>.</span><span class='rubyid_record_delete identifier id'>record_delete</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
+    <span class='rubyid_DB constant id'>DB</span><span class='dot token'>.</span><span class='rubyid_after_commit identifier id'>after_commit</span> <span class='rubyid_do do kw'>do</span>
+      <span class='rubyid_RealtimeIndexing constant id'>RealtimeIndexing</span><span class='dot token'>.</span><span class='rubyid_record_delete identifier id'>record_delete</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -446,22 +819,22 @@ report this to the client we just want to tell them that the value for
       <pre class="lines">
 
 
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135</pre>
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 252</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_map_validation_to_json_property identifier id'>map_validation_to_json_property</span><span class='lparen token'>(</span><span class='rubyid_columns identifier id'>columns</span><span class='comma token'>,</span> <span class='rubyid_property identifier id'>property</span><span class='rparen token'>)</span>
   <span class='rubyid_errors identifier id'>errors</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_errors identifier id'>errors</span><span class='dot token'>.</span><span class='rubyid_clone identifier id'>clone</span>
@@ -497,12 +870,12 @@ report this to the client we just want to tell them that the value for
       <pre class="lines">
 
 
-150
-151
-152</pre>
+279
+280
+281</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 279</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_mark_as_system_modified identifier id'>mark_as_system_modified</span>
   <span class='rubyid_@system_modified ivar id'>@system_modified</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
@@ -538,17 +911,90 @@ report this to the client we just want to tell them that the value for
       <pre class="lines">
 
 
-110
-111
-112
-113</pre>
+239
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 239</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_publish! fid id'>publish!</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_publish identifier id'>publish</span> <span class='assign token'>=</span> <span class='integer val'>1</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_nested_records-instance_method">
+  
+    - (<tt>Object</tt>) <strong>remove_nested_records</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 146</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_remove_nested_records identifier id'>remove_nested_records</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_nested_records identifier id'>nested_records</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_nested_record_defn identifier id'>nested_record_defn</span><span class='bitor op'>|</span>
+    <span class='rubyid_if if kw'>if</span> <span class='lbrack token'>[</span><span class='symbol val'>:one_to_one</span><span class='comma token'>,</span> <span class='symbol val'>:one_to_many</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_nested_record_defn identifier id'>nested_record_defn</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+      <span class='comment val'># If the current record &quot;owns&quot; its nested record, delete the nested record.</span>
+      <span class='rubyid_model identifier id'>model</span> <span class='assign token'>=</span> <span class='rubyid_Kernel constant id'>Kernel</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='rubyid_nested_record_defn identifier id'>nested_record_defn</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:class_name</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+      <span class='comment val'># Tell the nested record to clear its own nested records</span>
+      <span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_nested_record_defn identifier id'>nested_record_defn</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:name</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='bitor op'>|</span>
+        <span class='rubyid_nested_record identifier id'>nested_record</span><span class='dot token'>.</span><span class='rubyid_remove_nested_records identifier id'>remove_nested_records</span>
+      <span class='rubyid_end end kw'>end</span>
+
+      <span class='comment val'># Now delete all nested objects</span>
+      <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{nested_record_defn[:association][:name]}_dataset&quot;</span><span class='rparen token'>)</span>
+      <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_prepare_for_deletion identifier id'>prepare_for_deletion</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='rparen token'>)</span>
+      <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span>
+    <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_nested_record_defn identifier id'>nested_record_defn</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eqq op'>===</span> <span class='symbol val'>:many_to_many</span>
+      <span class='comment val'># Just remove the links</span>
+      <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;remove_all_#{nested_record_defn[:association][:name]}&quot;</span><span class='dot token'>.</span><span class='rubyid_intern identifier id'>intern</span><span class='rparen token'>)</span>
+    <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_nested_record_defn identifier id'>nested_record_defn</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eqq op'>===</span> <span class='symbol val'>:many_to_one</span>
+      <span class='comment val'># Just remove the link</span>
+      <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{nested_record_defn[:association][:name].intern}=&quot;</span><span class='comma token'>,</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -600,12 +1046,12 @@ that their local copy of the record includes the system-generated data too.</p>
       <pre class="lines">
 
 
-145
-146
-147</pre>
+274
+275
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 274</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_system_modified? fid id'>system_modified?</span>
   <span class='rubyid_@system_modified ivar id'>@system_modified</span>
@@ -619,7 +1065,7 @@ that their local copy of the record includes the system-generated data too.</p>
       <div class="method_details ">
   <h3 class="signature " id="update_from_json-instance_method">
   
-    - (<tt>Object</tt>) <strong>update_from_json</strong>(json, extra_values = {}, apply_linked_records = true) 
+    - (<tt>Object</tt>) <strong>update_from_json</strong>(json, extra_values = {}, apply_nested_records = true) 
   
 
   
@@ -631,58 +1077,55 @@ that their local copy of the record includes the system-generated data too.</p>
       <pre class="lines">
 
 
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86</pre>
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 173</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_extra_values identifier id'>extra_values</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_apply_linked_records identifier id'>apply_linked_records</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_extra_values identifier id'>extra_values</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
 
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:suppressed</span><span class='rparen token'>)</span>
     <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='lbrack token'>[</span><span class='symbol val'>:suppressed</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='integer val'>1</span>
@@ -714,20 +1157,64 @@ that their local copy of the record includes the system-generated data too.</p>
 
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_strict_param_setting identifier id'>strict_param_setting</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
 
-  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_update identifier id'>update</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_prepare_for_db identifier id'>prepare_for_db</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='comma token'>,</span> <span class='rubyid_updated identifier id'>updated</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_update identifier id'>update</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_prepare_for_db identifier id'>prepare_for_db</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='comma token'>,</span> <span class='rubyid_updated identifier id'>updated</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+              <span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:user_mtime</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:last_modified_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:current_username</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_self self kw'>self</span><span class='lbrack token'>[</span><span class='symbol val'>:user_mtime</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
-  <span class='rubyid_self self kw'>self</span><span class='lbrack token'>[</span><span class='symbol val'>:last_modified_by</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:current_username</span><span class='rparen token'>)</span>
-
-  <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span>
-
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_apply_linked_records identifier id'>apply_linked_records</span>
-    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_apply_linked_database_records identifier id'>apply_linked_database_records</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span>
+    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
 
-  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_fire_update identifier id'>fire_update</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_fire_update identifier id'>fire_update</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_obj identifier id'>obj</span>
+  <span class='rubyid_self self kw'>self</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="validate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>validate</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 29</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_validate identifier id'>validate</span>
+  <span class='comment val'># Check uniqueness constraints</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_repo_unique_constraints identifier id'>repo_unique_constraints</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_constraint identifier id'>constraint</span><span class='bitor op'>|</span>
+    <span class='rubyid_validates_unique identifier id'>validates_unique</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='symbol val'>:repo_id</span><span class='comma token'>,</span> <span class='rubyid_constraint identifier id'>constraint</span><span class='lbrack token'>[</span><span class='symbol val'>:property</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+                     <span class='symbol val'>:message</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_constraint identifier id'>constraint</span><span class='lbrack token'>[</span><span class='symbol val'>:message</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+    <span class='rubyid_map_validation_to_json_property identifier id'>map_validation_to_json_property</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='symbol val'>:repo_id</span><span class='comma token'>,</span> <span class='rubyid_constraint identifier id'>constraint</span><span class='lbrack token'>[</span><span class='symbol val'>:property</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+                                     <span class='rubyid_constraint identifier id'>constraint</span><span class='lbrack token'>[</span><span class='symbol val'>:json_property</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+
+  <span class='rubyid_super super kw'>super</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -740,7 +1227,7 @@ that their local copy of the record includes the system-generated data too.</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:36 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:06 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

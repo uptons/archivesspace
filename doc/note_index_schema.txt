@@ -6,7 +6,7 @@ array (string)	content
 
 string	type
 
-array (Object (value, type, reference, reference_text))	items
+array ([{"type"=>"JSONModel(:note_index_item) object"}])	items
 
 
 

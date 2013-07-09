@@ -111,7 +111,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dataset-class_method" title="dataset (class method)">+ (Object) <strong>dataset</strong>(model, where_clause) </a>
+      <a href="#scoped_dataset-class_method" title="scoped_dataset (class method)">+ (Object) <strong>scoped_dataset</strong>(model, where_clause) </a>
     
 
     
@@ -143,30 +143,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#_listing_response-instance_method" title="#_listing_response (instance method)">- (Object) <strong>_listing_response</strong>(dataset, model) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#handle_create-instance_method" title="#handle_create (instance method)">- (Object) <strong>handle_create</strong>(model, parameter) </a>
+      <a href="#handle_create-instance_method" title="#handle_create (instance method)">- (Object) <strong>handle_create</strong>(model, json, opts = {}) </a>
     
 
     
@@ -258,7 +235,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#handle_update-instance_method" title="#handle_update (instance method)">- (Object) <strong>handle_update</strong>(model, id, parameter, opts = {}) </a>
+      <a href="#handle_update-instance_method" title="#handle_update (instance method)">- (Object) <strong>handle_update</strong>(model, id, json, opts = {}) </a>
     
 
     
@@ -288,9 +265,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="dataset-class_method">
+  <h3 class="signature first" id="scoped_dataset-class_method">
   
-    + (<tt>Object</tt>) <strong>dataset</strong>(model, where_clause) 
+    + (<tt>Object</tt>) <strong>scoped_dataset</strong>(model, where_clause) 
   
 
   
@@ -320,7 +297,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 26</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dataset identifier id'>dataset</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where_clause identifier id'>where_clause</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_scoped_dataset identifier id'>scoped_dataset</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where_clause identifier id'>where_clause</span><span class='rparen token'>)</span>
   <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_model_scope identifier id'>model_scope</span> <span class='eq op'>==</span> <span class='symbol val'>:repository</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_this_repo identifier id'>this_repo</span> <span class='colon op'>:</span> <span class='rubyid_model identifier id'>model</span>
 
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_where_clause identifier id'>where_clause</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_where_clause identifier id'>where_clause</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:exclude</span><span class='rparen token'>)</span>
@@ -347,82 +324,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="_listing_response-instance_method">
+  <h3 class="signature first" id="handle_create-instance_method">
   
-    - (<tt>Object</tt>) <strong>_listing_response</strong>(dataset, model) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 42</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid__listing_response identifier id'>_listing_response</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
-  <span class='rubyid_results identifier id'>results</span> <span class='assign token'>=</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_obj identifier id'>obj</span><span class='bitor op'>|</span>
-    <span class='rubyid_json identifier id'>json</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_to_jsonmodel identifier id'>to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='rparen token'>)</span>
-
-    <span class='rubyid_if if kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:resolve</span><span class='rbrack token'>]</span>
-      <span class='rubyid_resolve_references identifier id'>resolve_references</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:resolve</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-    <span class='rubyid_else else kw'>else</span>
-      <span class='rubyid_json identifier id'>json</span>
-    <span class='rubyid_end end kw'>end</span>
-  <span class='rbrace token'>}</span>
-
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span> <span class='lparen token'>(</span><span class='symbol val'>:page_range</span><span class='rparen token'>)</span>
-    <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
-      <span class='symbol val'>:first_page</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_page_range identifier id'>page_range</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span><span class='comma token'>,</span>
-      <span class='symbol val'>:last_page</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_page_range identifier id'>page_range</span><span class='dot token'>.</span><span class='rubyid_last identifier id'>last</span><span class='comma token'>,</span>
-      <span class='symbol val'>:this_page</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_current_page identifier id'>current_page</span><span class='comma token'>,</span>
-      <span class='symbol val'>:results</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_results identifier id'>results</span>
-    <span class='rbrace token'>}</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_results identifier id'>results</span>
-  <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_json_response identifier id'>json_response</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="handle_create-instance_method">
-  
-    - (<tt>Object</tt>) <strong>handle_create</strong>(model, parameter) 
+    - (<tt>Object</tt>) <strong>handle_create</strong>(model, json, opts = {}) 
   
 
   
@@ -443,10 +347,10 @@
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 11</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_create identifier id'>handle_create</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_parameter identifier id'>parameter</span><span class='rparen token'>)</span>
-  <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_create_from_json identifier id'>create_from_json</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_parameter identifier id'>parameter</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_create identifier id'>handle_create</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_create_from_json identifier id'>create_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_created_response identifier id'>created_response</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_parameter identifier id'>parameter</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='rubyid_created_response identifier id'>created_response</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -506,35 +410,35 @@
       <pre class="lines">
 
 
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96</pre>
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 49</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_listing identifier id'>handle_listing</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='comma token'>,</span> <span class='rubyid_where identifier id'>where</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='rubyid_CrudHelpers constant id'>CrudHelpers</span><span class='dot token'>.</span><span class='rubyid_dataset identifier id'>dataset</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where identifier id'>where</span><span class='rparen token'>)</span>
+  <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='rubyid_CrudHelpers constant id'>CrudHelpers</span><span class='dot token'>.</span><span class='rubyid_scoped_dataset identifier id'>scoped_dataset</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where identifier id'>where</span><span class='rparen token'>)</span>
 
   <span class='rubyid_modified_since_time identifier id'>modified_since_time</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_at identifier id'>at</span><span class='lparen token'>(</span><span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:modified_since</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
   <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_where identifier id'>where</span> <span class='lbrace token'>{</span> <span class='rubyid_system_mtime identifier id'>system_mtime</span> <span class='geq op'>&gt;=</span> <span class='rubyid_modified_since_time identifier id'>modified_since_time</span> <span class='rbrace token'>}</span>
@@ -543,7 +447,7 @@
     <span class='comment val'># Classic pagination mode</span>
     <span class='rubyid_paginated identifier id'>paginated</span> <span class='assign token'>=</span> <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_paginate identifier id'>paginate</span><span class='lparen token'>(</span><span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:page</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:page_size</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
 
-    <span class='rubyid__listing_response identifier id'>_listing_response</span><span class='lparen token'>(</span><span class='rubyid_paginated identifier id'>paginated</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
+    <span class='rubyid_listing_response identifier id'>listing_response</span><span class='lparen token'>(</span><span class='rubyid_paginated identifier id'>paginated</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
 
   <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:all_ids</span><span class='rbrack token'>]</span>
     <span class='comment val'># Return a JSON array containing all IDs for the matching records</span>
@@ -551,7 +455,7 @@
 
   <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:id_set</span><span class='rbrack token'>]</span>
     <span class='comment val'># Return the requested set of IDs</span>
-    <span class='rubyid__listing_response identifier id'>_listing_response</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:id_set</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
+    <span class='rubyid_listing_response identifier id'>listing_response</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_pagination_data identifier id'>pagination_data</span><span class='lbrack token'>[</span><span class='symbol val'>:id_set</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -575,19 +479,19 @@
       <pre class="lines">
 
 
-68
-69
-70
-71
-72</pre>
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 42</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_unlimited_listing identifier id'>handle_unlimited_listing</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where identifier id'>where</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='rubyid_CrudHelpers constant id'>CrudHelpers</span><span class='dot token'>.</span><span class='rubyid_dataset identifier id'>dataset</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where identifier id'>where</span><span class='rparen token'>)</span>
+  <span class='rubyid_dataset identifier id'>dataset</span> <span class='assign token'>=</span> <span class='rubyid_CrudHelpers constant id'>CrudHelpers</span><span class='dot token'>.</span><span class='rubyid_scoped_dataset identifier id'>scoped_dataset</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_where identifier id'>where</span><span class='rparen token'>)</span>
 
-  <span class='rubyid__listing_response identifier id'>_listing_response</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
+  <span class='rubyid_listing_response identifier id'>listing_response</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='comma token'>,</span> <span class='rubyid_model identifier id'>model</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -598,7 +502,7 @@
       <div class="method_details ">
   <h3 class="signature " id="handle_update-instance_method">
   
-    - (<tt>Object</tt>) <strong>handle_update</strong>(model, id, parameter, opts = {}) 
+    - (<tt>Object</tt>) <strong>handle_update</strong>(model, id, json, opts = {}) 
   
 
   
@@ -620,11 +524,11 @@
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/crud_helpers.rb', line 3</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_update identifier id'>handle_update</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_parameter identifier id'>parameter</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_get_or_die identifier id'>get_or_die</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_id identifier id'>id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-  <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_parameter identifier id'>parameter</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_update identifier id'>handle_update</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='comma token'>,</span> <span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_get_or_die identifier id'>get_or_die</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
+  <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_updated_response identifier id'>updated_response</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_parameter identifier id'>parameter</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='rubyid_updated_response identifier id'>updated_response</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -637,7 +541,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:38 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:06 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

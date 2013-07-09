@@ -178,7 +178,31 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#linked_records-instance_method" title="#linked_records (instance method)">- (Object) <strong>linked_records</strong>(name) </a>
+      <a href="#my_relationships-instance_method" title="#my_relationships (instance method)">- (Object) <strong>my_relationships</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Added to the mixed in class itself: return a list of the relationship
+instances involving this object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#related_records-instance_method" title="#related_records (instance method)">- (Object) <strong>related_records</strong>(name) </a>
     
 
     
@@ -202,7 +226,7 @@ relationship named by &#8216;name&#8217;.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#my_relationships-instance_method" title="#my_relationships (instance method)">- (Object) <strong>my_relationships</strong>(name) </a>
+      <a href="#transfer_to_repository-instance_method" title="#transfer_to_repository (instance method)">- (Object) <strong>transfer_to_repository</strong>(repository, transfer_group = []) </a>
     
 
     
@@ -216,8 +240,7 @@ relationship named by &#8216;name&#8217;.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Added to the mixed in class itself: return a list of the relationship
-instances involving this object.</p>
+    <span class="summary_desc"><div class='inline'>
 </div></span>
   
 </li>
@@ -249,7 +272,7 @@ instances involving this object.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_from_json-instance_method" title="#update_from_json (instance method)">- (Object) <strong>update_from_json</strong>(json, opts = {}, apply_linked_records = true) </a>
+      <a href="#update_from_json-instance_method" title="#update_from_json (instance method)">- (Object) <strong>update_from_json</strong>(json, opts = {}, apply_nested_records = true) </a>
     
 
     
@@ -385,54 +408,6 @@ instances involving this object.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="linked_records-instance_method">
-  
-    - (<tt>Object</tt>) <strong>linked_records</strong>(name) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Return all object instances that are related to the current record by the
-relationship named by &#8216;name&#8217;.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-187
-188
-189
-190
-191
-192</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/relationships.rb', line 187</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_linked_records identifier id'>linked_records</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span>
-  <span class='rubyid_relationship identifier id'>relationship</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_find_relationship identifier id'>find_relationship</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span>
-  <span class='rubyid_records identifier id'>records</span> <span class='assign token'>=</span> <span class='rubyid_relationship identifier id'>relationship</span><span class='dot token'>.</span><span class='rubyid_who_participates_with identifier id'>who_participates_with</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
-
-  <span class='rubyid_relationship identifier id'>relationship</span><span class='dot token'>.</span><span class='rubyid_wants_array? fid id'>wants_array?</span> <span class='integer val'>? </span><span class='rubyid_records identifier id'>records</span> <span class='colon op'>:</span> <span class='rubyid_records identifier id'>records</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="my_relationships-instance_method">
   
     - (<tt>Object</tt>) <strong>my_relationships</strong>(name) 
@@ -467,6 +442,127 @@ instances involving this object</p>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_my_relationships identifier id'>my_relationships</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_find_relationship identifier id'>find_relationship</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find_by_participant identifier id'>find_by_participant</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="related_records-instance_method">
+  
+    - (<tt>Object</tt>) <strong>related_records</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return all object instances that are related to the current record by the
+relationship named by &#8216;name&#8217;.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/relationships.rb', line 187</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_related_records identifier id'>related_records</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='rubyid_relationship identifier id'>relationship</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_find_relationship identifier id'>find_relationship</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='rubyid_records identifier id'>records</span> <span class='assign token'>=</span> <span class='rubyid_relationship identifier id'>relationship</span><span class='dot token'>.</span><span class='rubyid_who_participates_with identifier id'>who_participates_with</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_relationship identifier id'>relationship</span><span class='dot token'>.</span><span class='rubyid_wants_array? fid id'>wants_array?</span> <span class='integer val'>? </span><span class='rubyid_records identifier id'>records</span> <span class='colon op'>:</span> <span class='rubyid_records identifier id'>records</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="transfer_to_repository-instance_method">
+  
+    - (<tt>Object</tt>) <strong>transfer_to_repository</strong>(repository, transfer_group = []) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/relationships.rb', line 214</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_transfer_to_repository identifier id'>transfer_to_repository</span><span class='lparen token'>(</span><span class='rubyid_repository identifier id'>repository</span><span class='comma token'>,</span> <span class='rubyid_transfer_group identifier id'>transfer_group</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='comment val'># When a record is being transferred to another repository, any</span>
+  <span class='comment val'># relationships it has to records within the current repository must be</span>
+  <span class='comment val'># cleared.</span>
+
+  <span class='rubyid_predicate identifier id'>predicate</span> <span class='assign token'>=</span> <span class='rubyid_proc identifier id'>proc</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_relationship identifier id'>relationship</span><span class='bitor op'>|</span>
+    <span class='rubyid_referent identifier id'>referent</span> <span class='assign token'>=</span> <span class='rubyid_relationship identifier id'>relationship</span><span class='dot token'>.</span><span class='rubyid_other_referent_than identifier id'>other_referent_than</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Delete the relationship if we're repository-scoped and the referent is</span>
+    <span class='comment val'># in the old repository.  Don't worry about relationships to any of the</span>
+    <span class='comment val'># records that are going to be transferred along with us (listed in</span>
+    <span class='comment val'># transfer_group)</span>
+    <span class='lparen token'>(</span><span class='rubyid_referent identifier id'>referent</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_model_scope identifier id'>model_scope</span> <span class='eq op'>==</span> <span class='symbol val'>:repository</span> <span class='andop op'>&amp;&amp;</span>
+     <span class='rubyid_referent identifier id'>referent</span><span class='dot token'>.</span><span class='rubyid_repo_id identifier id'>repo_id</span> <span class='neq op'>!=</span> <span class='rubyid_repository identifier id'>repository</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span> <span class='andop op'>&amp;&amp;</span>
+     <span class='notop op'>!</span><span class='rubyid_transfer_group identifier id'>transfer_group</span><span class='dot token'>.</span><span class='rubyid_any? fid id'>any?</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_obj identifier id'>obj</span><span class='bitor op'>|</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span> <span class='eq op'>==</span> <span class='rubyid_referent identifier id'>referent</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_model identifier id'>model</span> <span class='eq op'>==</span> <span class='rubyid_referent identifier id'>referent</span><span class='dot token'>.</span><span class='rubyid_model identifier id'>model</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rbrace token'>}</span>
+
+
+  <span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_dependent_models identifier id'>dependent_models</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_model identifier id'>model</span><span class='bitor op'>|</span>
+    <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_delete_existing_relationships identifier id'>delete_existing_relationships</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='rubyid_false false kw'>false</span><span class='comma token'>,</span> <span class='rubyid_false false kw'>false</span><span class='comma token'>,</span> <span class='rubyid_predicate identifier id'>predicate</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+
+  <span class='rubyid_super super kw'>super</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -522,7 +618,7 @@ instances involving this object</p>
       <div class="method_details ">
   <h3 class="signature " id="update_from_json-instance_method">
   
-    - (<tt>Object</tt>) <strong>update_from_json</strong>(json, opts = {}, apply_linked_records = true) 
+    - (<tt>Object</tt>) <strong>update_from_json</strong>(json, opts = {}, apply_nested_records = true) 
   
 
   
@@ -545,7 +641,7 @@ instances involving this object</p>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/model/mixins/relationships.rb', line 157</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_apply_linked_records identifier id'>apply_linked_records</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
   <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_apply_relationships identifier id'>apply_relationships</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
   <span class='rubyid_trigger_reindex_of_dependants identifier id'>trigger_reindex_of_dependants</span>
@@ -563,7 +659,7 @@ instances involving this object</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:40 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:10 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

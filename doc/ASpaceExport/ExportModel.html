@@ -208,11 +208,11 @@
       <pre class="lines">
 
 
-117
-118</pre>
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 122</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span>
 <span class='rubyid_end end kw'>end</span>
@@ -244,10 +244,6 @@
       <pre class="lines">
 
 
-121
-122
-123
-124
 125
 126
 127
@@ -257,23 +253,21 @@
 131
 132
 133
-134</pre>
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 125</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_apply_map identifier id'>apply_map</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_map identifier id'>map</span><span class='rparen token'>)</span>
   <span class='rubyid_map identifier id'>map</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_as_field identifier id'>as_field</span><span class='comma token'>,</span> <span class='rubyid_handler identifier id'>handler</span><span class='bitor op'>|</span>
-    
+
     <span class='rubyid_fieldable identifier id'>fieldable</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rubyid_as_field identifier id'>as_field</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='rubyid_reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_asf identifier id'>asf</span><span class='bitor op'>|</span> <span class='notop op'>!</span><span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='rubyid_asf identifier id'>asf</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
-    
+
     <span class='rubyid_next next kw'>next</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_fieldable identifier id'>fieldable</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span> <span class='comment val'># probably a relationship</span>
-    
+
     <span class='rubyid_handler_args identifier id'>handler_args</span> <span class='assign token'>=</span> <span class='rubyid_fieldable identifier id'>fieldable</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_f identifier id'>f</span><span class='bitor op'>|</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_f identifier id'>f</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
-
-    
     <span class='lbrack token'>[</span><span class='rubyid_handler identifier id'>handler</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_h identifier id'>h</span><span class='bitor op'>|</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_h identifier id'>h</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='rubyid_handler_args identifier id'>handler_args</span><span class='rparen token'>)</span>  <span class='rbrace token'>}</span>
-
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -287,7 +281,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:53:06 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:35 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

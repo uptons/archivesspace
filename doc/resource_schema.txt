@@ -24,8 +24,6 @@ boolean	restrictions
 
 string (max length: 65000)	repository_processing_note
 
-string (max length: 65000)	container_summary
-
 string (max length: 255)	ead_id
 
 string (max length: 255)	ead_location
@@ -36,13 +34,13 @@ string (max length: 65000)	finding_aid_filing_title
 
 string (max length: 255)	finding_aid_date
 
-string (max length: 255)	finding_aid_author
+string (max length: 65000)	finding_aid_author
 
 string	finding_aid_description_rules
 
 string (max length: 255)	finding_aid_language
 
-string (max length: 255)	finding_aid_sponsor
+string (max length: 65000)	finding_aid_sponsor
 
 string (max length: 65000)	finding_aid_edition_statement
 

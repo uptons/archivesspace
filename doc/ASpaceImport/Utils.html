@@ -439,6 +439,8 @@
       <pre class="lines">
 
 
+134
+135
 136
 137
 138
@@ -447,12 +449,10 @@
 141
 142
 143
-144
-145
-146</pre>
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/utils.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/utils.rb', line 134</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_ref_type_list identifier id'>ref_type_list</span><span class='lparen token'>(</span><span class='rubyid_property_ref_type identifier id'>property_ref_type</span><span class='rparen token'>)</span>
 
@@ -486,6 +486,8 @@
       <pre class="lines">
 
 
+147
+148
 149
 150
 151
@@ -498,12 +500,10 @@
 158
 159
 160
-161
-162
-163</pre>
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/utils.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/utils.rb', line 147</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_update_record_references identifier id'>update_record_references</span><span class='lparen token'>(</span><span class='rubyid_record identifier id'>record</span><span class='comma token'>,</span> <span class='rubyid_ref_source identifier id'>ref_source</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Array constant id'>Array</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:to_array</span><span class='rparen token'>)</span>
@@ -599,9 +599,7 @@
 128
 129
 130
-131
-132
-133</pre>
+131</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'migrations/lib/utils.rb', line 73</span>
@@ -653,14 +651,12 @@
 
  <span class='rubyid_when when kw'>when</span> <span class='symbol val'>:dynamic_enum</span>
    <span class='rubyid_lambda identifier id'>lambda</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_val identifier id'>val</span><span class='bitor op'>|</span>
-     <span class='comment val'># val.downcase</span>
      <span class='rubyid_val identifier id'>val</span>
    <span class='rbrace token'>}</span>
 
   <span class='rubyid_when when kw'>when</span> <span class='regexp val'>/^string/</span>
     <span class='rubyid_lambda identifier id'>lambda</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_val identifier id'>val</span><span class='bitor op'>|</span>
       <span class='rubyid_val identifier id'>val</span><span class='dot token'>.</span><span class='rubyid_split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_s identifier id'>s</span><span class='bitor op'>|</span> <span class='rubyid_s identifier id'>s</span><span class='dot token'>.</span><span class='rubyid_strip identifier id'>strip</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span>
-      <span class='comment val'># val.strip.gsub(/\s*\n\s*/, &quot;\n&quot;) #.gsub(/&gt;[\s\n]*&lt;/, '&gt;&lt;')</span>
     <span class='rbrace token'>}</span>
 
   <span class='rubyid_else else kw'>else</span>
@@ -678,7 +674,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:46 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:15 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

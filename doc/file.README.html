@@ -97,8 +97,12 @@ startup script for your platform.  On Linux and OSX:</p>
  <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='dot token'>.</span><span class='rubyid_bat identifier id'>bat</span>
 </code></pre>
 
-<p>the system will log to the console as it starts up, and after a minute
-or so, you should be able to point your browser to
+<p>This will start ArchivesSpace running in foreground mode (so it will
+shut down when you close your terminal window).  Log output will be
+written to the file <code>logs/archivesspace.out</code>.</p>
+
+<p>The first time it starts, the system will take a minute or so to start
+up.  Once it is ready, you should be able to point your browser to
 http://localhost:8080/ and access the ArchivesSpace application.</p>
 
 <h1 id="first-steps">First steps</h1>
@@ -110,10 +114,39 @@ http://localhost:8080/ and access the ArchivesSpace application.</p>
   <li>Password: <code>admin</code></li>
 </ul>
 
-<p>Once logged in, you can create a new repository by selecting &#8220;Create a
+<p>Once logged in, change the admin password to something more secure.
+Then, you can create a new repository by selecting &#8220;Create a
 repository&#8221; from the drop-down menu at the top right hand side of the
 screen.  Once you have created a repository, you can log out and
 register new user accounts from the link in the log-in form.</p>
+
+<h1 id="running-archivesspace-as-a-unix-daemon">Running ArchivesSpace as a Unix daemon</h1>
+
+<p>The <code>archivesspace.sh</code> startup script doubles as an init script.  If
+you run:</p>
+
+<pre class="code ruby"><code> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='rubyid_start identifier id'>start</span>
+</code></pre>
+
+<p>ArchivesSpace will run in the background as a daemon (logging to
+<code>logs/archivesspace.out</code> as before).  You can shut it down with:</p>
+
+<pre class="code ruby"><code> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='rubyid_stop identifier id'>stop</span>
+</code></pre>
+
+<p>You can even install it as a system-wide init script by creating a
+symbolic link:</p>
+
+<pre class="code ruby"><code> <span class='rubyid_cd identifier id'>cd</span> <span class='regexp val'>/etc/i</span><span class='rubyid_nit identifier id'>nit</span><span class='dot token'>.</span><span class='rubyid_d identifier id'>d</span>
+ <span class='rubyid_ln identifier id'>ln</span> <span class='minus op'>-</span><span class='rubyid_s identifier id'>s</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_your identifier id'>your</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='rubyid_archivesspace identifier id'>archivesspace</span>
+</code></pre>
+
+<p>Then use the appropriate tool for your distribution to set up the
+run-level symbolic links (such as <code>chkconfig</code> for RedHat or
+<code>update-rc.d</code> for Debian-based distributions).</p>
+
+<p>Note that you may want to edit archivesspace.sh to set the account
+that the system runs under, JVM options, and so on.</p>
 
 <h1 id="running-archivesspace-with-a-custom-configuration-file">Running ArchivesSpace with a custom configuration file</h1>
 
@@ -124,9 +157,12 @@ changing things like the ports it listens on and where it puts its data.</p>
 
 <h1 id="running-archivesspace-against-mysql">Running ArchivesSpace against MySQL</h1>
 
-<p>The ArchivesSpace distribution runs against an embedded database by
-default, but it&#8217;s a good idea to run against MySQL for production
-use.</p>
+<p>Out of the box, the ArchivesSpace distribution runs against an
+embedded database, but this is only suitable for demonstration
+purposes.  When you are ready to starting using ArchivesSpace with
+real users and data, you should switch to using MySQL.  MySQL offers
+significantly better performance when multiple people are using the
+system, and will ensure that your data is kept safe.</p>
 
 <h2 id="download-mysql-connector">Download MySQL Connector</h2>
 
@@ -141,7 +177,7 @@ find it on its classpath:</p>
      $ <span class='rubyid_mv identifier id'>mv</span> <span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='minus op'>-</span><span class='rubyid_java identifier id'>java</span><span class='minus op'>-</span><span class='float val'>5.1</span><span class='float val'>.24</span><span class='dot token'>.</span><span class='rubyid_jar identifier id'>jar</span> <span class='rubyid_lib identifier id'>lib</span>
 </code></pre>
 
-<h2 id="set-up-mysql-database">Set up MySQL database</h2>
+<h2 id="set-up-your-mysql-database">Set up your MySQL database</h2>
 
 <p>Next, create an empty database in MySQL and grant access
 to a dedicated ArchivesSpace user (this example uses username <code>as</code> and
@@ -172,6 +208,164 @@ ArchivesSpace requires.  Run this with:</p>
 
 <p>Once your database is configured, start the application using
 <code>archivesspace.sh</code> (or <code>archivesspace.bat</code> under Windows).</p>
+
+<h1 id="creating-backups">Creating backups</h1>
+
+<h2 id="using-the-provided-script">Using the provided script</h2>
+
+<p>ArchivesSpace provides some simple scripts for backing up a single
+instance to a <code>.zip</code> file.  You can run:</p>
+
+<pre class="code ruby"><code> <span class='rubyid_scripts identifier id'>scripts</span><span class='div op'>/</span><span class='rubyid_backup identifier id'>backup</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='minus op'>-</span><span class='minus op'>-</span><span class='rubyid_output identifier id'>output</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_backup identifier id'>backup</span><span class='minus op'>-</span><span class='rubyid_yyyymmdd identifier id'>yyyymmdd</span><span class='dot token'>.</span><span class='rubyid_zip identifier id'>zip</span>
+</code></pre>
+
+<p>and the script will generate a file containing:</p>
+
+<ul>
+  <li>A snapshot of the Solr index and related indexer files</li>
+  <li>A snapshot of the demo database (if you&#8217;re using the demo
+database)</li>
+</ul>
+
+<p>If you&#8217;re running against MySQL and have <code>mysqldump</code> installed, you
+can also provide the <code>--mysqldump</code> option.  This will read the
+database settings from your configuration file and add a dump of your
+database to the resulting <code>.zip</code> file.</p>
+
+<h2 id="managing-your-own-backups">Managing your own backups</h2>
+
+<p>If you want more control over your backups, there&#8217;s nothing stopping
+you from developing your own scripts.  ArchivesSpace stores all
+persistent data in the database, so as long as you have backups of
+your database then you can always recover.</p>
+
+<p>If you&#8217;re running MySQL, the <code>mysqldump</code> utility can dump the database
+schema and data to a file.  It&#8217;s a good idea to run this with the
+<code>--single-transaction</code> option to avoid locking your database tables
+while your backups run.</p>
+
+<p>If you&#8217;re running with the demo database, you can create periodic
+database snapshots using the following configuration settings:</p>
+
+<pre class="code ruby"><code> <span class='comment val'># In this example, we create a snapshot at 4am each day and keep</span>
+ <span class='comment val'># 7 days' worth of backups</span>
+ <span class='comment val'>#</span>
+ <span class='comment val'># Database snapshots are written to 'data/demo_db_backups' by</span>
+ <span class='comment val'># default.</span>
+ <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:demo_db_backup_schedule</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='string val'>&quot;0 4 * * *&quot;</span>
+ <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:demo_db_backup_number_to_keep</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='integer val'>7</span>
+</code></pre>
+
+<p>Solr indexes can always be recreated from the contents of the
+database, but backing them up can reduce your recovery time if
+disaster strikes.  You can create periodic Solr snapshots using the
+following configuration settings:</p>
+
+<pre class="code ruby"><code> <span class='comment val'># Create one snapshot per hour and keep only one.</span>
+ <span class='comment val'>#</span>
+ <span class='comment val'># Solr snapshots are written to 'data/solr_backups' by default.</span>
+ <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:solr_backup_schedule</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='string val'>&quot;0 * * * *&quot;</span>
+ <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:solr_backup_number_to_keep</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='integer val'>1</span>
+</code></pre>
+
+<h2 id="recovering-from-backup">Recovering from backup</h2>
+
+<p>When recovering an ArchivesSpace installation from backup, you will
+need to restore:</p>
+
+<ul>
+  <li>
+    <p>Your database (either the demo database or MySQL)</p>
+  </li>
+  <li>
+    <p>The search indexes and related indexer files</p>
+  </li>
+</ul>
+
+<p>Of the two, the database backup is the most crucial&#8211;search indexes
+are worth restoring if you have backups, but they can be recreated
+from scratch if necessary.</p>
+
+<h3 id="recovering-your-database">Recovering your database</h3>
+
+<p>If you are using MySQL (recommended), recovering your database just
+requires loading your <code>mysqldump</code> backup into an empty database.  If
+you are using the <code>scripts/backup.sh</code> script (described above), this
+dump file is named &#8220;mysqldump.sql&#8221; in your backup <code>.zip</code> file.</p>
+
+<p>To load a MySQL dump file, follow the directions in <em>Set up your MySQL
+database</em> to create an empty database with the appropriate
+permissions.  Then, populate the database from your backup file using
+the MySQL client:</p>
+
+<pre class="code ruby"><code><span class='rubyid_mysql identifier id'>mysql</span> <span class='minus op'>-</span><span class='rubyid_uarchivesspace identifier id'>uarchivesspace</span> <span class='minus op'>-</span><span class='rubyid_p identifier id'>p</span> <span class='lt op'>&lt;</span> <span class='rubyid_mysqldump identifier id'>mysqldump</span><span class='dot token'>.</span><span class='rubyid_sql identifier id'>sql</span>
+</code></pre>
+
+<p>(change the username as required and enter your password when
+prompted).</p>
+
+<p>If you are using the demo database, your backup <code>.zip</code> file will
+contain a directory called <code>demo_db_backups</code>.  Each subdirectory of
+<code>demo_db_backups</code> contains a backup of the demo database.  To
+restore from a backup, copy its <code>archivesspace_demo_db</code> directory back
+to your ArchivesSpace data directory.  For example:</p>
+
+<pre class="code ruby"><code> <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/unpacked/</span><span class='rubyid_zip identifier id'>zip</span><span class='div op'>/</span><span class='rubyid_demo_db_backups identifier id'>demo_db_backups</span><span class='div op'>/</span><span class='rubyid_demo_db_backup_1373323208_25926 identifier id'>demo_db_backup_1373323208_25926</span><span class='div op'>/</span><span class='rubyid_archivesspace_demo_db identifier id'>archivesspace_demo_db</span> \
+       <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_data identifier id'>data</span><span class='div op'>/</span>
+</code></pre>
+
+<h3 id="recovering-the-search-indexes-and-related-indexer-files">Recovering the search indexes and related indexer files</h3>
+
+<p>Technically, this step is optional since indexes can be rebuilt from
+the contents of the database.  However, recovering your search indexes
+can reduce the time needed to get your system running again.</p>
+
+<p>The backup <code>.zip</code> file contains two directories used by the
+ArchivesSpace indexer:</p>
+
+<ul>
+  <li>
+    <p>solr.backup-[timestamp]/snapshot.[timestamp] &#8211; a snapshot of the
+index files.</p>
+  </li>
+  <li>
+    <p>solr.backup-[timestamp]/indexer_state &#8211; the files used by the
+indexer to remember what it last indexed.</p>
+  </li>
+</ul>
+
+<p>To restore these directories from backup:</p>
+
+<ul>
+  <li>
+    <p>Copy your index snapshot to <code>/path/to/archivesspace/data/solr_index/index</code></p>
+  </li>
+  <li>
+    <p>Copy your indexer_state backup to <code>/path/to/archivesspace/data/indexer_state</code></p>
+  </li>
+</ul>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code> <span class='rubyid_mkdir identifier id'>mkdir</span> <span class='minus op'>-</span><span class='rubyid_p identifier id'>p</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_data identifier id'>data</span><span class='div op'>/</span><span class='rubyid_solr_index identifier id'>solr_index</span>
+
+ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/unpacked/</span><span class='rubyid_zip identifier id'>zip</span><span class='div op'>/</span><span class='rubyid_solr identifier id'>solr</span><span class='dot token'>.</span><span class='rubyid_backup identifier id'>backup</span><span class='minus op'>-</span><span class='integer val'>26475</span><span class='minus op'>-</span><span class='integer val'>1373323208</span><span class='div op'>/</span><span class='rubyid_snapshot identifier id'>snapshot</span><span class='integer val'>.20130709084008464</span> \ 
+       <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_data identifier id'>data</span><span class='div op'>/</span><span class='rubyid_solr_index identifier id'>solr_index</span><span class='div op'>/</span><span class='rubyid_index identifier id'>index</span>
+
+ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/unpacked/</span><span class='rubyid_zip identifier id'>zip</span><span class='div op'>/</span><span class='rubyid_solr identifier id'>solr</span><span class='dot token'>.</span><span class='rubyid_backup identifier id'>backup</span><span class='minus op'>-</span><span class='integer val'>26475</span><span class='minus op'>-</span><span class='integer val'>1373323208</span><span class='div op'>/</span><span class='rubyid_indexer_state identifier id'>indexer_state</span> \ 
+       <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_data identifier id'>data</span><span class='div op'>/</span>
+</code></pre>
+
+<h1 id="re-creating-indexes">Re-creating indexes</h1>
+
+<p>ArchivesSpace keeps track of what has been indexed by using the files
+under <code>data/indexer_state</code>.  If these files are missing, the indexer
+assumes that nothing has been indexed and reindexes everything.</p>
+
+<p>To force ArchivesSpace to reindex all records, just delete the
+directory <code>/path/to/archivesspace/data/indexer_state</code>.  Since the
+indexing process is cumulative, there&#8217;s no harm in indexing the same
+document multiple times.</p>
 
 <h1 id="configuring-ldap-authentication">Configuring LDAP authentication</h1>
 
@@ -267,64 +461,18 @@ be loaded.</p>
 <p>For more information about plug-ins and how to use them to override and customize ArchivesSpace,
 please see the README in the <code>plugins</code> directory.</p>
 
-<h1 id="creating-backups">Creating backups</h1>
+<h2 id="resetting-passwords">Resetting passwords</h2>
 
-<h2 id="using-the-provided-script">Using the provided script</h2>
+<p>Under the <code>scripts</code> directory you will find a script that lets you
+reset a user&#8217;s password.  You can invoke it as:</p>
 
-<p>ArchivesSpace provides some simple scripts for backing up a single
-instance to a <code>.zip</code> file.  You can run:</p>
-
-<pre class="code ruby"><code> <span class='rubyid_scripts identifier id'>scripts</span><span class='div op'>/</span><span class='rubyid_backup identifier id'>backup</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='minus op'>-</span><span class='minus op'>-</span><span class='rubyid_output identifier id'>output</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_backup identifier id'>backup</span><span class='minus op'>-</span><span class='rubyid_yyyymmdd identifier id'>yyyymmdd</span><span class='dot token'>.</span><span class='rubyid_zip identifier id'>zip</span>
+<pre class="code ruby"><code><span class='rubyid_scripts identifier id'>scripts</span><span class='div op'>/</span><span class='rubyid_password identifier id'>password</span><span class='minus op'>-</span><span class='rubyid_reset identifier id'>reset</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='rubyid_theusername identifier id'>theusername</span> <span class='rubyid_newpassword identifier id'>newpassword</span>  <span class='comment val'># or password-reset.bat under Windows</span>
 </code></pre>
 
-<p>and the script will generate a file containing:</p>
-
-<ul>
-  <li>A snapshot of the Solr index and related indexer files</li>
-  <li>A snapshot of the demo database (if you&#8217;re using the demo
-database)</li>
-</ul>
-
-<p>If you&#8217;re running against MySQL and have <code>mysqldump</code> installed, you
-can also provide the <code>--mysqldump</code> option.  This will read the
-database settings from your configuration file and add a dump of your
-database to the resulting <code>.zip</code> file.</p>
-
-<h2 id="managing-your-own-backups">Managing your own backups</h2>
-
-<p>If you want more control over your backups, there&#8217;s nothing stopping
-you from developing your own scripts.  ArchivesSpace stores all
-persistent data in the database, so as long as you have backups of
-your database then you can always recover.</p>
-
-<p>If you&#8217;re running MySQL, the <code>mysqldump</code> utility can dump the database
-schema and data to a file.  It&#8217;s a good idea to run this with the
-<code>--single-transaction</code> option to avoid locking your database tables
-while your backups run.</p>
-
-<p>If you&#8217;re running with the demo database, you can create periodic
-database snapshots using the following configuration settings:</p>
-
-<pre class="code ruby"><code> <span class='comment val'># In this example, we create a snapshot at 4am each day and keep</span>
- <span class='comment val'># 7 days' worth of backups</span>
- <span class='comment val'>#</span>
- <span class='comment val'># Database snapshots are written to 'data/demo_db_backups' by</span>
- <span class='comment val'># default.</span>
- <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:demo_db_backup_schedule</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='string val'>&quot;0 4 * * *&quot;</span>
- <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:demo_db_backup_number_to_keep</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='integer val'>7</span>
-</code></pre>
-
-<p>Solr indexes can always be recreated from the contents of the
-database, but backing them up can reduce your recovery time if
-disaster strikes.  You can create periodic Solr snapshots using the
-following configuration settings:</p>
-
-<pre class="code ruby"><code> <span class='comment val'># Create one snapshot per hour and keep only one.</span>
- <span class='comment val'>#</span>
- <span class='comment val'># Solr snapshots are written to 'data/solr_backups' by default.</span>
- <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:solr_backup_schedule</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='string val'>&quot;0 * * * *&quot;</span>
- <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:solr_backup_number_to_keep</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='integer val'>1</span>
-</code></pre>
+<p>If you are running against MySQL, you can use this command to set a
+password while the system is running.  If you are running against the
+demo database, you will need to shutdown ArchivesSpace before running
+this script.</p>
 
 <h1 id="further-documentation">Further documentation</h1>
 
@@ -343,7 +491,7 @@ version 2.0</a>. See the
 </div></div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:32 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:01 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

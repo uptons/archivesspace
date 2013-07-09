@@ -4,11 +4,11 @@ Properties
 
 string (max length: 65000)	label
 
-array (string)	content
-
 boolean	publish
 
 string (max length: 255)	persistent_id
+
+string (max length: 65000)	ingest_problem
 
 
 

@@ -254,13 +254,13 @@
       <pre class="lines">
 
 
-67
-68
-69
-70</pre>
+74
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 74</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span>
   <span class='rubyid_@repo_id ivar id'>@repo_id</span> <span class='assign token'>=</span> <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:repo_id</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='integer val'>1</span>
@@ -294,14 +294,6 @@
       <pre class="lines">
 
 
-80
-81
-82
-83
-84
-85
-86
-87
 88
 89
 90
@@ -323,10 +315,18 @@
 106
 107
 108
-109</pre>
+109
+110
+111
+112
+113
+114
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 88</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_insert identifier id'>insert</span><span class='lparen token'>(</span><span class='rubyid_meth identifier id'>meth</span><span class='rparen token'>)</span>
 
@@ -340,7 +340,7 @@
           <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_meth identifier id'>meth</span><span class='rparen token'>)</span>
         <span class='rbrace token'>}</span>
       <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_else else kw'>else</span>            
+    <span class='rubyid_else else kw'>else</span>
       <span class='rubyid_@kontext ivar id'>@kontext</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_@kontext ivar id'>@kontext</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_meth identifier id'>meth</span><span class='rparen token'>)</span>
       <span class='rubyid_@kontext ivar id'>@kontext</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_meth identifier id'>meth</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span>
         <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_meth identifier id'>meth</span><span class='rparen token'>)</span>
@@ -379,12 +379,12 @@
       <pre class="lines">
 
 
-72
-73
-74</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 80</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_repo_id= identifier id'>repo_id=</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='rubyid_@repo_id ivar id'>@repo_id</span> <span class='assign token'>=</span> <span class='rubyid_id identifier id'>id</span>
@@ -420,10 +420,10 @@
       <pre class="lines">
 
 
-78</pre>
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 85</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_serialize identifier id'>serialize</span><span class='lparen token'>(</span><span class='rubyid_object identifier id'>object</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -437,7 +437,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:53:06 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:35 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

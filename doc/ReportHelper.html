@@ -102,6 +102,18 @@
   
 </p>
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ALLOWED_REPORT_FORMATS-constant" class="">ALLOWED_REPORT_FORMATS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='string val'>&quot;json&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;csv&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;xlsx&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;html&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;pdf&quot;</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -109,11 +121,145 @@
 
 
 
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_report_formats-class_method" title="allowed_report_formats (class method)">+ (Object) <strong>allowed_report_formats</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report_formats-class_method" title="report_formats (class method)">+ (Object) <strong>report_formats</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="allowed_report_formats-class_method">
+  
+    + (<tt>Object</tt>) <strong>allowed_report_formats</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/reports/report_helper.rb', line 10</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_allowed_report_formats identifier id'>allowed_report_formats</span>
+  <span class='rubyid_ALLOWED_REPORT_FORMATS constant id'>ALLOWED_REPORT_FORMATS</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report_formats-class_method">
+  
+    + (<tt>Object</tt>) <strong>report_formats</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/reports/report_helper.rb', line 15</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_report_formats identifier id'>report_formats</span>
+  <span class='lbrack token'>[</span><span class='string val'>&quot;format&quot;</span><span class='comma token'>,</span>
+   <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>
+   <span class='dstring node'>&quot;The format to render the report (one of: #{ALLOWED_REPORT_FORMATS.join(&quot;, &quot;)})&quot;</span><span class='comma token'>,</span>
+   <span class='symbol val'>:validation</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='dstring node'>&quot;Must be one of #{ALLOWED_REPORT_FORMATS.join(&quot;, &quot;)}&quot;</span><span class='comma token'>,</span>
+                   <span class='minus op'>-</span><span class='gt op'>&gt;</span><span class='lparen token'>(</span><span class='rubyid_v identifier id'>v</span><span class='rparen token'>)</span><span class='lbrace token'>{</span> <span class='rubyid_ALLOWED_REPORT_FORMATS constant id'>ALLOWED_REPORT_FORMATS</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_v identifier id'>v</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:39 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:09 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

@@ -127,6 +127,52 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#make-instance_method" title="#make (instance method)">- (Object) <strong>make</strong>(type) {|ASpaceImport::JSONModel(type)| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mix-instance_method" title="#mix (instance method)">- (Object) <strong>mix</strong>(hash1, hash2, hash3 = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -167,12 +213,123 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="make-instance_method">
+  
+    - (<tt>Object</tt>) <strong>make</strong>(type) {|ASpaceImport::JSONModel(type)| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ASpaceImport::JSONModel(type)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 14</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_make identifier id'>make</span><span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span>
+  <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_ASpaceImport constant id'>ASpaceImport</span><span class='colon2 op'>::</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mix-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mix</strong>(hash1, hash2, hash3 = nil) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 19</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_mix identifier id'>mix</span><span class='lparen token'>(</span><span class='rubyid_hash1 identifier id'>hash1</span><span class='comma token'>,</span> <span class='rubyid_hash2 identifier id'>hash2</span><span class='comma token'>,</span> <span class='rubyid_hash3 identifier id'>hash3</span><span class='assign token'>=</span><span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_hash3 identifier id'>hash3</span>
+    <span class='rubyid_hash2 identifier id'>hash2</span> <span class='assign token'>=</span> <span class='rubyid_mix identifier id'>mix</span><span class='lparen token'>(</span><span class='rubyid_hash2 identifier id'>hash2</span><span class='comma token'>,</span> <span class='rubyid_hash3 identifier id'>hash3</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_hash1 identifier id'>hash1</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='rubyid_hash2 identifier id'>hash2</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_one identifier id'>one</span><span class='comma token'>,</span> <span class='rubyid_two identifier id'>two</span><span class='bitor op'>|</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_one identifier id'>one</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_two identifier id'>two</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span>
+      <span class='rubyid_mix identifier id'>mix</span><span class='lparen token'>(</span><span class='rubyid_one identifier id'>one</span><span class='comma token'>,</span> <span class='rubyid_two identifier id'>two</span><span class='rparen token'>)</span>
+    <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_one identifier id'>one</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Proc constant id'>Proc</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_two identifier id'>two</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Proc constant id'>Proc</span><span class='rparen token'>)</span>
+      <span class='lbrack token'>[</span><span class='rubyid_one identifier id'>one</span><span class='comma token'>,</span> <span class='rubyid_two identifier id'>two</span><span class='rbrack token'>]</span>
+    <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_one identifier id'>one</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Array constant id'>Array</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_two identifier id'>two</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Proc constant id'>Proc</span><span class='rparen token'>)</span>
+      <span class='rubyid_one identifier id'>one</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_two identifier id'>two</span>
+    <span class='rubyid_else else kw'>else</span>
+      <span class='rubyid_two identifier id'>two</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Fri Jun 21 15:52:46 2013 by
+  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:16 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

@@ -12,7 +12,11 @@ string (max length: 255)	other_level
 
 string (max length: 8192)	title
 
-string (max length: 8192)	label
+string (max length: 8192)	display_string
+
+boolean	restrictions_apply
+
+string (max length: 65000)	repository_processing_note
 
 object	parent
 

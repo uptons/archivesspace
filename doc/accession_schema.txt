@@ -8,7 +8,7 @@ array (Object (external_id, source))	external_ids
 
 string (max length: 8192)	title
 
-string (max length: 8192)	label
+string (max length: 8192)	display_string
 
 string (max length: 255)	id_0
 
