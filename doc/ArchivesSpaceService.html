@@ -499,7 +499,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="ExportHelpers.html" title="ExportHelpers (module)">ExportHelpers</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ExportHelpers.html#generate_dc-instance_method" title="ExportHelpers#generate_dc (method)">#generate_dc</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_eac-instance_method" title="ExportHelpers#generate_eac (method)">#generate_eac</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_ead-instance_method" title="ExportHelpers#generate_ead (method)">#generate_ead</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_labels-instance_method" title="ExportHelpers#generate_labels (method)">#generate_labels</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_marc-instance_method" title="ExportHelpers#generate_marc (method)">#generate_marc</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_mets-instance_method" title="ExportHelpers#generate_mets (method)">#generate_mets</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_mods-instance_method" title="ExportHelpers#generate_mods (method)">#generate_mods</a></span>, <span class='object_link'><a href="ExportHelpers.html#tsv_response-instance_method" title="ExportHelpers#tsv_response (method)">#tsv_response</a></span>, <span class='object_link'><a href="ExportHelpers.html#xml_response-instance_method" title="ExportHelpers#xml_response (method)">#xml_response</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ExportHelpers.html#generate_dc-instance_method" title="ExportHelpers#generate_dc (method)">#generate_dc</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_eac-instance_method" title="ExportHelpers#generate_eac (method)">#generate_eac</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_ead-instance_method" title="ExportHelpers#generate_ead (method)">#generate_ead</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_labels-instance_method" title="ExportHelpers#generate_labels (method)">#generate_labels</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_marc-instance_method" title="ExportHelpers#generate_marc (method)">#generate_marc</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_mets-instance_method" title="ExportHelpers#generate_mets (method)">#generate_mets</a></span>, <span class='object_link'><a href="ExportHelpers.html#generate_mods-instance_method" title="ExportHelpers#generate_mods (method)">#generate_mods</a></span>, <span class='object_link'><a href="ExportHelpers.html#stream_response-instance_method" title="ExportHelpers#stream_response (method)">#stream_response</a></span>, <span class='object_link'><a href="ExportHelpers.html#tsv_response-instance_method" title="ExportHelpers#tsv_response (method)">#tsv_response</a></span>, <span class='object_link'><a href="ExportHelpers.html#xml_response-instance_method" title="ExportHelpers#xml_response (method)">#xml_response</a></span></p>
 
   
   
@@ -1278,12 +1278,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/main.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'backend/app/main.rb', line 184</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_current_user identifier id'>current_user</span>
   <span class='rubyid_env identifier id'>env</span><span class='lbrack token'>[</span><span class='symbol val'>:aspace_user</span><span class='rbrack token'>]</span>
@@ -1385,12 +1385,12 @@
       <pre class="lines">
 
 
-174
-175
-176</pre>
+189
+190
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/main.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'backend/app/main.rb', line 189</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_high_priority_request? fid id'>high_priority_request?</span>
   <span class='rubyid_env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>&quot;HTTP_X_ARCHIVESSPACE_PRIORITY&quot;</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='rubyid_env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>&quot;HTTP_X_ARCHIVESSPACE_PRIORITY&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_downcase identifier id'>downcase</span> <span class='eq op'>==</span> <span class='string val'>&quot;high&quot;</span><span class='rparen token'>)</span>
@@ -1416,12 +1416,12 @@
       <pre class="lines">
 
 
-164
-165
-166</pre>
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/main.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'backend/app/main.rb', line 179</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_session identifier id'>session</span>
   <span class='rubyid_env identifier id'>env</span><span class='lbrack token'>[</span><span class='symbol val'>:aspace_session</span><span class='rbrack token'>]</span>
@@ -1437,7 +1437,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:17 2013 by
+  ArchivesSpace Version 0.6.1 Documentation Generated on Sun Jul 21 11:14:05 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

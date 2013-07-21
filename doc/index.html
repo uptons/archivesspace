@@ -72,18 +72,17 @@
 <h1 id="getting-started">Getting started</h1>
 
 <p>The quickest way to get ArchivesSpace up and running is to download
-the latest distribution .zip file from the following URL:</p>
+the latest distribution <code>.zip</code> file from the following URL:</p>
 
 <p>https://github.com/archivesspace/archivesspace/wiki/Downloads</p>
 
-<p>You will need to have Java 1.6 (or newer) installed on your machine,
-but everything else you need is included in the .zip file.  You can
-check your Java version by running the command:</p>
+<p>You will need to have Java 1.6 (or newer) installed on your machine.
+You can check your Java version by running the command:</p>
 
 <pre class="code ruby"><code> <span class='rubyid_java identifier id'>java</span> <span class='minus op'>-</span><span class='rubyid_version identifier id'>version</span>
 </code></pre>
 
-<p>When you extract the .zip file, it will create a directory called
+<p>When you extract the <code>.zip</code> file, it will create a directory called
 <code>archivesspace</code>.  To run the system, just execute the appropriate
 startup script for your platform.  On Linux and OSX:</p>
 
@@ -103,9 +102,7 @@ written to the file <code>logs/archivesspace.out</code>.</p>
 
 <p>The first time it starts, the system will take a minute or so to start
 up.  Once it is ready, you should be able to point your browser to
-http://localhost:8080/ and access the ArchivesSpace application.</p>
-
-<h1 id="first-steps">First steps</h1>
+http://localhost:8080/ and access the ArchivesSpace staff interface.</p>
 
 <p>To start using the application, log in using the adminstrator account:</p>
 
@@ -114,11 +111,11 @@ http://localhost:8080/ and access the ArchivesSpace application.</p>
   <li>Password: <code>admin</code></li>
 </ul>
 
-<p>Once logged in, change the admin password to something more secure.
-Then, you can create a new repository by selecting &#8220;Create a
-repository&#8221; from the drop-down menu at the top right hand side of the
-screen.  Once you have created a repository, you can log out and
-register new user accounts from the link in the log-in form.</p>
+<p>Then, you can create a new repository by selecting &#8220;System&#8221; -&gt; &#8220;Manage
+repositories&#8221; at the top right hand side of the screen.  From the
+&#8220;System&#8221; menu, you can perform a variety of administrative tasks, such
+as creating and modifying user accounts.  <strong>Be sure to change the
+&#8220;admin&#8221; user&#8217;s password at this time.</strong></p>
 
 <h1 id="running-archivesspace-as-a-unix-daemon">Running ArchivesSpace as a Unix daemon</h1>
 
@@ -172,10 +169,12 @@ which must be downloaded separately because of its licensing agreement.
 Download the Connector and place it in a location where ArchivesSpace can
 find it on its classpath:</p>
 
-<pre class="code ruby"><code>     $ <span class='rubyid_curl identifier id'>curl</span> <span class='minus op'>-</span><span class='rubyid_Oq constant id'>Oq</span> <span class='rubyid_http identifier id'>http</span><span class='symbol val'>:/</span><span class='regexp val'>/repo1.maven.org/</span><span class='rubyid_maven2 identifier id'>maven2</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='minus op'>-</span><span class='rubyid_java identifier id'>java</span><span class='div op'>/</span><span class='float val'>5.1</span><span class='integer val'>.24</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='minus op'>-</span><span class='rubyid_java identifier id'>java</span><span class='minus op'>-</span><span class='float val'>5.1</span><span class='float val'>.24</span><span class='dot token'>.</span><span class='rubyid_jar identifier id'>jar</span>
-
-     $ <span class='rubyid_mv identifier id'>mv</span> <span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='minus op'>-</span><span class='rubyid_java identifier id'>java</span><span class='minus op'>-</span><span class='float val'>5.1</span><span class='float val'>.24</span><span class='dot token'>.</span><span class='rubyid_jar identifier id'>jar</span> <span class='rubyid_lib identifier id'>lib</span>
+<pre class="code ruby"><code>     $ <span class='rubyid_cd identifier id'>cd</span> <span class='rubyid_lib identifier id'>lib</span>
+     $ <span class='rubyid_curl identifier id'>curl</span> <span class='minus op'>-</span><span class='rubyid_Oq constant id'>Oq</span> <span class='rubyid_http identifier id'>http</span><span class='symbol val'>:/</span><span class='regexp val'>/repo1.maven.org/</span><span class='rubyid_maven2 identifier id'>maven2</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='minus op'>-</span><span class='rubyid_java identifier id'>java</span><span class='div op'>/</span><span class='float val'>5.1</span><span class='integer val'>.24</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='minus op'>-</span><span class='rubyid_java identifier id'>java</span><span class='minus op'>-</span><span class='float val'>5.1</span><span class='float val'>.24</span><span class='dot token'>.</span><span class='rubyid_jar identifier id'>jar</span>
 </code></pre>
+
+<p>Note that the version of the MySQL connector may be different by the
+time you read this.</p>
 
 <h2 id="set-up-your-mysql-database">Set up your MySQL database</h2>
 
@@ -209,9 +208,19 @@ ArchivesSpace requires.  Run this with:</p>
 <p>Once your database is configured, start the application using
 <code>archivesspace.sh</code> (or <code>archivesspace.bat</code> under Windows).</p>
 
-<h1 id="creating-backups">Creating backups</h1>
+<p>Confirm that ArchivesSpace is running correctly by accessing the
+following URLs in your browser:</p>
 
-<h2 id="using-the-provided-script">Using the provided script</h2>
+<ul>
+  <li>http://localhost:8089/ &#8211; the backend</li>
+  <li>http://localhost:8080/ &#8211; the staff interface</li>
+  <li>http://localhost:8081/ &#8211; the public interface</li>
+  <li>http://localhost:8090/ &#8211; the Solr admin console</li>
+</ul>
+
+<h1 id="backup-and-recovery">Backup and recovery</h1>
+
+<h2 id="creating-backups-using-the-provided-script">Creating backups using the provided script</h2>
 
 <p>ArchivesSpace provides some simple scripts for backing up a single
 instance to a <code>.zip</code> file.  You can run:</p>
@@ -222,29 +231,33 @@ instance to a <code>.zip</code> file.  You can run:</p>
 <p>and the script will generate a file containing:</p>
 
 <ul>
-  <li>A snapshot of the Solr index and related indexer files</li>
-  <li>A snapshot of the demo database (if you&#8217;re using the demo
-database)</li>
+  <li>
+    <p>A snapshot of the demo database (if you&#8217;re using the demo
+database)</p>
+  </li>
+  <li>
+    <p>A snapshot of the Solr index and related indexer files</p>
+  </li>
 </ul>
 
-<p>If you&#8217;re running against MySQL and have <code>mysqldump</code> installed, you
+<p>If you are running against MySQL and have <code>mysqldump</code> installed, you
 can also provide the <code>--mysqldump</code> option.  This will read the
 database settings from your configuration file and add a dump of your
-database to the resulting <code>.zip</code> file.</p>
+MySQL database to the resulting <code>.zip</code> file.</p>
 
 <h2 id="managing-your-own-backups">Managing your own backups</h2>
 
-<p>If you want more control over your backups, there&#8217;s nothing stopping
-you from developing your own scripts.  ArchivesSpace stores all
-persistent data in the database, so as long as you have backups of
-your database then you can always recover.</p>
+<p>If you want more control over your backups, you can develop your own
+scripts.  ArchivesSpace stores all persistent data in the database, so
+as long as you have backups of your database then you can always
+recover.</p>
 
-<p>If you&#8217;re running MySQL, the <code>mysqldump</code> utility can dump the database
+<p>If you are running MySQL, the <code>mysqldump</code> utility can dump the database
 schema and data to a file.  It&#8217;s a good idea to run this with the
 <code>--single-transaction</code> option to avoid locking your database tables
 while your backups run.</p>
 
-<p>If you&#8217;re running with the demo database, you can create periodic
+<p>If you are running with the demo database, you can create periodic
 database snapshots using the following configuration settings:</p>
 
 <pre class="code ruby"><code> <span class='comment val'># In this example, we create a snapshot at 4am each day and keep</span>
@@ -288,10 +301,10 @@ from scratch if necessary.</p>
 
 <h3 id="recovering-your-database">Recovering your database</h3>
 
-<p>If you are using MySQL (recommended), recovering your database just
-requires loading your <code>mysqldump</code> backup into an empty database.  If
-you are using the <code>scripts/backup.sh</code> script (described above), this
-dump file is named &#8220;mysqldump.sql&#8221; in your backup <code>.zip</code> file.</p>
+<p>If you are using MySQL, recovering your database just requires loading
+your <code>mysqldump</code> backup into an empty database.  If you are using the
+<code>scripts/backup.sh</code> script (described above), this dump file is named
+<code>mysqldump.sql</code> in your backup <code>.zip</code> file.</p>
 
 <p>To load a MySQL dump file, follow the directions in <em>Set up your MySQL
 database</em> to create an empty database with the appropriate
@@ -316,9 +329,9 @@ to your ArchivesSpace data directory.  For example:</p>
 
 <h3 id="recovering-the-search-indexes-and-related-indexer-files">Recovering the search indexes and related indexer files</h3>
 
-<p>Technically, this step is optional since indexes can be rebuilt from
-the contents of the database.  However, recovering your search indexes
-can reduce the time needed to get your system running again.</p>
+<p>This step is optional since indexes can be rebuilt from the contents
+of the database.  However, recovering your search indexes can reduce
+the time needed to get your system running again.</p>
 
 <p>The backup <code>.zip</code> file contains two directories used by the
 ArchivesSpace indexer:</p>
@@ -367,14 +380,28 @@ directory <code>/path/to/archivesspace/data/indexer_state</code>.  Since the
 indexing process is cumulative, there&#8217;s no harm in indexing the same
 document multiple times.</p>
 
+<h1 id="resetting-passwords">Resetting passwords</h1>
+
+<p>Under the <code>scripts</code> directory you will find a script that lets you
+reset a user&#8217;s password.  You can invoke it as:</p>
+
+<pre class="code ruby"><code><span class='rubyid_scripts identifier id'>scripts</span><span class='div op'>/</span><span class='rubyid_password identifier id'>password</span><span class='minus op'>-</span><span class='rubyid_reset identifier id'>reset</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='rubyid_theusername identifier id'>theusername</span> <span class='rubyid_newpassword identifier id'>newpassword</span>  <span class='comment val'># or password-reset.bat under Windows</span>
+</code></pre>
+
+<p>If you are running against MySQL, you can use this command to set a
+password while the system is running.  If you are running against the
+demo database, you will need to shutdown ArchivesSpace before running
+this script.</p>
+
 <h1 id="configuring-ldap-authentication">Configuring LDAP authentication</h1>
 
-<p>ArchivesSpace can be configured to authenticate against one or more
-LDAP directories by specifying them in the application&#8217;s configuration
-file.  When a user logs in, each authentication source is tried in
-order until one matches or all sources are exhausted.</p>
+<p>ArchivesSpace can manage its own user directory, but can also be
+configured to authenticate against one or more LDAP directories by
+specifying them in the application&#8217;s configuration file.  When a user
+attempts to log in, each authentication source is tried until one
+matches.</p>
 
-<p>Here&#8217;s a minimal example of LDAP authentication:</p>
+<p>Here is a minimal example of an LDAP configuration:</p>
 
 <pre class="code ruby"><code> <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:authentication_sources</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='lbrace token'>{</span>
                                          <span class='symbol val'>:model</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'LDAPAuth'</span><span class='comma token'>,</span>
@@ -441,14 +468,14 @@ is empty - this is a place to put any local customizations or extensions to Arch
 without having to change the core codebase.</p>
 
 <p>Plug-ins are enabled by listing them in the configuration file. You will see the following line in
-<code>common/config/config-defaults.rb</code>:</p>
+<code>config/config.rb</code>:</p>
 
-<pre class="code ruby"><code><span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:plugins</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='string val'>'local'</span><span class='rbrack token'>]</span>
+<pre class="code ruby"><code> <span class='comment val'># AppConfig[:plugins] = ['local']</span>
 </code></pre>
 
 <p>This states that by default the <code>local</code> plug-in is enabled and any files contained there will be
 loaded and available to the application. In order to enable other plug-ins simply override this
-configuration in <code>common/config/config.rb</code>. For example, to enable the <code>hello_world</code> plug-in,
+configuration in <code>config/config.rb</code>. For example, to enable the <code>hello_world</code> plug-in,
 add a line like this:</p>
 
 <pre class="code ruby"><code><span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:plugins</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='string val'>'local'</span><span class='comma token'>,</span> <span class='string val'>'hello_world'</span><span class='rbrack token'>]</span>
@@ -461,23 +488,13 @@ be loaded.</p>
 <p>For more information about plug-ins and how to use them to override and customize ArchivesSpace,
 please see the README in the <code>plugins</code> directory.</p>
 
-<h2 id="resetting-passwords">Resetting passwords</h2>
-
-<p>Under the <code>scripts</code> directory you will find a script that lets you
-reset a user&#8217;s password.  You can invoke it as:</p>
-
-<pre class="code ruby"><code><span class='rubyid_scripts identifier id'>scripts</span><span class='div op'>/</span><span class='rubyid_password identifier id'>password</span><span class='minus op'>-</span><span class='rubyid_reset identifier id'>reset</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span> <span class='rubyid_theusername identifier id'>theusername</span> <span class='rubyid_newpassword identifier id'>newpassword</span>  <span class='comment val'># or password-reset.bat under Windows</span>
-</code></pre>
-
-<p>If you are running against MySQL, you can use this command to set a
-password while the system is running.  If you are running against the
-demo database, you will need to shutdown ArchivesSpace before running
-this script.</p>
-
 <h1 id="further-documentation">Further documentation</h1>
 
 <p>Additional deployment documentation can be found on the ArchivesSpace
 wiki at <a href="https://github.com/archivesspace/archivesspace/wiki">https://github.com/archivesspace/archivesspace/wiki</a>.</p>
+
+<p>A document describing the architecture of ArchivesSpace is published
+at <a href="https://github.com/archivesspace/archivesspace/blob/master/ARCHITECTURE.md">https://github.com/archivesspace/archivesspace/blob/master/ARCHITECTURE.md</a>.</p>
 
 <p>The latest technical documentation, including API documentation and
 architecture notes, is published at
@@ -491,7 +508,7 @@ version 2.0</a>. See the
 </div></div>
 
     <div id="footer">
-  ArchivesSpace Version 0.5.x Documentation Generated on Tue Jul 09 13:49:01 2013 by
+  ArchivesSpace Version 0.6.1 Documentation Generated on Sun Jul 21 11:13:45 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
