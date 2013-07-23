@@ -1,60 +1,30 @@
 ---
 layout: page
 title: ArchivesSpace
-tagline: Version 0.5.x-dev
+tagline: Version 0.6.x-dev
 ---
 {% include JB/setup %}
 
 
 ## Overview
 
-ArchivesSpace is a next-generation archives management tool currently under development.  
+ArchivesSpace is a next-generation archives management tool. This page was developed by the Hudson Molonglo development team and only provides information about the development version.
 
 For more information about the ArchivesSpace project, vist [ArchivesSpace.org](http://www.archivesspace.org/about/).  
 
-This page is maintained by the Hudson Molonglo development team and only provides information about the development application.
-
 ## Source Code and Documentation
      
-Visit the code repository at [https://github.com/hudmol/archivesspace](https://github.com/hudmol/archivesspace/).
+Visit the code repository at [https://github.com/archivesspace/archivesspace](https://github.com/archivesspace/archivesspace/).
 
-Read the documentation at [http://hudmol.github.io/archivesspace/doc](doc/).
+Read the code and API documentation at [http://archivesspace.github.io/archivesspace/doc](doc/).
 
 The application is divided into 2 parts. The backend application provides a RESTful API to the data layer. The frontend application provides a user interface built on the Rails framework. Both parts rely upon a common toolset for working with JSON representations of ASpace data.
+
+Additional information can be found on the [ArchivesSpace wiki](https://github.com/archivesspace/archivesspace/wiki).
     
 ## Simple Install
 
-You will need to have at least version 1.6.0 of the Java SDK installed to run ArchivesSpace.
-
-If you just want to try the system out, we suggest you try one of the official releases.  These are available in [the ArchivesSpace download area](https://github.com/archivesspace/archivesspace/wiki/Downloads).
-
-Once you have a release .zip file, you can run a demo instance of the
-ArchivesSpace application with the following commands:
-
-     unzip -x archivesspace.zip
-
-     cd archivesspace
-
-     ./archivesspace.sh
-
-This will start the ArchivesSpace application running on:
-
-  http://localhost:8080/
-
-and the backend web service running on:
-
-  http://localhost:8089/
-
-
-To set up the application, log in to the frontend application using the
-adminstrator account: 
-
-* Username: `admin`
-* Password: `admin`
-
-Create a repository after logging in. Once you have created a repository, you 
-can log out and register new user accounts from the link in the log-in form.
-
+Please see the [ArchivesSpace README](http://archivesspace.github.io/archivesspace/doc/).
 
 ## Building it yourself
 
@@ -69,3 +39,5 @@ demo server with the following commands:
 
 This will produce a package called `archivesspace.zip`.  You can run
 this by following the instructions in the previous section.
+
+More information about the build system an be found in `build/README.md`.
