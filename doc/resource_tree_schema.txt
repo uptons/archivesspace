@@ -2,6 +2,14 @@ JSON Schema: Resource_tree
 /repositories/:repo_id/resources/:resource_id/tree
 Properties
 
+string (max length: 255)	level
+
+array (string)	instance_types
+
+array (object)	containers
+
+array (JSONModel(:resource_tree) object)	children
+
 
 
 

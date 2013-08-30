@@ -1,5 +1,5 @@
 JSON Schema: Location
-/repositories/:repo_id/locations
+/locations
 Properties
 
 string	uri

@@ -1111,10 +1111,6 @@
                     <span class='string val'>&quot;The ability to manage a given repository&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;update_location_record&quot;</span><span class='comma token'>,</span>
-                    <span class='string val'>&quot;The ability to create and modify location records in a given repository&quot;</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
-
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;update_archival_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to create and modify the major archival record types: accessions/resources/digital objects/components/collection management&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
@@ -1161,39 +1157,43 @@
                     <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:system</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
 
-  <span class='comment val'># Updates and deletes to subjects and agents are a bit funny: they're global</span>
-  <span class='comment val'># objects, but users are granted permission to modify them by being</span>
+  <span class='comment val'># Updates and deletes to locations, subjects and agents are a bit funny: they're</span>
+  <span class='comment val'># global objects, but users are granted permission to modify them by being</span>
   <span class='comment val'># associated with a group within a repository.</span>
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;update_subject_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to create and modify subject records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'update_archival_record'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;update_agent_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to create and modify agent records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'update_archival_record'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;update_vocabulary_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to create and modify vocabulary records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'update_archival_record'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;update_location_record&quot;</span><span class='comma token'>,</span>
+                    <span class='string val'>&quot;The ability to create and modify location records&quot;</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'manage_repository'</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;delete_agent_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to delete agent records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'delete_archival_record'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;delete_subject_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to delete subject records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'delete_archival_record'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;delete_vocabulary_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to delete vocabulary records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'delete_archival_record'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
-
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='comment val'># Merge permissions are special too.  A user with merge_agents_and_subjects</span>
   <span class='comment val'># in any repository is granted merge_agent_record and merge_subject_record</span>
@@ -1205,12 +1205,12 @@
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;merge_subject_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to merge subject records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'merge_agents_and_subjects'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;merge_agent_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to merge agent records&quot;</span><span class='comma token'>,</span>
                     <span class='symbol val'>:implied_by</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'merge_agents_and_subjects'</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository&quot;</span><span class='rparen token'>)</span>
+                    <span class='symbol val'>:level</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;global&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_Permission constant id'>Permission</span><span class='dot token'>.</span><span class='rubyid_define identifier id'>define</span><span class='lparen token'>(</span><span class='string val'>&quot;merge_archival_record&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;The ability to merge archival records records&quot;</span><span class='comma token'>,</span>
@@ -1350,7 +1350,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.6.2 Documentation Generated on Mon Jul 22 21:38:21 2013 by
+  ArchivesSpace Version v1.0.0 Documentation Generated on Fri Aug 30 13:01:19 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

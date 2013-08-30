@@ -176,7 +176,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#find_local_directories-class_method" title="find_local_directories (class method)">+ (Object) <strong>find_local_directories</strong>(base = nil) </a>
+      <a href="#find_local_directories-class_method" title="find_local_directories (class method)">+ (Object) <strong>find_local_directories</strong>(base = nil, *plugins) </a>
     
 
     
@@ -368,7 +368,6 @@
       <pre class="lines">
 
 
-84
 85
 86
 87
@@ -396,10 +395,11 @@
 109
 110
 111
-112</pre>
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/asutils.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'common/asutils.rb', line 85</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dump_diagnostics identifier id'>dump_diagnostics</span><span class='lparen token'>(</span><span class='rubyid_exception identifier id'>exception</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_runtime identifier id'>runtime</span> <span class='assign token'>=</span> <span class='rubyid_java identifier id'>java</span><span class='dot token'>.</span><span class='rubyid_lang identifier id'>lang</span><span class='dot token'>.</span><span class='rubyid_Runtime constant id'>Runtime</span><span class='dot token'>.</span><span class='rubyid_getRuntime identifier id'>getRuntime</span>
@@ -451,7 +451,6 @@
       <pre class="lines">
 
 
-73
 74
 75
 76
@@ -459,10 +458,11 @@
 78
 79
 80
-81</pre>
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/asutils.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'common/asutils.rb', line 74</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extract_nested_strings identifier id'>extract_nested_strings</span><span class='lparen token'>(</span><span class='rubyid_coll identifier id'>coll</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_coll identifier id'>coll</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span>
@@ -482,7 +482,7 @@
       <div class="method_details ">
   <h3 class="signature " id="find_local_directories-class_method">
   
-    + (<tt>Object</tt>) <strong>find_local_directories</strong>(base = nil) 
+    + (<tt>Object</tt>) <strong>find_local_directories</strong>(base = nil, *plugins) 
   
 
   
@@ -500,17 +500,19 @@
 58
 59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'common/asutils.rb', line 55</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_find_local_directories identifier id'>find_local_directories</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_find_local_directories identifier id'>find_local_directories</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='rubyid_plugins identifier id'>plugins</span><span class='rparen token'>)</span>
+  <span class='rubyid_plugins identifier id'>plugins</span> <span class='assign token'>=</span> <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:plugins</span><span class='rbrack token'>]</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_plugins identifier id'>plugins</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
   <span class='lbrack token'>[</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='string val'>&quot;..&quot;</span><span class='rparen token'>)</span><span class='comma token'>,</span>
    <span class='rubyid_java identifier id'>java</span><span class='dot token'>.</span><span class='rubyid_lang identifier id'>lang</span><span class='dot token'>.</span><span class='rubyid_System constant id'>System</span><span class='dot token'>.</span><span class='rubyid_get_property identifier id'>get_property</span><span class='lparen token'>(</span><span class='string val'>&quot;ASPACE_LAUNCHER_BASE&quot;</span><span class='rparen token'>)</span><span class='comma token'>,</span>
    <span class='rubyid_java identifier id'>java</span><span class='dot token'>.</span><span class='rubyid_lang identifier id'>lang</span><span class='dot token'>.</span><span class='rubyid_System constant id'>System</span><span class='dot token'>.</span><span class='rubyid_get_property identifier id'>get_property</span><span class='lparen token'>(</span><span class='string val'>&quot;catalina.base&quot;</span><span class='rparen token'>)</span><span class='rbrack token'>]</span><span class='dot token'>.</span>
     <span class='rubyid_reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_dir identifier id'>dir</span><span class='bitor op'>|</span> <span class='notop op'>!</span><span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_exists? fid id'>exists?</span><span class='lparen token'>(</span><span class='rubyid_dir identifier id'>dir</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span><span class='dot token'>.</span>
-    <span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_dir identifier id'>dir</span><span class='bitor op'>|</span> <span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:plugins</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_plugin identifier id'>plugin</span><span class='bitor op'>|</span> <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='lbrack token'>[</span><span class='rubyid_dir identifier id'>dir</span><span class='comma token'>,</span> <span class='string val'>&quot;plugins&quot;</span><span class='comma token'>,</span> <span class='rubyid_plugin identifier id'>plugin</span><span class='comma token'>,</span> <span class='rubyid_base identifier id'>base</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_compact identifier id'>compact</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_flatten identifier id'>flatten</span>
+    <span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_dir identifier id'>dir</span><span class='bitor op'>|</span> <span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_plugins identifier id'>plugins</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_plugin identifier id'>plugin</span><span class='bitor op'>|</span> <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='lbrack token'>[</span><span class='rubyid_dir identifier id'>dir</span><span class='comma token'>,</span> <span class='string val'>&quot;plugins&quot;</span><span class='comma token'>,</span> <span class='rubyid_plugin identifier id'>plugin</span><span class='comma token'>,</span> <span class='rubyid_base identifier id'>base</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_compact identifier id'>compact</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_flatten identifier id'>flatten</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -533,16 +535,16 @@
       <pre class="lines">
 
 
-64
 65
 66
 67
 68
 69
-70</pre>
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/asutils.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'common/asutils.rb', line 65</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_find_locales_directories identifier id'>find_locales_directories</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='lbrack token'>[</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='string val'>&quot;..&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;common&quot;</span><span class='rparen token'>)</span><span class='comma token'>,</span>
@@ -728,7 +730,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.6.2 Documentation Generated on Mon Jul 22 21:38:15 2013 by
+  ArchivesSpace Version v1.0.0 Documentation Generated on Fri Aug 30 13:01:14 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
