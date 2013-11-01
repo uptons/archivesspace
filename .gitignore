@@ -12,3 +12,4 @@ config
 coverage
 derby.log
 
+doc/Nokogiri
