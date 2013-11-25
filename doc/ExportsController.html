@@ -345,7 +345,7 @@
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_container_labels identifier id'>container_labels</span>
   <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span>
-    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/resource_labels/#{params[:id]}.tsv&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;CONTAINERLABELS&quot;</span><span class='comma token'>,</span> <span class='string val'>'tsv'</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/resource_labels/#{params[:id]}.tsv&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -378,7 +378,7 @@
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_download_dc identifier id'>download_dc</span>
   <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span>
-    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/digital_objects/dublin_core/#{params[:id]}.xml&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;DC&quot;</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/digital_objects/dublin_core/#{params[:id]}.xml&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -401,17 +401,17 @@
       <pre class="lines">
 
 
+45
 46
 47
-48
-49</pre>
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/controllers/exports_controller.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/controllers/exports_controller.rb', line 45</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_download_eac identifier id'>download_eac</span>
   <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span>
-    <span class='dstring node'>&quot;/archival_contexts/#{params[:type].sub(/^agent_/, '').pluralize}/#{params[:id]}.xml&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;EAC&quot;</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;/archival_contexts/#{params[:type].sub(/^agent_/, '').pluralize}/#{params[:id]}.xml&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -436,15 +436,13 @@
 
 40
 41
-42
-43</pre>
+42</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'frontend/app/controllers/exports_controller.rb', line 40</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_download_ead identifier id'>download_ead</span>
-  <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span> 
-    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/resource_descriptions/#{params[:id]}.xml&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;EAD&quot;</span><span class='rparen token'>)</span>
+  <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span><span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/resource_descriptions/#{params[:id]}.xml&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -477,7 +475,7 @@
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_download_marc identifier id'>download_marc</span>
   <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span>
-    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/resources/marc21/#{params[:id]}.xml&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;MARC21&quot;</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/resources/marc21/#{params[:id]}.xml&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -510,7 +508,7 @@
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_download_mets identifier id'>download_mets</span>
   <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span> 
-    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/digital_objects/mets/#{params[:id]}.xml&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;METS&quot;</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/digital_objects/mets/#{params[:id]}.xml&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -543,7 +541,7 @@
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_download_mods identifier id'>download_mods</span>
   <span class='rubyid_download_export identifier id'>download_export</span><span class='lparen token'>(</span>
-    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/digital_objects/mods/#{params[:id]}.xml&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;MODS&quot;</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;/repositories/#{Thread.current[:selected_repo_id]}/digital_objects/mods/#{params[:id]}.xml&quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -556,7 +554,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.6.1 Documentation Generated on Sun Jul 21 11:14:18 2013 by
+  ArchivesSpace Version v1.0.1 Documentation Generated on Mon Nov 25 10:01:45 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

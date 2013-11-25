@@ -141,6 +141,52 @@ or archival_object models during serialization</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#archdesc_note_types-instance_method" title="#archdesc_note_types (instance method)">- (Object) <strong>archdesc_note_types</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bibliographies-instance_method" title="#bibliographies (instance method)">- (Object) <strong>bibliographies</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#controlaccess_linked_agents-instance_method" title="#controlaccess_linked_agents (instance method)">- (Object) <strong>controlaccess_linked_agents</strong> </a>
     
 
@@ -187,7 +233,53 @@ or archival_object models during serialization</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#ead_extents-instance_method" title="#ead_extents (instance method)">- (Object) <strong>ead_extents</strong> </a>
+      <a href="#did_note_types-instance_method" title="#did_note_types (instance method)">- (Object) <strong>did_note_types</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#index_item_type_map-instance_method" title="#index_item_type_map (instance method)">- (Object) <strong>index_item_type_map</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#indexes-instance_method" title="#indexes (instance method)">- (Object) <strong>indexes</strong> </a>
     
 
     
@@ -231,23 +323,6 @@ or archival_object models during serialization</p>
       <pre class="lines">
 
 
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
 116
 117
 118
@@ -263,10 +338,27 @@ or archival_object models during serialization</p>
 128
 129
 130
-131</pre>
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 116</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_archdesc_dates identifier id'>archdesc_dates</span>
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@archdesc_dates ivar id'>@archdesc_dates</span>
@@ -308,6 +400,68 @@ or archival_object models during serialization</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="archdesc_note_types-instance_method">
+  
+    - (<tt>Object</tt>) <strong>archdesc_note_types</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 6</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_archdesc_note_types identifier id'>archdesc_note_types</span>
+  <span class='dstring node'>%w(accruals appraisal arrangement bioghist accessrestirct userestrict custodhist altformavail originalsloc fileplan odd acqinfo otherfindaid phystech prefercite processinfo relatedmaterial scopecontent separatedmaterial)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bibliographies-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bibliographies</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 16</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_bibliographies identifier id'>bibliographies</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_n identifier id'>n</span><span class='bitor op'>|</span> <span class='rubyid_n identifier id'>n</span><span class='lbrack token'>[</span><span class='string val'>'jsonmodel_type'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'note_bibliography'</span><span class='rbrace token'>}</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="controlaccess_linked_agents-instance_method">
   
     - (<tt>Object</tt>) <strong>controlaccess_linked_agents</strong> 
@@ -322,23 +476,6 @@ or archival_object models during serialization</p>
       <pre class="lines">
 
 
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
 41
 42
 43
@@ -360,10 +497,27 @@ or archival_object models during serialization</p>
 59
 60
 61
-62</pre>
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 41</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_controlaccess_linked_agents identifier id'>controlaccess_linked_agents</span>
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@controlaccess_linked_agents ivar id'>@controlaccess_linked_agents</span>
@@ -425,23 +579,6 @@ or archival_object models during serialization</p>
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
 82
 83
 84
@@ -456,10 +593,27 @@ or archival_object models during serialization</p>
 93
 94
 95
-96</pre>
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 82</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_controlaccess_subjects identifier id'>controlaccess_subjects</span>
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@controlaccess_subjects ivar id'>@controlaccess_subjects</span>
@@ -500,9 +654,9 @@ or archival_object models during serialization</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="ead_extents-instance_method">
+  <h3 class="signature " id="did_note_types-instance_method">
   
-    - (<tt>Object</tt>) <strong>ead_extents</strong> 
+    - (<tt>Object</tt>) <strong>did_note_types</strong> 
   
 
   
@@ -514,43 +668,99 @@ or archival_object models during serialization</p>
       <pre class="lines">
 
 
-5
-6
-7
-8
-9
-10
 11
 12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre>
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 11</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_ead_extents identifier id'>ead_extents</span>
-  <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@ead_extents ivar id'>@ead_extents</span>
-    <span class='rubyid_array identifier id'>array</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-    <span class='rubyid_extents identifier id'>extents</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-    <span class='rubyid_extents identifier id'>extents</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_e identifier id'>e</span><span class='bitor op'>|</span>
-      <span class='rubyid_if if kw'>if</span> <span class='rubyid_e identifier id'>e</span><span class='lbrack token'>[</span><span class='string val'>'container_summary'</span><span class='rbrack token'>]</span>
-        <span class='rubyid_array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_e identifier id'>e</span><span class='lbrack token'>[</span><span class='string val'>'container_summary'</span><span class='rbrack token'>]</span>
-      <span class='rubyid_end end kw'>end</span>
-      <span class='rubyid_if if kw'>if</span> <span class='rubyid_e identifier id'>e</span><span class='lbrack token'>[</span><span class='string val'>'number'</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_e identifier id'>e</span><span class='lbrack token'>[</span><span class='string val'>'extent_type'</span><span class='rbrack token'>]</span>
-        <span class='rubyid_array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;#{e['number']} #{I18n.t('enumerations.extent_extent_type.'+e['extent_type'], :default =&gt; e['extent_type'])}&quot;</span>
-      <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_@ead_extents ivar id'>@ead_extents</span> <span class='assign token'>=</span> <span class='rubyid_array identifier id'>array</span>
-  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_did_note_types identifier id'>did_note_types</span>
+  <span class='dstring node'>%w(abstract dimensions physdesc langmaterial physloc materialspec physfacet)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="index_item_type_map-instance_method">
+  
+    - (<tt>Object</tt>) <strong>index_item_type_map</strong> 
+  
 
-  <span class='rubyid_@ead_extents ivar id'>@ead_extents</span>
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 26</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_index_item_type_map identifier id'>index_item_type_map</span>
+  <span class='lbrace token'>{</span>
+    <span class='string val'>'corporate_entity'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'corpname'</span><span class='comma token'>,</span>
+    <span class='string val'>'genre_form'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'genreform'</span><span class='comma token'>,</span>
+    <span class='string val'>'name'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'name'</span><span class='comma token'>,</span>
+    <span class='string val'>'occupation'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'occupation'</span><span class='comma token'>,</span>
+    <span class='string val'>'person'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'persname'</span><span class='comma token'>,</span>
+    <span class='string val'>'subject'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'subject'</span><span class='comma token'>,</span>
+    <span class='string val'>'family'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'famname'</span><span class='comma token'>,</span>
+    <span class='string val'>'function'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'function'</span><span class='comma token'>,</span>
+    <span class='string val'>'geographic_name'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'geogname'</span><span class='comma token'>,</span>
+    <span class='string val'>'title'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'title'</span>
+  <span class='rbrace token'>}</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="indexes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>indexes</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 21</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_indexes identifier id'>indexes</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_n identifier id'>n</span><span class='bitor op'>|</span> <span class='rubyid_n identifier id'>n</span><span class='lbrack token'>[</span><span class='string val'>'jsonmodel_type'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'note_index'</span><span class='rbrace token'>}</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -563,7 +773,7 @@ or archival_object models during serialization</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 0.6.1 Documentation Generated on Sun Jul 21 11:14:04 2013 by
+  ArchivesSpace Version v1.0.1 Documentation Generated on Mon Nov 25 10:01:24 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
