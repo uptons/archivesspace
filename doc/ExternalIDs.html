@@ -229,7 +229,13 @@
 30
 31
 32
-33</pre>
+33
+34
+35
+36
+37
+38
+39</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/model/mixins/external_ids.rb', line 3</span>
@@ -261,6 +267,12 @@
     <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='symbol val'>:add_external_id</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_hash identifier id'>hash</span><span class='bitor op'>|</span>
       <span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;add_#{table_name}&quot;</span><span class='dot token'>.</span><span class='rubyid_intern identifier id'>intern</span><span class='comma token'>,</span> <span class='rubyid_clz identifier id'>clz</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_hash identifier id'>hash</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
     <span class='rbrace token'>}</span>
+
+    <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='dstring node'>&quot;_remove_all_#{table_name}&quot;</span><span class='dot token'>.</span><span class='rubyid_intern identifier id'>intern</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span>
+      <span class='rubyid_ds identifier id'>ds</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{table_name}_dataset&quot;</span><span class='rparen token'>)</span>
+      <span class='rubyid_ds identifier id'>ds</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span>
+    <span class='rbrace token'>}</span>
+    
   <span class='rubyid_end end kw'>end</span>
 
   <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_extend identifier id'>extend</span><span class='lparen token'>(</span><span class='rubyid_ClassMethods constant id'>ClassMethods</span><span class='rparen token'>)</span>
@@ -292,16 +304,16 @@
       <pre class="lines">
 
 
-36
-37
-38
-39
-40
-41
-42</pre>
+42
+43
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/external_ids.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/external_ids.rb', line 42</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
   <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
@@ -321,7 +333,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.1 Documentation Generated on Fri Nov  1 14:06:32 2013 by
+  ArchivesSpace Version v1.0.1 Documentation Generated on Mon Nov 25 10:01:12 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
