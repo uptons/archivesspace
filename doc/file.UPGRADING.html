@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: UPGRADING
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="alpha_index.html">Index</a> &raquo; 
+    <span class="title">File: UPGRADING</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+    <a class="full_list_link" id="schema_list_link"
+        href="schema_list.html">
+      Schema List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1 id="upgrading-to-a-new-release-of-archivesspace">Upgrading to a new release of ArchivesSpace</h1>
+
+<h2 id="create-a-backup-of-your-archivesspace-instance">Create a backup of your ArchivesSpace instance</h2>
+
+<p>You should make sure you have a working backup of your ArchivesSpace
+installation before attempting an upgrade.  Follow the steps
+under the <em>Backup and recovery</em> section in [README.md] to do this.</p>
+
+<h2 id="unpack-the-new-version">Unpack the new version</h2>
+
+<p>It&#8217;s a good idea to unpack a fresh copy of the version of
+ArchivesSpace you are upgrading to.  This will ensure that you are
+running the latest versions of all files.  For example:</p>
+
+<pre class="code ruby"><code> $ <span class='rubyid_mkdir identifier id'>mkdir</span> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.3</span>
+ $ <span class='rubyid_cd identifier id'>cd</span> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.3</span>
+ $ <span class='rubyid_unzip identifier id'>unzip</span> <span class='minus op'>-</span><span class='rubyid_x identifier id'>x</span> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='rubyid_v1 identifier id'>v1</span><span class='float val'>.0.3</span><span class='dot token'>.</span><span class='rubyid_zip identifier id'>zip</span>
+</code></pre>
+
+<h2 id="shut-down-your-archivesspace-instance">Shut down your ArchivesSpace instance</h2>
+
+<p>To ensure you get a consistent copy, you will need to shut down your
+running ArchivesSpace instance now.</p>
+
+<h2 id="copy-your-configuration-and-data-files">Copy your configuration and data files</h2>
+
+<p>You will need to bring across the following files and directories from
+your original ArchivesSpace installation:</p>
+
+<ul>
+  <li>
+    <p>the <code>data</code> directory</p>
+  </li>
+  <li>
+    <p>the <code>config</code> directory</p>
+  </li>
+  <li>
+    <p>your <code>lib/mysql-connector*.jar</code> file (if using MySQL)</p>
+  </li>
+  <li>
+    <p>any plugins and local modifications you have installed in your <code>plugins</code> directory</p>
+  </li>
+</ul>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code> $ <span class='rubyid_cd identifier id'>cd</span> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.3</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span>
+ $ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.2</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_data identifier id'>data</span><span class='div op'>/</span><span class='mult op'>*</span> <span class='rubyid_data identifier id'>data</span><span class='div op'>/</span>
+ $ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.2</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_config identifier id'>config</span><span class='div op'>/</span><span class='mult op'>*</span> <span class='rubyid_config identifier id'>config</span><span class='div op'>/</span>
+ $ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.2</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_lib identifier id'>lib</span><span class='div op'>/</span><span class='rubyid_mysql identifier id'>mysql</span><span class='minus op'>-</span><span class='rubyid_connector identifier id'>connector</span><span class='mult op'>*</span> <span class='rubyid_lib identifier id'>lib</span><span class='div op'>/</span>
+ $ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.2</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_plugins identifier id'>plugins</span><span class='div op'>/</span><span class='rubyid_local identifier id'>local</span> <span class='rubyid_plugins identifier id'>plugins</span><span class='div op'>/</span>
+ $ <span class='rubyid_cp identifier id'>cp</span> <span class='minus op'>-</span><span class='rubyid_a identifier id'>a</span> <span class='regexp val'>/path/</span><span class='rubyid_to identifier id'>to</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.2</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='div op'>/</span><span class='rubyid_plugins identifier id'>plugins</span><span class='div op'>/</span><span class='rubyid_wonderful_plugin identifier id'>wonderful_plugin</span> <span class='rubyid_plugins identifier id'>plugins</span><span class='div op'>/</span>
+</code></pre>
+
+<p>Note that you may want to preserve the <code>logs/archivesspace.out</code> file
+from your previous installation&#8211;just in case you need to refer to it
+later.</p>
+
+<h2 id="run-the-database-migrations">Run the database migrations</h2>
+
+<p>With everything copied, the final step is to run the database
+migrations.  This will apply any schema changes and data migrations
+that need to happen as a part of the upgrade.  To do this, use the
+<code>setup-database</code> script for your platform:</p>
+
+<pre class="code ruby"><code>$ <span class='rubyid_cd identifier id'>cd</span> <span class='rubyid_archivesspace identifier id'>archivesspace</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='integer val'>.3</span><span class='div op'>/</span><span class='rubyid_archivesspace identifier id'>archivesspace</span>
+$ <span class='rubyid_scripts identifier id'>scripts</span><span class='div op'>/</span><span class='rubyid_setup identifier id'>setup</span><span class='minus op'>-</span><span class='rubyid_database identifier id'>database</span><span class='dot token'>.</span><span class='rubyid_sh identifier id'>sh</span>
+</code></pre>
+
+<h2 id="thats-it">That&#8217;s it!</h2>
+
+<p>You can now start your new ArchivesSpace version as normal.</p>
+</div></div>
+
+    <div id="footer">
+  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:45:54 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.3).
+</div>
+  </body>
+</html>
