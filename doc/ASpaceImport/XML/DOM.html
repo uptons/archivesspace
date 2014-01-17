@@ -82,9 +82,13 @@
     
   
   
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../../EACConverter.html" title="EACConverter (class)">EACConverter</a></span>, <span class='object_link'><a href="../../MarcXMLConverter.html" title="MarcXMLConverter (class)">MarcXMLConverter</a></span></dd>
+    
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">migrations/lib/xml_dom.rb</dd>
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">backend/app/converters/lib/xml_dom.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -264,12 +268,12 @@
       <pre class="lines">
 
 
-38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/xml_dom.rb', line 39</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_included identifier id'>included</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span><span class='rparen token'>)</span>
   <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_extend identifier id'>extend</span><span class='lparen token'>(</span><span class='rubyid_ClassMethods constant id'>ClassMethods</span><span class='rparen token'>)</span>
@@ -301,12 +305,12 @@
       <pre class="lines">
 
 
-43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/xml_dom.rb', line 44</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_configuration identifier id'>configuration</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_configuration identifier id'>configuration</span>
@@ -332,6 +336,8 @@
       <pre class="lines">
 
 
+60
+61
 62
 63
 64
@@ -349,19 +355,17 @@
 76
 77
 78
-79
-80
-81</pre>
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/xml_dom.rb', line 60</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_object identifier id'>object</span><span class='lparen token'>(</span><span class='rubyid_path identifier id'>path</span><span class='comma token'>,</span> <span class='rubyid_defn identifier id'>defn</span><span class='rparen token'>)</span>
   <span class='rubyid_@context ivar id'>@context</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rubyid_@doc ivar id'>@doc</span><span class='rbrack token'>]</span>
   <span class='rubyid_@context ivar id'>@context</span><span class='dot token'>.</span><span class='rubyid_last identifier id'>last</span><span class='dot token'>.</span><span class='rubyid_xpath identifier id'>xpath</span><span class='lparen token'>(</span><span class='rubyid_path identifier id'>path</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
     <span class='rubyid_@context ivar id'>@context</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_node identifier id'>node</span>
     <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_ASpaceImport constant id'>ASpaceImport</span><span class='colon2 op'>::</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_defn identifier id'>defn</span><span class='lbrack token'>[</span><span class='symbol val'>:obj</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
-    <span class='rubyid_@cache ivar id'>@cache</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_obj identifier id'>obj</span>
+    <span class='rubyid_@batch ivar id'>@batch</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_obj identifier id'>obj</span>
     <span class='rubyid_defn identifier id'>defn</span><span class='lbrack token'>[</span><span class='symbol val'>:map</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_defn identifier id'>defn</span><span class='bitor op'>|</span>
       <span class='rubyid_process_field identifier id'>process_field</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_defn identifier id'>defn</span><span class='rparen token'>)</span>
     <span class='rubyid_end end kw'>end</span>
@@ -397,6 +401,8 @@
       <pre class="lines">
 
 
+82
+83
 84
 85
 86
@@ -432,12 +438,10 @@
 116
 117
 118
-119
-120
-121</pre>
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/xml_dom.rb', line 82</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_process_field identifier id'>process_field</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='dstring node'>&quot;Received a non-string mapping: #{key}&quot;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_key identifier id'>key</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_String constant id'>String</span><span class='rparen token'>)</span>
@@ -498,7 +502,6 @@
       <pre class="lines">
 
 
-48
 49
 50
 51
@@ -507,15 +510,12 @@
 54
 55
 56
-57
-58
-59</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/xml_dom.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/xml_dom.rb', line 49</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_run identifier id'>run</span>
-  <span class='rubyid_@cache ivar id'>@cache</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
 
   <span class='rubyid_@doc ivar id'>@doc</span> <span class='assign token'>=</span> <span class='rubyid_Nokogiri constant id'>Nokogiri</span><span class='colon2 op'>::</span><span class='rubyid_XML constant id'>XML</span><span class='colon2 op'>::</span><span class='rubyid_Document constant id'>Document</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_IO constant id'>IO</span><span class='dot token'>.</span><span class='rubyid_read identifier id'>read</span><span class='lparen token'>(</span><span class='rubyid_@input_file ivar id'>@input_file</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_@doc ivar id'>@doc</span><span class='dot token'>.</span><span class='rubyid_remove_namespaces! fid id'>remove_namespaces!</span>
@@ -523,8 +523,6 @@
   <span class='rubyid_configuration identifier id'>configuration</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_path identifier id'>path</span><span class='comma token'>,</span> <span class='rubyid_defn identifier id'>defn</span><span class='bitor op'>|</span>
     <span class='rubyid_object identifier id'>object</span><span class='lparen token'>(</span><span class='rubyid_path identifier id'>path</span><span class='comma token'>,</span> <span class='rubyid_defn identifier id'>defn</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_@cache ivar id'>@cache</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -537,7 +535,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:51 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

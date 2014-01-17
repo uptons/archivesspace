@@ -289,26 +289,26 @@
       <pre class="lines">
 
 
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
 202
 203
-204</pre>
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 202</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_assemble_tree identifier id'>assemble_tree</span><span class='lparen token'>(</span><span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_links identifier id'>links</span><span class='comma token'>,</span> <span class='rubyid_properties identifier id'>properties</span><span class='rparen token'>)</span>
   <span class='rubyid_result identifier id'>result</span> <span class='assign token'>=</span> <span class='rubyid_properties identifier id'>properties</span><span class='lbrack token'>[</span><span class='rubyid_node identifier id'>node</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_clone identifier id'>clone</span>
@@ -348,12 +348,12 @@
       <pre class="lines">
 
 
-183
-184
-185</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 197</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_node_model identifier id'>node_model</span>
   <span class='rubyid_Kernel constant id'>Kernel</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='rubyid_node_type identifier id'>node_type</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='rubyid_camelize identifier id'>camelize</span><span class='rparen token'>)</span>
@@ -379,12 +379,12 @@
       <pre class="lines">
 
 
-178
-179
-180</pre>
+192
+193
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 192</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_node_type identifier id'>node_type</span>
   <span class='rubyid_@node_type ivar id'>@node_type</span>
@@ -410,20 +410,20 @@
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224</pre>
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 228</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_prepare_for_deletion identifier id'>prepare_for_deletion</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='rparen token'>)</span>
   <span class='rubyid_dataset identifier id'>dataset</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span><span class='lparen token'>(</span><span class='symbol val'>:id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_record identifier id'>record</span><span class='bitor op'>|</span>
@@ -457,12 +457,12 @@
       <pre class="lines">
 
 
-173
-174
-175</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 187</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_root_type identifier id'>root_type</span>
   <span class='rubyid_@root_type ivar id'>@root_type</span>
@@ -488,14 +488,14 @@
       <pre class="lines">
 
 
-207
-208
-209
-210
-211</pre>
+221
+222
+223
+224
+225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 221</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_json identifier id'>json</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
@@ -523,13 +523,13 @@
       <pre class="lines">
 
 
-167
-168
-169
-170</pre>
+181
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/trees.rb', line 181</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_tree_of identifier id'>tree_of</span><span class='lparen token'>(</span><span class='rubyid_root_type identifier id'>root_type</span><span class='comma token'>,</span> <span class='rubyid_node_type identifier id'>node_type</span><span class='rparen token'>)</span>
   <span class='rubyid_@root_type ivar id'>@root_type</span> <span class='assign token'>=</span> <span class='rubyid_root_type identifier id'>root_type</span>
@@ -546,7 +546,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:44 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

@@ -99,7 +99,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">migrations/serializers/ead.rb</dd>
+    <dd class="r2 last">backend/app/migrations/serializers/ead.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -221,13 +221,13 @@
       <pre class="lines">
 
 
+29
 30
 31
-32
-33</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/serializers/ead.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/serializers/ead.rb', line 29</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span>
   <span class='rubyid_@sections ivar id'>@sections</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -261,14 +261,14 @@
       <pre class="lines">
 
 
+35
 36
 37
 38
-39
-40</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/serializers/ead.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/serializers/ead.rb', line 35</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_buffer identifier id'>buffer</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_id identifier id'>id</span> <span class='assign token'>=</span> <span class='rubyid_SecureRandom constant id'>SecureRandom</span><span class='dot token'>.</span><span class='rubyid_hex identifier id'>hex</span>
@@ -296,6 +296,7 @@
       <pre class="lines">
 
 
+42
 43
 44
 45
@@ -317,17 +318,22 @@
 61
 62
 63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/serializers/ead.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/serializers/ead.rb', line 42</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_stream_out identifier id'>stream_out</span><span class='lparen token'>(</span><span class='rubyid_doc identifier id'>doc</span><span class='comma token'>,</span> <span class='rubyid_fragments identifier id'>fragments</span><span class='comma token'>,</span> <span class='rubyid_y identifier id'>y</span><span class='comma token'>,</span> <span class='rubyid_depth identifier id'>depth</span><span class='assign token'>=</span><span class='integer val'>0</span><span class='rparen token'>)</span>
   <span class='rubyid_xml_text identifier id'>xml_text</span> <span class='assign token'>=</span> <span class='rubyid_doc identifier id'>doc</span><span class='dot token'>.</span><span class='rubyid_to_xml identifier id'>to_xml</span>
+  <span class='rubyid_return return kw'>return</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_xml_text identifier id'>xml_text</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
   <span class='rubyid_xml_text identifier id'>xml_text</span><span class='dot token'>.</span><span class='rubyid_force_encoding identifier id'>force_encoding</span><span class='lparen token'>(</span><span class='string val'>'utf-8'</span><span class='rparen token'>)</span>
   <span class='rubyid_queue identifier id'>queue</span> <span class='assign token'>=</span> <span class='rubyid_xml_text identifier id'>xml_text</span><span class='dot token'>.</span><span class='rubyid_split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot;:aspace_section&quot;</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_y identifier id'>y</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_fragments identifier id'>fragments</span><span class='dot token'>.</span><span class='rubyid_substitute_fragments identifier id'>substitute_fragments</span><span class='lparen token'>(</span><span class='rubyid_queue identifier id'>queue</span><span class='dot token'>.</span><span class='rubyid_shift identifier id'>shift</span><span class='rparen token'>)</span>
+  <span class='rubyid_xml_string identifier id'>xml_string</span> <span class='assign token'>=</span> <span class='rubyid_fragments identifier id'>fragments</span><span class='dot token'>.</span><span class='rubyid_substitute_fragments identifier id'>substitute_fragments</span><span class='lparen token'>(</span><span class='rubyid_queue identifier id'>queue</span><span class='dot token'>.</span><span class='rubyid_shift identifier id'>shift</span><span class='rparen token'>)</span>
+  <span class='rubyid_raise identifier id'>raise</span> <span class='dstring node'>&quot;Undereferenced Fragment: #{xml_string}&quot;</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_xml_string identifier id'>xml_string</span> <span class='match op'>=~</span> <span class='regexp val'>/:aspace_fragment/</span>
+  <span class='rubyid_y identifier id'>y</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_xml_string identifier id'>xml_string</span>
 
   <span class='rubyid_while while kw'>while</span> <span class='rubyid_queue identifier id'>queue</span><span class='dot token'>.</span><span class='rubyid_length identifier id'>length</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
     <span class='rubyid_next_section identifier id'>next_section</span> <span class='assign token'>=</span> <span class='rubyid_queue identifier id'>queue</span><span class='dot token'>.</span><span class='rubyid_shift identifier id'>shift</span>
@@ -355,7 +361,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:58:08 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:57 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

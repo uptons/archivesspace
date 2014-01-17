@@ -225,13 +225,13 @@
   <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:uri</span><span class='rbrack token'>]</span>
   <span class='rubyid_lock_version identifier id'>lock_version</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:lock_version</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
 
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_uri identifier id'>uri</span> <span class='match op'>=~</span> <span class='regexp val'>/\/repositories\/([0-9]+)/</span>
-    <span class='rubyid_raise identifier id'>raise</span> <span class='string val'>&quot;Invalid URI&quot;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:repo_id</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='rubyid_$1 nth_ref id'>$1</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
-  <span class='rubyid_end end kw'>end</span>
-
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_AccessDeniedException constant id'>AccessDeniedException</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_if if_mod kw'>if</span> <span class='notop op'>!</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user</span><span class='rbrack token'>]</span>
 
-  <span class='rubyid_render identifier id'>render</span> <span class='symbol val'>:json</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_EditMediator constant id'>EditMediator</span><span class='dot token'>.</span><span class='rubyid_record identifier id'>record</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_lock_version identifier id'>lock_version</span><span class='comma token'>,</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_uri identifier id'>uri</span> <span class='match op'>=~</span> <span class='regexp val'>/\/repositories\/([0-9]+)/</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:repo_id</span><span class='rbrack token'>]</span> <span class='neq op'>!=</span> <span class='rubyid_$1 nth_ref id'>$1</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
+    <span class='rubyid_render identifier id'>render</span> <span class='symbol val'>:json</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;repository_changed&quot;</span><span class='rbrace token'>}</span>
+  <span class='rubyid_else else kw'>else</span>
+    <span class='rubyid_render identifier id'>render</span> <span class='symbol val'>:json</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_EditMediator constant id'>EditMediator</span><span class='dot token'>.</span><span class='rubyid_record identifier id'>record</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_lock_version identifier id'>lock_version</span><span class='comma token'>,</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -244,7 +244,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:58:04 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 15:00:02 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

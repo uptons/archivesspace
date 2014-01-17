@@ -608,7 +608,7 @@
     <span class='comment val'># Provide a new '.this_repo' method on this model class that only</span>
     <span class='comment val'># returns records that belong to the current repository.</span>
     <span class='rubyid_def_dataset_method identifier id'>def_dataset_method</span><span class='lparen token'>(</span><span class='symbol val'>:this_repo</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span>
-      <span class='rubyid_filter identifier id'>filter</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='symbol val'>:repo_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_active_repository identifier id'>active_repository</span><span class='rbrace token'>}</span>
+      <span class='rubyid_filter identifier id'>filter</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_columns identifier id'>columns</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='symbol val'>:repo_id</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrace token'>{</span><span class='symbol val'>:repo_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_active_repository identifier id'>active_repository</span><span class='rbrace token'>}</span> <span class='colon op'>:</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
 
       <span class='rubyid_if if kw'>if</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_suppressible? fid id'>suppressible?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_enforce_suppression? fid id'>enforce_suppression?</span>
         <span class='rubyid_filter identifier id'>filter</span><span class='lbrack token'>[</span><span class='symbol val'>:suppressed</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
@@ -740,7 +740,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:45 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

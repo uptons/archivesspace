@@ -105,7 +105,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RESTHelpers/BooleanParam.html" title="RESTHelpers::BooleanParam (class)">BooleanParam</a></span>, <span class='object_link'><a href="RESTHelpers/Endpoint.html" title="RESTHelpers::Endpoint (class)">Endpoint</a></span>, <span class='object_link'><a href="RESTHelpers/IdSet.html" title="RESTHelpers::IdSet (class)">IdSet</a></span>, <span class='object_link'><a href="RESTHelpers/NonNegativeInteger.html" title="RESTHelpers::NonNegativeInteger (class)">NonNegativeInteger</a></span>, <span class='object_link'><a href="RESTHelpers/PageSize.html" title="RESTHelpers::PageSize (class)">PageSize</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RESTHelpers/BooleanParam.html" title="RESTHelpers::BooleanParam (class)">BooleanParam</a></span>, <span class='object_link'><a href="RESTHelpers/Endpoint.html" title="RESTHelpers::Endpoint (class)">Endpoint</a></span>, <span class='object_link'><a href="RESTHelpers/IdSet.html" title="RESTHelpers::IdSet (class)">IdSet</a></span>, <span class='object_link'><a href="RESTHelpers/NonNegativeInteger.html" title="RESTHelpers::NonNegativeInteger (class)">NonNegativeInteger</a></span>, <span class='object_link'><a href="RESTHelpers/PageSize.html" title="RESTHelpers::PageSize (class)">PageSize</a></span>, <span class='object_link'><a href="RESTHelpers/UploadFile.html" title="RESTHelpers::UploadFile (class)">UploadFile</a></span>
     
   
     
@@ -184,13 +184,6 @@
       <pre class="lines">
 
 
-306
-307
-308
-309
-310
-311
-312
 313
 314
 315
@@ -339,10 +332,28 @@
 458
 459
 460
-461</pre>
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 306</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 313</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_included identifier id'>included</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span><span class='rparen token'>)</span>
 
@@ -417,11 +428,22 @@
     <span class='rubyid_end end kw'>end</span>
 
 
+    <span class='rubyid_def def kw'>def</span> <span class='rubyid_process_indexed_params identifier id'>process_indexed_params</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
+      <span class='rubyid_if if kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span>
+        <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_sort_by identifier id'>sort_by</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='symbol val'>:first</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='symbol val'>:last</span><span class='rparen token'>)</span>
+      <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+
+
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_process_declared_params identifier id'>process_declared_params</span><span class='lparen token'>(</span><span class='rubyid_declared_params identifier id'>declared_params</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='comma token'>,</span> <span class='rubyid_known_params identifier id'>known_params</span><span class='comma token'>,</span> <span class='rubyid_errors identifier id'>errors</span><span class='rparen token'>)</span>
       <span class='rubyid_declared_params identifier id'>declared_params</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_definition identifier id'>definition</span><span class='bitor op'>|</span>
 
         <span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_type identifier id'>type</span><span class='comma token'>,</span> <span class='rubyid_doc identifier id'>doc</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span> <span class='assign token'>=</span> <span class='rubyid_definition identifier id'>definition</span>
         <span class='rubyid_opts identifier id'>opts</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+
+        <span class='rubyid_if if kw'>if</span> <span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Array constant id'>Array</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+          <span class='rubyid_process_indexed_params identifier id'>process_indexed_params</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
+        <span class='rubyid_end end kw'>end</span>
 
         <span class='rubyid_known_params identifier id'>known_params</span><span class='lbrack token'>[</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
 
@@ -511,7 +533,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:42 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:44 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

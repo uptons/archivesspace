@@ -84,7 +84,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">migrations/models/ead.rb</dd>
+    <dd class="r1 last">backend/app/migrations/models/ead.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -358,7 +358,7 @@ or archival_object models during serialization</p>
 148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 116</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_archdesc_dates identifier id'>archdesc_dates</span>
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@archdesc_dates ivar id'>@archdesc_dates</span>
@@ -419,7 +419,7 @@ or archival_object models during serialization</p>
 8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 6</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_archdesc_note_types identifier id'>archdesc_note_types</span>
   <span class='dstring node'>%w(accruals appraisal arrangement bioghist accessrestirct userestrict custodhist altformavail originalsloc fileplan odd acqinfo otherfindaid phystech prefercite processinfo relatedmaterial scopecontent separatedmaterial)</span>
@@ -450,7 +450,7 @@ or archival_object models during serialization</p>
 18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 16</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_bibliographies identifier id'>bibliographies</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_n identifier id'>n</span><span class='bitor op'>|</span> <span class='rubyid_n identifier id'>n</span><span class='lbrack token'>[</span><span class='string val'>'jsonmodel_type'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'note_bibliography'</span><span class='rbrace token'>}</span>
@@ -517,7 +517,7 @@ or archival_object models during serialization</p>
 79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 41</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_controlaccess_linked_agents identifier id'>controlaccess_linked_agents</span>
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@controlaccess_linked_agents ivar id'>@controlaccess_linked_agents</span>
@@ -613,7 +613,7 @@ or archival_object models during serialization</p>
 113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 82</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_controlaccess_subjects identifier id'>controlaccess_subjects</span>
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@controlaccess_subjects ivar id'>@controlaccess_subjects</span>
@@ -673,7 +673,7 @@ or archival_object models during serialization</p>
 13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 11</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_did_note_types identifier id'>did_note_types</span>
   <span class='dstring node'>%w(abstract dimensions physdesc langmaterial physloc materialspec physfacet)</span>
@@ -715,7 +715,7 @@ or archival_object models during serialization</p>
 39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 26</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_index_item_type_map identifier id'>index_item_type_map</span>
   <span class='lbrace token'>{</span>
@@ -757,7 +757,7 @@ or archival_object models during serialization</p>
 23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/models/ead.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/models/ead.rb', line 21</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_indexes identifier id'>indexes</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_n identifier id'>n</span><span class='bitor op'>|</span> <span class='rubyid_n identifier id'>n</span><span class='lbrack token'>[</span><span class='string val'>'jsonmodel_type'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'note_index'</span><span class='rbrace token'>}</span>
@@ -773,7 +773,7 @@ or archival_object models during serialization</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:52 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

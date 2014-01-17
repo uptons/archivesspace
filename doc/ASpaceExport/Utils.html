@@ -84,7 +84,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">migrations/lib/utils.rb</dd>
+    <dd class="r1 last">backend/app/migrations/lib/utils.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -107,7 +107,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#extract_note_text-class_method" title="extract_note_text (class method)">+ (Object) <strong>extract_note_text</strong>(note) </a>
+      <a href="#extract_note_text-class_method" title="extract_note_text (class method)">+ (Object) <strong>extract_note_text</strong>(note, include_unpublished = false) </a>
     
 
     
@@ -140,7 +140,7 @@ text subnotes).</p>
       <div class="method_details first">
   <h3 class="signature first" id="extract_note_text-class_method">
   
-    + (<tt>Object</tt>) <strong>extract_note_text</strong>(note) 
+    + (<tt>Object</tt>) <strong>extract_note_text</strong>(note, include_unpublished = false) 
   
 
   
@@ -163,21 +163,23 @@ text subnotes)</p>
       <pre class="lines">
 
 
-195
-196
-197
-198
-199
-200</pre>
+8
+9
+10
+11
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/utils.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/lib/utils.rb', line 8</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extract_note_text identifier id'>extract_note_text</span><span class='lparen token'>(</span><span class='rubyid_note identifier id'>note</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extract_note_text identifier id'>extract_note_text</span><span class='lparen token'>(</span><span class='rubyid_note identifier id'>note</span><span class='comma token'>,</span> <span class='rubyid_include_unpublished identifier id'>include_unpublished</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
   <span class='rubyid_subnotes identifier id'>subnotes</span> <span class='assign token'>=</span> <span class='rubyid_note identifier id'>note</span><span class='lbrack token'>[</span><span class='string val'>'subnotes'</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
   <span class='lparen token'>(</span><span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_note identifier id'>note</span><span class='lbrack token'>[</span><span class='string val'>'content'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
-   <span class='rubyid_subnotes identifier id'>subnotes</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_sn identifier id'>sn</span><span class='bitor op'>|</span> <span class='rubyid_sn identifier id'>sn</span><span class='lbrack token'>[</span><span class='string val'>'content'</span><span class='rbrack token'>]</span> <span class='rubyid_if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='rubyid_sn identifier id'>sn</span><span class='lbrack token'>[</span><span class='string val'>'jsonmodel_type'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'note_text'</span><span class='rparen token'>)</span><span class='rbrace token'>}</span><span class='dot token'>.</span>
-                    <span class='rubyid_compact identifier id'>compact</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span>
+   <span class='rubyid_subnotes identifier id'>subnotes</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_sn identifier id'>sn</span><span class='bitor op'>|</span>
+     <span class='rubyid_sn identifier id'>sn</span><span class='lbrack token'>[</span><span class='string val'>'content'</span><span class='rbrack token'>]</span> <span class='rubyid_if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='rubyid_sn identifier id'>sn</span><span class='lbrack token'>[</span><span class='string val'>'jsonmodel_type'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'note_text'</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_include_unpublished identifier id'>include_unpublished</span> <span class='orop op'>||</span> <span class='rubyid_sn identifier id'>sn</span><span class='lbrack token'>[</span><span class='string val'>&quot;publish&quot;</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+   <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_compact identifier id'>compact</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -190,7 +192,7 @@ text subnotes)</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:51 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

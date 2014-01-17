@@ -84,8 +84,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">migrations/lib/utils.rb<span class="defines">,<br />
-  migrations/lib/exporter.rb,<br /> migrations/models/ead.rb</span>
+    <dd class="r1 last">backend/app/migrations/lib/utils.rb<span class="defines">,<br />
+  backend/app/migrations/models/ead.rb,<br /> backend/app/migrations/lib/exporter.rb</span>
 </dd>
   
 </dl>
@@ -283,13 +283,13 @@
 18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/lib/exporter.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_init identifier id'>init</span>
   <span class='rubyid_@@serializers ivar id'>@@serializers</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
   <span class='rubyid_@@models ivar id'>@@models</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
-  <span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_glob identifier id'>glob</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/../serializers/*'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:load</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_glob identifier id'>glob</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/../models/*'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:load</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_glob identifier id'>glob</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/../serializers/*.rb'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:load</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_glob identifier id'>glob</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/../models/*.rb'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:load</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 
   <span class='rubyid_I18n constant id'>I18n</span><span class='dot token'>.</span><span class='rubyid_load_path identifier id'>load_path</span> <span class='opasgn op'>+=</span> <span class='rubyid_ASUtils constant id'>ASUtils</span><span class='dot token'>.</span><span class='rubyid_find_locales_directories identifier id'>find_locales_directories</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot;enums&quot;</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{AppConfig[:locale]}.yml&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_@@initialized ivar id'>@@initialized</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
@@ -343,7 +343,7 @@
 31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/lib/exporter.rb', line 29</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_initialized? fid id'>initialized?</span>
   <span class='rubyid_@@initialized ivar id'>@@initialized</span>
@@ -401,7 +401,7 @@
 76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/lib/exporter.rb', line 57</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_model identifier id'>model</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_superclass identifier id'>superclass</span> <span class='assign token'>=</span> <span class='rubyid_ASpaceExport constant id'>ASpaceExport</span><span class='colon2 op'>::</span><span class='rubyid_ExportModel constant id'>ExportModel</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_@@models ivar id'>@@models</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span> <span class='rubyid_name identifier id'>name</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_block_given? fid id'>block_given?</span>
@@ -452,7 +452,7 @@
 26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/lib/exporter.rb', line 21</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_reload identifier id'>reload</span><span class='lparen token'>(</span><span class='rubyid_exporter_key identifier id'>exporter_key</span><span class='rparen token'>)</span>
   <span class='rubyid_@@serializers ivar id'>@@serializers</span><span class='lbrack token'>[</span><span class='rubyid_exporter_key identifier id'>exporter_key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
@@ -513,7 +513,7 @@
 54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/exporter.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'backend/app/migrations/lib/exporter.rb', line 35</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_serializer identifier id'>serializer</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_superclass identifier id'>superclass</span> <span class='assign token'>=</span> <span class='rubyid_ASpaceExport constant id'>ASpaceExport</span><span class='colon2 op'>::</span><span class='rubyid_Serializer constant id'>Serializer</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_@@serializers ivar id'>@@serializers</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span> <span class='rubyid_name identifier id'>name</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_block_given? fid id'>block_given?</span>
@@ -546,7 +546,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:51 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

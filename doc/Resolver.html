@@ -108,6 +108,39 @@
 
 
 
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#repository-instance_method" title="#repository (instance method)">- (Object) <strong>repository</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute repository.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
 
 
 
@@ -240,7 +273,7 @@
   <span class='rubyid_jsonmodel_properties identifier id'>jsonmodel_properties</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='dot token'>.</span><span class='rubyid_parse_reference identifier id'>parse_reference</span><span class='lparen token'>(</span><span class='rubyid_@uri ivar id'>@uri</span><span class='rparen token'>)</span>
 
   <span class='rubyid_@id ivar id'>@id</span> <span class='assign token'>=</span> <span class='rubyid_jsonmodel_properties identifier id'>jsonmodel_properties</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span>
-  <span class='rubyid_@repo_id ivar id'>@repo_id</span> <span class='assign token'>=</span> <span class='rubyid_jsonmodel_properties identifier id'>jsonmodel_properties</span><span class='lbrack token'>[</span><span class='symbol val'>:repo_id</span><span class='rbrack token'>]</span>
+  <span class='rubyid_@repository ivar id'>@repository</span> <span class='assign token'>=</span> <span class='rubyid_jsonmodel_properties identifier id'>jsonmodel_properties</span><span class='lbrack token'>[</span><span class='symbol val'>:repository</span><span class='rbrack token'>]</span>
   <span class='rubyid_@jsonmodel_type ivar id'>@jsonmodel_type</span> <span class='assign token'>=</span> <span class='rubyid_jsonmodel_properties identifier id'>jsonmodel_properties</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -250,6 +283,54 @@
 </div>
   
 </div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="repository-instance_method">
+  
+    - (<tt>Object</tt>) <strong>repository</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute repository</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2
+3
+4</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/resolver.rb', line 2</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_repository identifier id'>repository</span>
+  <span class='rubyid_@repository ivar id'>@repository</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -339,7 +420,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:58:00 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:59 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

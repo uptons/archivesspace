@@ -84,8 +84,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">migrations/lib/utils.rb<span class="defines">,<br />
-  migrations/lib/xml_dom.rb,<br /> migrations/lib/xml_sax.rb,<br /> migrations/lib/importer.rb,<br /> migrations/lib/parse_queue.rb,<br /> migrations/lib/csv_importer.rb,<br /> migrations/lib/record_proxy.rb,<br /> migrations/lib/jsonmodel_wrap.rb</span>
+    <dd class="r1 last">backend/app/converters/lib/utils.rb<span class="defines">,<br />
+  backend/app/converters/lib/xml_dom.rb,<br /> backend/app/converters/lib/xml_sax.rb,<br /> backend/app/converters/lib/parse_queue.rb,<br /> backend/app/converters/lib/record_proxy.rb,<br /> backend/app/converters/lib/csv_converter.rb,<br /> backend/app/converters/lib/jsonmodel_wrap.rb</span>
 </dd>
   
 </dl>
@@ -95,11 +95,11 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="ASpaceImport/CSVImport.html" title="ASpaceImport::CSVImport (module)">CSVImport</a></span>, <span class='object_link'><a href="ASpaceImport/Utils.html" title="ASpaceImport::Utils (module)">Utils</a></span>, <span class='object_link'><a href="ASpaceImport/XML.html" title="ASpaceImport::XML (module)">XML</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="ASpaceImport/CSVConvert.html" title="ASpaceImport::CSVConvert (module)">CSVConvert</a></span>, <span class='object_link'><a href="ASpaceImport/Utils.html" title="ASpaceImport::Utils (module)">Utils</a></span>, <span class='object_link'><a href="ASpaceImport/XML.html" title="ASpaceImport::XML (module)">XML</a></span>
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="ASpaceImport/Batch.html" title="ASpaceImport::Batch (class)">Batch</a></span>, <span class='object_link'><a href="ASpaceImport/ImportCache.html" title="ASpaceImport::ImportCache (class)">ImportCache</a></span>, <span class='object_link'><a href="ASpaceImport/Importer.html" title="ASpaceImport::Importer (class)">Importer</a></span>, <span class='object_link'><a href="ASpaceImport/RecordProxy.html" title="ASpaceImport::RecordProxy (class)">RecordProxy</a></span>, <span class='object_link'><a href="ASpaceImport/RecordProxyMgr.html" title="ASpaceImport::RecordProxyMgr (class)">RecordProxyMgr</a></span>, <span class='object_link'><a href="ASpaceImport/ResponseReader.html" title="ASpaceImport::ResponseReader (class)">ResponseReader</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="ASpaceImport/RecordBatch.html" title="ASpaceImport::RecordBatch (class)">RecordBatch</a></span>, <span class='object_link'><a href="ASpaceImport/RecordProxy.html" title="ASpaceImport::RecordProxy (class)">RecordProxy</a></span>, <span class='object_link'><a href="ASpaceImport/RecordProxyMgr.html" title="ASpaceImport::RecordProxyMgr (class)">RecordProxyMgr</a></span>
     
   
     
@@ -119,29 +119,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#init-class_method" title="init (class method)">+ (Object) <strong>init</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -176,38 +153,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="init-class_method">
-  
-    + (<tt>Object</tt>) <strong>init</strong> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-6
-7
-8</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/importer.rb', line 6</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_init identifier id'>init</span>
-  <span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_glob identifier id'>glob</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='rubyid___FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/../importers/*'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:load</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="JSONModel-class_method">
+  <h3 class="signature first" id="JSONModel-class_method">
   
     + (<tt>Object</tt>) <strong>JSONModel</strong>(type) 
   
@@ -269,18 +215,19 @@
 47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'migrations/lib/jsonmodel_wrap.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/jsonmodel_wrap.rb', line 2</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span>
-  
+
   <span class='rubyid_@models ivar id'>@models</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
   <span class='rubyid_@models ivar id'>@models</span><span class='lbrack token'>[</span><span class='rubyid_type identifier id'>type</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='rubyid_Class constant id'>Class</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span>
-    
-    
-    <span class='comment val'># Need to bypass some validation rules for </span>
+
+
+    <span class='comment val'># Need to bypass some validation rules for</span>
     <span class='comment val'># JSON objects created by an import</span>
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_validate identifier id'>validate</span><span class='lparen token'>(</span><span class='rubyid_hash identifier id'>hash</span><span class='comma token'>,</span> <span class='rubyid_raise_errors identifier id'>raise_errors</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
       <span class='rubyid_begin begin kw'>begin</span>
@@ -288,40 +235,41 @@
       <span class='comment val'># TODO - speed things up by avoiding this another way</span>
       <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_ValidationException constant id'>ValidationException</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
 
-        <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_errors identifier id'>errors</span><span class='dot token'>.</span><span class='rubyid_reject! fid id'>reject!</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_path identifier id'>path</span><span class='comma token'>,</span> <span class='rubyid_mssg identifier id'>mssg</span><span class='bitor op'>|</span> 
+        <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_errors identifier id'>errors</span><span class='dot token'>.</span><span class='rubyid_reject! fid id'>reject!</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_path identifier id'>path</span><span class='comma token'>,</span> <span class='rubyid_mssg identifier id'>mssg</span><span class='bitor op'>|</span>
                           <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_attribute_types identifier id'>attribute_types</span> <span class='andop op'>&amp;&amp;</span>
-                          <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_attribute_types identifier id'>attribute_types</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='rubyid_path identifier id'>path</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> 
+                          <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_attribute_types identifier id'>attribute_types</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='rubyid_path identifier id'>path</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span>
                           <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_attribute_types identifier id'>attribute_types</span><span class='lbrack token'>[</span><span class='rubyid_path identifier id'>path</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'ArchivesSpaceDynamicEnum'</span><span class='rbrace token'>}</span>
-                          
+
         <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_e identifier id'>e</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_errors identifier id'>errors</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
 
       <span class='rubyid_end end kw'>end</span>
     <span class='rubyid_end end kw'>end</span>
-    
-    
+
+
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
-              
+
       <span class='rubyid_super super kw'>super</span>
-              
+
       <span class='comment val'># Set a pre-save URI to be dereferenced by the backend</span>
       <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_method_defined? fid id'>method_defined?</span> <span class='colon op'>:</span><span class='rubyid_uri identifier id'>uri</span>
-        <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_ASpaceImport constant id'>ASpaceImport</span><span class='colon2 op'>::</span><span class='rubyid_Utils constant id'>Utils</span><span class='dot token'>.</span><span class='rubyid_mint_id identifier id'>mint_id</span><span class='rparen token'>)</span> 
+        <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_ASpaceImport constant id'>ASpaceImport</span><span class='colon2 op'>::</span><span class='rubyid_Utils constant id'>Utils</span><span class='dot token'>.</span><span class='rubyid_mint_id identifier id'>mint_id</span><span class='comma token'>,</span>
+                                      <span class='symbol val'>:repo_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;import&quot;</span><span class='rparen token'>)</span>
       <span class='rubyid_end end kw'>end</span>
-      
+
     <span class='rubyid_end end kw'>end</span>
-    
+
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_key identifier id'>key</span>
       <span class='rubyid_@key ivar id'>@key</span> <span class='opasgn op'>||=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_record_type identifier id'>record_type</span>
     <span class='rubyid_end end kw'>end</span>
-    
+
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_key= identifier id'>key=</span><span class='lparen token'>(</span><span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
       <span class='rubyid_@key ivar id'>@key</span> <span class='assign token'>=</span> <span class='rubyid_val identifier id'>val</span>
     <span class='rubyid_end end kw'>end</span>
- 
+
   <span class='rubyid_end end kw'>end</span>
-  
+
   <span class='rubyid_@models ivar id'>@models</span><span class='lbrack token'>[</span><span class='rubyid_type identifier id'>type</span><span class='rbrack token'>]</span>
-  
+
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -334,7 +282,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:50 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

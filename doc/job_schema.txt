@@ -1,0 +1,26 @@
+JSON Schema: Job
+/repositories/:repo_id/jobs
+Properties
+
+string	uri
+
+array (string)	filenames
+
+date-time	time_submitted
+
+date-time	time_started
+
+date-time	time_finished
+
+string	owner
+
+string	status
+
+string	import_type
+
+number	queue_position
+
+
+
+
+

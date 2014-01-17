@@ -134,7 +134,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#load_node_properties-instance_method" title="#load_node_properties (instance method)">- (Object) <strong>load_node_properties</strong>(node, properties) </a>
+      <a href="#load_node_properties-instance_method" title="#load_node_properties (instance method)">- (Object) <strong>load_node_properties</strong>(node, properties, ids_of_interest = :all) </a>
     
 
     
@@ -157,7 +157,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#load_root_properties-instance_method" title="#load_root_properties (instance method)">- (Object) <strong>load_root_properties</strong>(properties) </a>
+      <a href="#load_root_properties-instance_method" title="#load_root_properties (instance method)">- (Object) <strong>load_root_properties</strong>(properties, ids_of_interest = :all) </a>
     
 
     
@@ -245,7 +245,7 @@
       <div class="method_details ">
   <h3 class="signature " id="load_node_properties-instance_method">
   
-    - (<tt>Object</tt>) <strong>load_node_properties</strong>(node, properties) 
+    - (<tt>Object</tt>) <strong>load_node_properties</strong>(node, properties, ids_of_interest = :all) 
   
 
   
@@ -268,7 +268,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/model/mixins/digital_object_trees.rb', line 16</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_load_node_properties identifier id'>load_node_properties</span><span class='lparen token'>(</span><span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_properties identifier id'>properties</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_load_node_properties identifier id'>load_node_properties</span><span class='lparen token'>(</span><span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_properties identifier id'>properties</span><span class='comma token'>,</span> <span class='rubyid_ids_of_interest identifier id'>ids_of_interest</span> <span class='assign token'>=</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span>
   <span class='rubyid_super super kw'>super</span>
 
   <span class='rubyid_properties identifier id'>properties</span><span class='lbrack token'>[</span><span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:title</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_display_string identifier id'>display_string</span>
@@ -284,7 +284,7 @@
       <div class="method_details ">
   <h3 class="signature " id="load_root_properties-instance_method">
   
-    - (<tt>Object</tt>) <strong>load_root_properties</strong>(properties) 
+    - (<tt>Object</tt>) <strong>load_root_properties</strong>(properties, ids_of_interest = :all) 
   
 
   
@@ -307,7 +307,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/model/mixins/digital_object_trees.rb', line 25</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_load_root_properties identifier id'>load_root_properties</span><span class='lparen token'>(</span><span class='rubyid_properties identifier id'>properties</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_load_root_properties identifier id'>load_root_properties</span><span class='lparen token'>(</span><span class='rubyid_properties identifier id'>properties</span><span class='comma token'>,</span> <span class='rubyid_ids_of_interest identifier id'>ids_of_interest</span> <span class='assign token'>=</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span>
   <span class='rubyid_super super kw'>super</span>
 
   <span class='rubyid_properties identifier id'>properties</span><span class='lbrack token'>[</span><span class='symbol val'>:level</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_level identifier id'>level</span>
@@ -360,7 +360,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:47 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

@@ -765,12 +765,12 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-51
 52
-53</pre>
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 52</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_add_error_handler identifier id'>add_error_handler</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@@error_handlers ivar id'>@@error_handlers</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_block identifier id'>block</span>
@@ -807,14 +807,14 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-22
 23
 24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 23</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_type_descriptor identifier id'>type_descriptor</span><span class='rparen token'>)</span>
   <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='dot token'>.</span><span class='rubyid_get_json identifier id'>get_json</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_obj identifier id'>obj</span><span class='bitor op'>|</span>
@@ -893,16 +893,16 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-40
 41
 42
 43
 44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 41</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_backend_url identifier id'>backend_url</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_Module constant id'>Module</span><span class='dot token'>.</span><span class='rubyid_const_defined? fid id'>const_defined?</span><span class='lparen token'>(</span><span class='symbol val'>:BACKEND_SERVICE_URL</span><span class='rparen token'>)</span>
@@ -1167,14 +1167,14 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-55
 56
 57
 58
-59</pre>
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 56</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_handle_error identifier id'>handle_error</span><span class='lparen token'>(</span><span class='rubyid_err identifier id'>err</span><span class='rparen token'>)</span>
   <span class='rubyid_@@error_handlers ivar id'>@@error_handlers</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_handler identifier id'>handler</span><span class='bitor op'>|</span>
@@ -1673,12 +1673,12 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 16</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_repository identifier id'>repository</span>
   <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:selected_repo_id</span><span class='rbrack token'>]</span>
@@ -1814,12 +1814,12 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-9
 10
-11</pre>
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_set_repository identifier id'>set_repository</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:selected_repo_id</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_id identifier id'>id</span>
@@ -1899,7 +1899,6 @@ property of each object to cast it into a JSONModel.</p>
       <pre class="lines">
 
 
-29
 30
 31
 32
@@ -1907,10 +1906,11 @@ property of each object to cast it into a JSONModel.</p>
 34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel_client.rb', line 30</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_with_repository identifier id'>with_repository</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='rubyid_old_repo identifier id'>old_repo</span> <span class='assign token'>=</span> <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_current identifier id'>current</span><span class='lbrack token'>[</span><span class='symbol val'>:selected_repo_id</span><span class='rbrack token'>]</span>
@@ -2041,7 +2041,7 @@ property of each object to cast it into a JSONModel.</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.0.2 Documentation Generated on Wed Dec  4 13:57:49 2013 by
+  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:50 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
