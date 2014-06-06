@@ -6,7 +6,7 @@
     "properties" => {
 
       "field" => {"type" => "string", "ifmissing" => "error"},
-      "value" => {"type" => "boolean", "ifmissing" => "error"},
+      "value" => {"type" => "boolean", "ifmissing" => "error", "default" => true},
 
     },
   },
