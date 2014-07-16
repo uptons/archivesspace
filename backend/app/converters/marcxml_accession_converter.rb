@@ -41,7 +41,24 @@ MarcXMLAccessionConverter.configure do |config|
     config["/record"][:map].delete(note_making_path)
   end
 
-  config["/record"]["datafield[@tag='520']"] = :content_description 
-  config["/record"]["datafield[@tag='540']"] = :use_restrictions_note
+  config["/record"][:map]["datafield[@tag='520']/subfield[@code='a']"] = :content_description 
+  config["/record"][:map]["datafield[@tag='540']/subfield[@code='a']"] = :use_restrictions_note
+
+  config["/record"][:map]["datafield[@tag='541']/subfield[@code='a']"] = -> record, node {
+    if record.provenance
+      record.provenance = node.inner_text + " #{record.provenance}"
+    else
+      record.provenance = node.inner_text
+    end
+  }
+
+  config["/record"][:map]["datafield[@tag='561']/subfield[@code='a']"] = -> record, node {
+    if record.provenance
+      record.provenance = "#{record.provenance} "  + node.inner_text 
+    else
+      record.provenance = node.inner_text
+    end
+  }
+
 
 end
