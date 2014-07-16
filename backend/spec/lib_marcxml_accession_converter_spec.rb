@@ -49,6 +49,18 @@ describe 'MARCXML Accession converter' do
                   <subfield code="c">SF C</subfield>
                   <subfield code="x">SF X</subfield>
               </datafield>
+              <datafield tag="520" ind2=" " ind1="2">
+                  <subfield code="a">SF A</subfield>
+              </datafield>
+              <datafield tag="540" ind2=" " ind1="2">
+                  <subfield code="a">SF A</subfield>
+              </datafield>
+              <datafield tag="541" ind2=" " ind1="2">
+                  <subfield code="a">541 SF A</subfield>
+              </datafield>
+              <datafield tag="561" ind2=" " ind1="2">
+                  <subfield code="a">561 SF A</subfield>
+              </datafield>
               <datafield tag="630" ind2=" " ind1="2">
                   <subfield code="d">SF D</subfield>
                   <subfield code="f">SF F</subfield>
@@ -61,7 +73,6 @@ describe 'MARCXML Accession converter' do
                   <subfield code="x">SF X</subfield>
                   <subfield code="3">SF 3</subfield>
               </datafield>
-
           </record>
      </collection>
 END
@@ -81,8 +92,20 @@ END
       @accession['jsonmodel_type'].should eq("accession")
     end
 
-    it "maps field 245 to resource['title']" do
+    it "maps field 245 to accession['title']" do
       @accession['title'].should eq("SF A : [SF H] SF N / SF C")
+    end
+
+    it "maps field 520 to accession.content_description" do
+      @accession['content_description'].should eq("SF A");
+    end
+
+    it "maps field 540 to accession.use_restrictions_note" do
+      @accession['use_restrictions_note'].should eq("SF A");
+    end
+
+    it "maps field 541 and 561 to accession.content_description" do
+      @accession['provenance'].should eq("541 SF A 561 SF A");
     end
 
   end
