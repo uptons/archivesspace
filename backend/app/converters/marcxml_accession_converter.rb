@@ -42,5 +42,6 @@ MarcXMLAccessionConverter.configure do |config|
   end
 
   config["/record"]["datafield[@tag='520']"] = :content_description 
+  config["/record"]["datafield[@tag='540']"] = :use_restrictions_note
 
 end
