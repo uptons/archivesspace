@@ -38,26 +38,70 @@ MarcXMLAccessionConverter.configure do |config|
   }
 
 
-  ["datafield[@tag='210']", "datafield[@tag='222']", "datafield[@tag='240']", "datafield[@tag='242']", "datafield[@tag='246'][@ind2='0']",  "datafield[@tag='250']", "datafield[@tag='254']", "datafield[@tag='255']", "datafield[@tag='257']", "datafield[@tag='258']", "datafield[@tag='260']",  "datafield[@tag='340']", "datafield[@tag='342']", "datafield[@tag='351']", "datafield[@tag='352']", "datafield[@tag='355']", "datafield[@tag='357']",  "datafield[@tag='500']", "datafield[@tag='501']", "datafield[@tag='502']", "datafield[@tag='507']", "datafield[@tag='508']",  "datafield[@tag='511']", "datafield[@tag='513']", "datafield[@tag='514']", "datafield[@tag='518']", "datafield[@tag='520'][@ind1!='3' and @ind1!='8']",  "datafield[@tag='521'][@ind1!='8']",  "datafield[@tag='522']", "datafield[@tag='524']",  "datafield[@tag='530']", "datafield[@tag='533']",  "datafield[@tag='534']", "datafield[@tag='535']", "datafield[@tag='538']", "datafield[@tag='540']", "datafield[@tag='541']", "datafield[@tag='544']",  "datafield[@tag='545']", "datafield[@tag='561']", "datafield[@tag='562']", "datafield[@tag='563']", "datafield[starts-with(@tag, '59')]",  "datafield[@tag='740']", "datafield[@tag='256']", "datafield[@tag='306']", "datafield[@tag='343']", "datafield[@tag='520'][@ind1='3']", "datafield[@tag='546']", "datafield[@tag='565']", "datafield[@tag='504']", "datafield[@tag='510']", "datafield[@tag='581']"].each do |note_making_path|
+  ["datafield[@tag='210']", "datafield[@tag='222']", "datafield[@tag='240']", "datafield[@tag='242']", "datafield[@tag='246'][@ind2='0']",  "datafield[@tag='250']", "datafield[@tag='254']", "datafield[@tag='255']", "datafield[@tag='257']", "datafield[@tag='258']", "datafield[@tag='260']",  "datafield[@tag='340']", "datafield[@tag='342']", "datafield[@tag='351']", "datafield[@tag='352']", "datafield[@tag='355']", "datafield[@tag='357']",  "datafield[@tag='500']", "datafield[@tag='501']", "datafield[@tag='502']", "datafield[@tag='506']", "datafield[@tag='507']", "datafield[@tag='508']",  "datafield[@tag='511']", "datafield[@tag='513']", "datafield[@tag='514']", "datafield[@tag='518']", "datafield[@tag='520'][@ind1!='3' and @ind1!='8']",  "datafield[@tag='521'][@ind1!='8']",  "datafield[@tag='522']", "datafield[@tag='524']",  "datafield[@tag='530']", "datafield[@tag='533']",  "datafield[@tag='534']", "datafield[@tag='535']", "datafield[@tag='538']", "datafield[@tag='540']", "datafield[@tag='541']", "datafield[@tag='544']",  "datafield[@tag='545']", "datafield[@tag='561']", "datafield[@tag='562']", "datafield[@tag='563']", "datafield[starts-with(@tag, '59')]",  "datafield[@tag='740']", "datafield[@tag='256']", "datafield[@tag='306']", "datafield[@tag='343']", "datafield[@tag='520'][@ind1='3']", "datafield[@tag='546']", "datafield[@tag='565']", "datafield[@tag='504']", "datafield[@tag='510']", "datafield[@tag='581']"].each do |note_making_path|
     config["/record"][:map].delete(note_making_path)
   end
 
-  config["/record"][:map]["datafield[@tag='520']/subfield[@code='a']"] = :content_description 
-  config["/record"][:map]["datafield[@tag='540']/subfield[@code='a']"] = :use_restrictions_note
-
-  config["/record"][:map]["datafield[@tag='541']/subfield[@code='a']"] = -> record, node {
-    if record.provenance
-      record.provenance = node.inner_text + " #{record.provenance}"
-    else
-      record.provenance = node.inner_text
+  config["/record"][:map]["datafield[@tag='520']"] = -> record, node {
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+      unless val.empty?
+        record.content_description ||= ""
+        record.content_description += " " unless record.content_description.empty?
+        record.content_description += val
+      end
     end
   }
 
-  config["/record"][:map]["datafield[@tag='561']/subfield[@code='a']"] = -> record, node {
+
+  config["/record"][:map]["datafield[@tag='540']"] = -> record, node {
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+      unless val.empty?
+        record.use_restrictions_note ||= ""
+        record.use_restrictions_note += " " unless record.use_restrictions_note.empty?
+        record.use_restrictions_note += val
+      end
+    end
+  }
+
+
+  config["/record"][:map]["datafield[@tag='541']"] = -> record, node {
+    provenance1 = ""
+
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+
+      unless val.empty?
+        provenance1 += " " unless provenance1.empty?
+        provenance1 += val
+      end
+    end
+
     if record.provenance
-      record.provenance = "#{record.provenance} "  + node.inner_text 
-    else
-      record.provenance = node.inner_text
+      record.provenance = provenance1 + " #{record.provenance}"
+    elsif provenance1.length > 0
+      record.provenance = provenance1
+    end
+  }
+
+
+  config["/record"][:map]["datafield[@tag='561']"] = -> record, node {
+    provenance2 = ""
+
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+
+      unless val.empty?
+        provenance2 += " " unless provenance2.empty?
+        provenance2 += val
+      end
+    end
+
+    if record.provenance
+      record.provenance = "#{record.provenance} "  + provenance2
+    elsif provenance2.length > 0
+      record.provenance = provenance2
     end
   }
 

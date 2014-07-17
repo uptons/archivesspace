@@ -51,6 +51,8 @@ describe 'MARCXML Accession converter' do
               </datafield>
               <datafield tag="520" ind2=" " ind1="2">
                   <subfield code="a">SF A</subfield>
+                  <subfield code="b">SF B</subfield>
+                  <subfield code="c">SF C</subfield>
               </datafield>
               <datafield tag="540" ind2=" " ind1="2">
                   <subfield code="a">SF A</subfield>
@@ -97,7 +99,7 @@ END
     end
 
     it "maps field 520 to accession.content_description" do
-      @accession['content_description'].should eq("SF A");
+      @accession['content_description'].should eq("SF A SF B SF C");
     end
 
     it "maps field 540 to accession.use_restrictions_note" do
