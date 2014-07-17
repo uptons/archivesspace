@@ -41,22 +41,66 @@ MarcXMLAccessionConverter.configure do |config|
     config["/record"][:map].delete(note_making_path)
   end
 
-  config["/record"][:map]["datafield[@tag='520']/subfield[@code='a']"] = :content_description 
-  config["/record"][:map]["datafield[@tag='540']/subfield[@code='a']"] = :use_restrictions_note
-
-  config["/record"][:map]["datafield[@tag='541']/subfield[@code='a']"] = -> record, node {
-    if record.provenance
-      record.provenance = node.inner_text + " #{record.provenance}"
-    else
-      record.provenance = node.inner_text
+  config["/record"][:map]["datafield[@tag='520']"] = -> record, node {
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+      unless val.empty?
+        record.content_description ||= ""
+        record.content_description += " " unless record.content_description.empty?
+        record.content_description += val
+      end
     end
   }
 
-  config["/record"][:map]["datafield[@tag='561']/subfield[@code='a']"] = -> record, node {
+
+  config["/record"][:map]["datafield[@tag='540']"] = -> record, node {
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+      unless val.empty?
+        record.use_restrictions_note ||= ""
+        record.use_restrictions_note += " " unless record.use_restrictions_note.empty?
+        record.use_restrictions_note += val
+      end
+    end
+  }
+
+
+  config["/record"][:map]["datafield[@tag='541']"] = -> record, node {
+    provenance1 = ""
+
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+
+      unless val.empty?
+        provenance1 += " " unless provenance1.empty?
+        provenance1 += val
+      end
+    end
+
     if record.provenance
-      record.provenance = "#{record.provenance} "  + node.inner_text 
-    else
-      record.provenance = node.inner_text
+      record.provenance = provenance1 + " #{record.provenance}"
+    elsif provenance1.length > 0
+      record.provenance = provenance1
+    end
+  }
+
+
+  config["/record"][:map]["datafield[@tag='561']"] = -> record, node {
+    provenance2 = ""
+
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+
+      unless val.empty?
+        provenance2 += " " unless provenance2.empty?
+        provenance2 += val
+      end
+    end
+
+    if record.provenance
+      record.provenance = "#{record.provenance} "  + provenance2
+    elsif provenance2.length > 0
+      record.provenance = provenance2
     end
   }
 
