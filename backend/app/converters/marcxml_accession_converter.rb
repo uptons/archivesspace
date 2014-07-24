@@ -42,6 +42,23 @@ MarcXMLAccessionConverter.configure do |config|
     config["/record"][:map].delete(note_making_path)
   end
 
+  config["/record"][:map]["datafield[@tag='506']"] = -> record, node {
+    node.xpath("subfield").each do |sf|
+      val = sf.inner_text
+      unless val.empty?
+        record.access_restrictions_note ||= ""
+        record.access_restrictions_note += " " unless record.access_restrictions_note.empty?
+        record.access_restrictions_note += val
+      end
+    end
+
+    if node.attr('ind1') == '1'
+      record.access_restrictions = true
+    end
+
+  }
+
+
   config["/record"][:map]["datafield[@tag='520']"] = -> record, node {
     node.xpath("subfield").each do |sf|
       val = sf.inner_text
@@ -63,6 +80,8 @@ MarcXMLAccessionConverter.configure do |config|
         record.use_restrictions_note += val
       end
     end
+
+    record.use_restrictions = true
   }
 
 
