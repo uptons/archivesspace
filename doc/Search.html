@@ -6,18 +6,18 @@
 <title>
   Class: Search
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Search.html";
 </script>
 
 
@@ -124,29 +124,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#advanced_query_string-class_method" title="advanced_query_string (class method)">+ (Object) <strong>advanced_query_string</strong>(advanced_query) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#all-class_method" title="all (class method)">+ (Object) <strong>all</strong>(repo_id, criteria) </a>
     
 
@@ -246,46 +223,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="advanced_query_string-class_method">
-  
-    + (<tt>Object</tt>) <strong>advanced_query_string</strong>(advanced_query) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3
-4
-5
-6
-7
-8
-9</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/search.rb', line 3</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_advanced_query_string identifier id'>advanced_query_string</span><span class='lparen token'>(</span><span class='rubyid_advanced_query identifier id'>advanced_query</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_advanced_query identifier id'>advanced_query</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='string val'>'subqueries'</span><span class='rparen token'>)</span>
-    <span class='dstring node'>&quot;(#{advanced_query['subqueries'].map{|subq| advanced_query_string(subq)}.join(&quot; #{advanced_query['op']} &quot;)})&quot;</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='dstring node'>&quot;#{advanced_query['negated']?&quot;-&quot;:&quot;&quot;}#{advanced_query['field']}:(#{advanced_query['value']})&quot;</span>
-  <span class='rubyid_end end kw'>end</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="all-class_method">
+  <h3 class="signature first" id="all-class_method">
   
     + (<tt>Object</tt>) <strong>all</strong>(repo_id, criteria) 
   
@@ -392,7 +330,7 @@
 
   <span class='rubyid_search_data identifier id'>search_data</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='colon2 op'>::</span><span class='rubyid_get_json identifier id'>get_json</span><span class='lparen token'>(</span><span class='dstring node'>&quot;/search/#{type}&quot;</span><span class='comma token'>,</span> <span class='rubyid_criteria identifier id'>criteria</span><span class='rparen token'>)</span>
   <span class='rubyid_search_data identifier id'>search_data</span><span class='lbrack token'>[</span><span class='symbol val'>:criteria</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_criteria identifier id'>criteria</span>
-
+  <span class='rubyid_search_data identifier id'>search_data</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_type identifier id'>type</span>
   <span class='rubyid_SearchResultData constant id'>SearchResultData</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_search_data identifier id'>search_data</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -416,6 +354,14 @@
       <pre class="lines">
 
 
+4
+5
+6
+7
+8
+9
+10
+11
 12
 13
 14
@@ -431,26 +377,40 @@
 24
 25
 26
-27</pre>
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/search.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/search.rb', line 4</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_search identifier id'>search</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='comma token'>,</span> <span class='rubyid_repo_id identifier id'>repo_id</span><span class='rparen token'>)</span>
   <span class='rubyid_show_suppressed identifier id'>show_suppressed</span> <span class='assign token'>=</span> <span class='notop op'>!</span><span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:enforce_suppression</span><span class='rparen token'>)</span>
   <span class='rubyid_show_published_only identifier id'>show_published_only</span> <span class='assign token'>=</span> <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:current_username</span><span class='rparen token'>)</span> <span class='eqq op'>===</span> <span class='rubyid_User constant id'>User</span><span class='dot token'>.</span><span class='rubyid_PUBLIC_USERNAME constant id'>PUBLIC_USERNAME</span>
 
-  <span class='rubyid_query identifier id'>query</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:q</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='string val'>&quot;*:*&quot;</span>
+  <span class='rubyid_query identifier id'>query</span> <span class='assign token'>=</span> <span class='rubyid_if if kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:q</span><span class='rbrack token'>]</span>
+            <span class='rubyid_Solr constant id'>Solr</span><span class='colon2 op'>::</span><span class='rubyid_Query constant id'>Query</span><span class='dot token'>.</span><span class='rubyid_create_keyword_search identifier id'>create_keyword_search</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:q</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+          <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:aq</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:aq</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'query'</span><span class='rbrack token'>]</span>
+            <span class='rubyid_Solr constant id'>Solr</span><span class='colon2 op'>::</span><span class='rubyid_Query constant id'>Query</span><span class='dot token'>.</span><span class='rubyid_create_advanced_search identifier id'>create_advanced_search</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:aq</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+          <span class='rubyid_else else kw'>else</span>
+            <span class='rubyid_Solr constant id'>Solr</span><span class='colon2 op'>::</span><span class='rubyid_Query constant id'>Query</span><span class='dot token'>.</span><span class='rubyid_create_match_all_query identifier id'>create_match_all_query</span>
+          <span class='rubyid_end end kw'>end</span>
 
-  <span class='rubyid_query identifier id'>query</span> <span class='assign token'>=</span> <span class='rubyid_advanced_query_string identifier id'>advanced_query_string</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:aq</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'query'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:aq</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:aq</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'query'</span><span class='rbrack token'>]</span>
 
-  <span class='rubyid_Solr constant id'>Solr</span><span class='dot token'>.</span><span class='rubyid_search identifier id'>search</span><span class='lparen token'>(</span><span class='rubyid_query identifier id'>query</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:page</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:page_size</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
-              <span class='rubyid_repo_id identifier id'>repo_id</span><span class='comma token'>,</span>
-              <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_show_suppressed identifier id'>show_suppressed</span><span class='comma token'>,</span> <span class='rubyid_show_published_only identifier id'>show_published_only</span><span class='comma token'>,</span> <span class='rubyid_false false kw'>false</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:exclude</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:filter_term</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
-              <span class='lbrace token'>{</span>
-                <span class='string val'>&quot;facet.field&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:facet</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-                <span class='string val'>&quot;sort&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:sort</span><span class='rbrack token'>]</span>
-              <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_query identifier id'>query</span><span class='dot token'>.</span><span class='rubyid_pagination identifier id'>pagination</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:page</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:page_size</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_repo_id identifier id'>set_repo_id</span><span class='lparen token'>(</span><span class='rubyid_repo_id identifier id'>repo_id</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_record_types identifier id'>set_record_types</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_show_suppressed identifier id'>show_suppressed</span><span class='lparen token'>(</span><span class='rubyid_show_suppressed identifier id'>show_suppressed</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_show_published_only identifier id'>show_published_only</span><span class='lparen token'>(</span><span class='rubyid_show_published_only identifier id'>show_published_only</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_excluded_ids identifier id'>set_excluded_ids</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:exclude</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_filter_terms identifier id'>set_filter_terms</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:filter_term</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_facets identifier id'>set_facets</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:facet</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_sort identifier id'>set_sort</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:sort</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+        <span class='rubyid_set_root_record identifier id'>set_root_record</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:root_record</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+
+  <span class='rubyid_Solr constant id'>Solr</span><span class='dot token'>.</span><span class='rubyid_search identifier id'>search</span><span class='lparen token'>(</span><span class='rubyid_query identifier id'>query</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -463,9 +423,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:53 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:10:01 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

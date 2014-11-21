@@ -6,18 +6,18 @@
 <title>
   Class: ArchivalRecordChildren
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!ArchivalRecordChildren.html";
 </script>
 
 
@@ -97,11 +97,15 @@
     
   
     
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="RecordChildren.html" title="RecordChildren (module)">RecordChildren</a></span></dd>
+      
+    
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">frontend/app/models/archival_record_children.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">frontend/app/models/archival_record_children.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -159,7 +163,30 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#from_hash-class_method" title="from_hash (class method)">+ (Object) <strong>from_hash</strong>(hash, raise_errors = true, trusted = false) </a>
+      <a href="#clean-class_method" title="clean (class method)">+ (Object) <strong>clean</strong>(child) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clean_instances-class_method" title="clean_instances (class method)">+ (Object) <strong>clean_instances</strong>(child) </a>
     
 
     
@@ -207,6 +234,17 @@
 
 
   
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="RecordChildren.html" title="RecordChildren (module)">RecordChildren</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="RecordChildren.html#child_type-instance_method" title="RecordChildren#child_type (method)">#child_type</a></span>, <span class='object_link'><a href="RecordChildren.html#included-class_method" title="RecordChildren.included (method)">included</a></span></p>
+
+  
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
     
@@ -237,12 +275,12 @@
       <pre class="lines">
 
 
-3
-4
-5</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 8</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_uri identifier id'>uri</span>
   <span class='rubyid_@uri ivar id'>@uri</span>
@@ -261,9 +299,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="from_hash-class_method">
+  <h3 class="signature first" id="clean-class_method">
   
-    + (<tt>Object</tt>) <strong>from_hash</strong>(hash, raise_errors = true, trusted = false) 
+    + (<tt>Object</tt>) <strong>clean</strong>(child) 
   
 
   
@@ -275,18 +313,39 @@
       <pre class="lines">
 
 
-9
-10
-11
-12
-13
-14
 15
 16
 17
-18
-19
-20
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 15</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_clean identifier id'>clean</span><span class='lparen token'>(</span><span class='rubyid_child identifier id'>child</span><span class='rparen token'>)</span>
+  <span class='rubyid_super super kw'>super</span>
+  <span class='rubyid_clean_instances identifier id'>clean_instances</span><span class='lparen token'>(</span><span class='rubyid_child identifier id'>child</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clean_instances-class_method">
+  
+    + (<tt>Object</tt>) <strong>clean_instances</strong>(child) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 21
 22
 23
@@ -294,80 +353,18 @@
 25
 26
 27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 21</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_from_hash identifier id'>from_hash</span><span class='lparen token'>(</span><span class='rubyid_hash identifier id'>hash</span><span class='comma token'>,</span> <span class='rubyid_raise_errors identifier id'>raise_errors</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='comma token'>,</span> <span class='rubyid_trusted identifier id'>trusted</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
-
-  <span class='rubyid_hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='string val'>&quot;children&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_child identifier id'>child</span><span class='bitor op'>|</span>
-
-    <span class='comment val'># clean up dates</span>
-    <span class='rubyid_if if kw'>if</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;dates&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_reject identifier id'>reject</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_k identifier id'>k</span><span class='comma token'>,</span><span class='rubyid_v identifier id'>v</span><span class='bitor op'>|</span> <span class='rubyid_v identifier id'>v</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
-      <span class='rubyid_child identifier id'>child</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='string val'>&quot;dates&quot;</span><span class='rparen token'>)</span>
-    <span class='rubyid_else else kw'>else</span>
-      <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;dates&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;label&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='string val'>&quot;other&quot;</span>
-    <span class='rubyid_end end kw'>end</span>
-
-    <span class='comment val'># clean up instances</span>
-    <span class='rubyid_if if kw'>if</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;container&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_reject identifier id'>reject</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_k identifier id'>k</span><span class='comma token'>,</span><span class='rubyid_v identifier id'>v</span><span class='bitor op'>|</span> <span class='rubyid_v identifier id'>v</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
-      <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='string val'>&quot;container&quot;</span><span class='rparen token'>)</span>
-    <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='string val'>&quot;container&quot;</span><span class='rparen token'>)</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;instance_type&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
-      <span class='rubyid_child identifier id'>child</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='string val'>&quot;instances&quot;</span><span class='rparen token'>)</span>
-    <span class='rubyid_end end kw'>end</span>
-
-    <span class='comment val'># clean up notes</span>
-    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>2</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_i identifier id'>i</span><span class='bitor op'>|</span>
-      <span class='rubyid_if if kw'>if</span> <span class='rubyid_not not kw'>not</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;type&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
-        <span class='lbrack token'>[</span><span class='symbol val'>:note_bibliography</span><span class='comma token'>,</span> <span class='symbol val'>:note_index</span><span class='comma token'>,</span> <span class='symbol val'>:note_singlepart</span><span class='comma token'>,</span> <span class='symbol val'>:note_multipart</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_notetype identifier id'>notetype</span><span class='bitor op'>|</span>
-          <span class='rubyid_if if kw'>if</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='dot token'>.</span><span class='rubyid_enum_values identifier id'>enum_values</span><span class='lparen token'>(</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_notetype identifier id'>notetype</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_schema identifier id'>schema</span><span class='lbrack token'>[</span><span class='string val'>'properties'</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'type'</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'dynamic_enum'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;type&quot;</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-            <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;jsonmodel_type&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_notetype identifier id'>notetype</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
-          <span class='rubyid_end end kw'>end</span>
-        <span class='rubyid_end end kw'>end</span>
-
-        <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;publish&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-
-        <span class='comment val'># Multipart and biog/hist notes use a 'text' subnote type for their content.</span>
-        <span class='rubyid_if if kw'>if</span> <span class='lbrack token'>[</span><span class='string val'>'note_multipart'</span><span class='comma token'>,</span> <span class='string val'>'note_bioghist'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;jsonmodel_type&quot;</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-          <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;subnotes&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='lbrace token'>{</span><span class='string val'>&quot;jsonmodel_type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;note_text&quot;</span><span class='comma token'>,</span>
-                                             <span class='string val'>&quot;content&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;content&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span><span class='rbrace token'>}</span><span class='rbrack token'>]</span>
-        <span class='rubyid_end end kw'>end</span>
-
-      <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;type&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;content&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
-        <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
-      <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;notes&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_compact! fid id'>compact!</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_clean_instances identifier id'>clean_instances</span><span class='lparen token'>(</span><span class='rubyid_child identifier id'>child</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;container&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_reject identifier id'>reject</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_k identifier id'>k</span><span class='comma token'>,</span><span class='rubyid_v identifier id'>v</span><span class='bitor op'>|</span> <span class='rubyid_v identifier id'>v</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
+    <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='string val'>&quot;container&quot;</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_super super kw'>super</span>
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='string val'>&quot;container&quot;</span><span class='rparen token'>)</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_child identifier id'>child</span><span class='lbrack token'>[</span><span class='string val'>&quot;instances&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;instance_type&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
+    <span class='rubyid_child identifier id'>child</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='string val'>&quot;instances&quot;</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -390,12 +387,12 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/archival_record_children.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
   <span class='rubyid_nil nil kw'>nil</span>
@@ -411,9 +408,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 15:00:01 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:11:14 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

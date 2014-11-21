@@ -6,18 +6,18 @@
 <title>
   Module: ASModel::ModelScoping::ClassMethods
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!ASModel/ModelScoping/ClassMethods.html";
 </script>
 
 
@@ -176,6 +176,52 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#handle_publish_flag-instance_method" title="#handle_publish_flag (instance method)">- (Object) <strong>handle_publish_flag</strong>(ids, val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_suppressed-instance_method" title="#handle_suppressed (instance method)">- (Object) <strong>handle_suppressed</strong>(ids, val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#model_scope-instance_method" title="#model_scope (instance method)">- (Object) <strong>model_scope</strong>(noerror = false) </a>
     
 
@@ -214,6 +260,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Like JSONModel.parse_reference, but enforce repository restrictions.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#publishable%3F-instance_method" title="#publishable? (instance method)">- (Boolean) <strong>publishable?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
 </div></span>
   
 </li>
@@ -312,18 +381,18 @@
       <pre class="lines">
 
 
-109
-110
-111
-112
-113
-114
-115
-116
-117</pre>
+176
+177
+178
+179
+180
+181
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 176</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_active_repository identifier id'>active_repository</span>
   <span class='rubyid_repo identifier id'>repo</span> <span class='assign token'>=</span> <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:repo_id</span><span class='rparen token'>)</span>
@@ -355,12 +424,12 @@
       <pre class="lines">
 
 
-18
-19
-20</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 68</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_enable_suppression identifier id'>enable_suppression</span>
   <span class='rubyid_@suppressible ivar id'>@suppressible</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
@@ -409,15 +478,81 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 73</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_enforce_suppression? fid id'>enforce_suppression?</span>
   <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:enforce_suppression</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_publish_flag-instance_method">
+  
+    - (<tt>Object</tt>) <strong>handle_publish_flag</strong>(ids, val) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 94</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_publish_flag identifier id'>handle_publish_flag</span><span class='lparen token'>(</span><span class='rubyid_ids identifier id'>ids</span><span class='comma token'>,</span> <span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
+  <span class='rubyid_ASModel constant id'>ASModel</span><span class='dot token'>.</span><span class='rubyid_update_publish_flag identifier id'>update_publish_flag</span><span class='lparen token'>(</span><span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_ids identifier id'>ids</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_suppressed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>handle_suppressed</strong>(ids, val) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 82</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_suppressed identifier id'>handle_suppressed</span><span class='lparen token'>(</span><span class='rubyid_ids identifier id'>ids</span><span class='comma token'>,</span> <span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_suppressible? fid id'>suppressible?</span>
+    <span class='rubyid_ASModel constant id'>ASModel</span><span class='dot token'>.</span><span class='rubyid_update_suppressed_flag identifier id'>update_suppressed_flag</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_ids identifier id'>ids</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -440,17 +575,17 @@
       <pre class="lines">
 
 
-82
-83
-84
-85
-86
-87
-88
-89</pre>
+149
+150
+151
+152
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 149</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_model_scope identifier id'>model_scope</span><span class='lparen token'>(</span><span class='rubyid_noerror identifier id'>noerror</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
   <span class='rubyid_@model_scope ivar id'>@model_scope</span> <span class='rubyid_or or kw'>or</span>
@@ -491,23 +626,23 @@
       <pre class="lines">
 
 
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 160</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_parse_reference identifier id'>parse_reference</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
   <span class='rubyid_ref identifier id'>ref</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='dot token'>.</span><span class='rubyid_parse_reference identifier id'>parse_reference</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
@@ -530,6 +665,60 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="publishable?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>publishable?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 89</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_publishable? fid id'>publishable?</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_columns identifier id'>columns</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='symbol val'>:publish</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="set_model_scope-instance_method">
   
     - (<tt>Object</tt>) <strong>set_model_scope</strong>(value) 
@@ -544,57 +733,57 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79</pre>
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 99</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_set_model_scope identifier id'>set_model_scope</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='lbrack token'>[</span><span class='symbol val'>:repository</span><span class='comma token'>,</span> <span class='symbol val'>:global</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
@@ -688,12 +877,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 78</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_suppressible? fid id'>suppressible?</span>
   <span class='rubyid_@suppressible ivar id'>@suppressible</span>
@@ -719,12 +908,12 @@
       <pre class="lines">
 
 
-120
-121
-122</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_scoping.rb', line 187</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_jsonmodel identifier id'>jsonmodel</span><span class='comma token'>,</span> <span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_jsonmodel identifier id'>jsonmodel</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:repo_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_active_repository identifier id'>active_repository</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -740,9 +929,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:08:58 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

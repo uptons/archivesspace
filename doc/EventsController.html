@@ -6,18 +6,18 @@
 <title>
   Class: EventsController
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!EventsController.html";
 </script>
 
 
@@ -297,7 +297,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="ApplicationController (class)">ApplicationController</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#set_access_control-class_method" title="ApplicationController.set_access_control (method)">set_access_control</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#can_access%3F-class_method" title="ApplicationController.can_access? (method)">can_access?</a></span>, <span class='object_link'><a href="ApplicationController.html#permission_mappings-class_method" title="ApplicationController.permission_mappings (method)">permission_mappings</a></span>, <span class='object_link'><a href="ApplicationController.html#set_access_control-class_method" title="ApplicationController.set_access_control (method)">set_access_control</a></span></p>
 
   
 
@@ -320,12 +320,6 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
-45
-46
 47
 48
 49
@@ -344,10 +338,16 @@
 62
 63
 64
-65</pre>
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 47</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_create identifier id'>create</span>
   <span class='rubyid_handle_crud identifier id'>handle_crud</span><span class='lparen token'>(</span><span class='symbol val'>:instance</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:event</span><span class='comma token'>,</span>
@@ -395,16 +395,16 @@
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
-85</pre>
+85
+86
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 85</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete identifier id'>delete</span>
   <span class='rubyid_event identifier id'>event</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:event</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
@@ -434,15 +434,23 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 39</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_edit identifier id'>edit</span>
   <span class='rubyid_@event ivar id'>@event</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:event</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_find_opts identifier id'>find_opts</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_@event ivar id'>@event</span><span class='dot token'>.</span><span class='rubyid_suppressed identifier id'>suppressed</span>
+    <span class='rubyid_redirect_to identifier id'>redirect_to</span><span class='lparen token'>(</span><span class='symbol val'>:controller</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:events</span><span class='comma token'>,</span> <span class='symbol val'>:action</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:show</span><span class='comma token'>,</span> <span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -496,8 +504,6 @@
       <pre class="lines">
 
 
-16
-17
 18
 19
 20
@@ -515,10 +521,12 @@
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 18</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_new identifier id'>new</span>
   <span class='rubyid_@event ivar id'>@event</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:event</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='dot token'>.</span><span class='rubyid__always_valid! fid id'>_always_valid!</span>
@@ -529,11 +537,11 @@
     <span class='rubyid_@event ivar id'>@event</span><span class='dot token'>.</span><span class='rubyid_event_type identifier id'>event_type</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:event_type</span><span class='rbrack token'>]</span>
   <span class='rubyid_end end kw'>end</span>    
 
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:accession_uri</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:record_uri</span><span class='rparen token'>)</span>
     <span class='rubyid_@event ivar id'>@event</span><span class='dot token'>.</span><span class='rubyid_linked_records identifier id'>linked_records</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
     
-    <span class='rubyid_accession identifier id'>accession</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:accession</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find_by_uri identifier id'>find_by_uri</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:accession_uri</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-    <span class='rubyid_@event ivar id'>@event</span><span class='dot token'>.</span><span class='rubyid_linked_records identifier id'>linked_records</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='string val'>'ref'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_accession identifier id'>accession</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='string val'>'_resolved'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_accession identifier id'>accession</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span><span class='comma token'>,</span> <span class='string val'>'role'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'source'</span><span class='rbrace token'>}</span>
+    <span class='rubyid_record identifier id'>record</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:record_type</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find_by_uri identifier id'>find_by_uri</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:record_uri</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+    <span class='rubyid_@event ivar id'>@event</span><span class='dot token'>.</span><span class='rubyid_linked_records identifier id'>linked_records</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='string val'>'ref'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='string val'>'_resolved'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span><span class='comma token'>,</span> <span class='string val'>'role'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'source'</span><span class='rbrace token'>}</span>
     <span class='rubyid_if if kw'>if</span> <span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_referrer identifier id'>referrer</span><span class='dot token'>.</span><span class='rubyid_end_with? fid id'>end_with?</span><span class='lparen token'>(</span><span class='string val'>&quot;/edit&quot;</span><span class='rparen token'>)</span>
       <span class='rubyid_@redirect_action ivar id'>@redirect_action</span> <span class='assign token'>=</span> <span class='string val'>'edit'</span>
     <span class='rubyid_end end kw'>end</span>
@@ -563,13 +571,17 @@
 
 12
 13
-14</pre>
+14
+15
+16</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 12</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_show identifier id'>show</span>
   <span class='rubyid_@event ivar id'>@event</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:event</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_find_opts identifier id'>find_opts</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_flash identifier id'>flash</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='lbrack token'>[</span><span class='symbol val'>:info</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_I18n constant id'>I18n</span><span class='dot token'>.</span><span class='rubyid_t identifier id'>t</span><span class='lparen token'>(</span><span class='string val'>&quot;event._frontend.messages.suppressed_info&quot;</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_@event ivar id'>@event</span><span class='dot token'>.</span><span class='rubyid_suppressed identifier id'>suppressed</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -592,19 +604,19 @@
       <pre class="lines">
 
 
-67
-68
-69
-70
-71
-72
 73
 74
 75
-76</pre>
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/controllers/events_controller.rb', line 73</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update identifier id'>update</span>
   <span class='rubyid_handle_crud identifier id'>handle_crud</span><span class='lparen token'>(</span><span class='symbol val'>:instance</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:event</span><span class='comma token'>,</span>
@@ -627,9 +639,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 15:00:01 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:11:09 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

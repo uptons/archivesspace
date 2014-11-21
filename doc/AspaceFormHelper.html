@@ -6,18 +6,18 @@
 <title>
   Module: AspaceFormHelper
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!AspaceFormHelper.html";
 </script>
 
 
@@ -106,10 +106,26 @@
   
     <dl class="constants">
       
+        <dt id="COMBOBOX_MIN_LIMIT-constant" class="">COMBOBOX_MIN_LIMIT =
+          <div class="docstring">
+  <div class="discussion">
+    <p>if a <select> has equal or more options than this value, output a combobox</select></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='integer val'>50</span>
+</pre></dd>
+      
         <dt id="PROPERTIES_TO_EXCLUDE_FROM_READ_ONLY_VIEW-constant" class="">PROPERTIES_TO_EXCLUDE_FROM_READ_ONLY_VIEW =
           
         </dt>
-        <dd><pre class="code"><span class='lbrack token'>[</span><span class='string val'>&quot;jsonmodel_type&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;lock_version&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;_resolved&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;uri&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;ref&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;create_time&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;system_mtime&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;user_mtime&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;created_by&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;last_modified_by&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;sort_name_auto_generate&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;suppressed&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;display_string&quot;</span><span class='rbrack token'>]</span>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='string val'>&quot;jsonmodel_type&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;lock_version&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;_resolved&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;uri&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;ref&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;create_time&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;system_mtime&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;user_mtime&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;created_by&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;last_modified_by&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;sort_name_auto_generate&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;suppressed&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;display_string&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;file_uri&quot;</span><span class='rbrack token'>]</span>
 </pre></dd>
       
     </dl>
@@ -360,16 +376,16 @@
       <pre class="lines">
 
 
-647
-648
-649
-650
-651
-652
-653</pre>
+665
+666
+667
+668
+669
+670
+671</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 647</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 665</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_define_template identifier id'>define_template</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_definition identifier id'>definition</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@templates ivar id'>@templates</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -399,20 +415,6 @@
       <pre class="lines">
 
 
-484
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
 498
 499
 500
@@ -426,10 +428,24 @@
 508
 509
 510
-511</pre>
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 484</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 498</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_form_context identifier id'>form_context</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_values_from identifier id'>values_from</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
   <span class='rubyid_context identifier id'>context</span> <span class='assign token'>=</span> <span class='rubyid_FormContext constant id'>FormContext</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_values_from identifier id'>values_from</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
@@ -480,12 +496,12 @@
       <pre class="lines">
 
 
-527
-528
-529</pre>
+541
+542
+543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 527</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 541</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_jsonmodel_definition identifier id'>jsonmodel_definition</span><span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='comma token'>,</span> <span class='rubyid_root identifier id'>root</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_JSONModelDefinition constant id'>JSONModelDefinition</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_root identifier id'>root</span><span class='rparen token'>)</span>
@@ -511,12 +527,12 @@
       <pre class="lines">
 
 
-740
-741
-742</pre>
+758
+759
+760</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 740</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 758</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_preserve_newlines identifier id'>preserve_newlines</span><span class='lparen token'>(</span><span class='rubyid_string identifier id'>string</span><span class='rparen token'>)</span>
   <span class='rubyid_string identifier id'>string</span><span class='dot token'>.</span><span class='rubyid_gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/\n/</span><span class='comma token'>,</span> <span class='string val'>'&lt;br&gt;'</span><span class='rparen token'>)</span>
@@ -542,24 +558,6 @@
       <pre class="lines">
 
 
-702
-703
-704
-705
-706
-707
-708
-709
-710
-711
-712
-713
-714
-715
-716
-717
-718
-719
 720
 721
 722
@@ -578,10 +576,28 @@
 735
 736
 737
-738</pre>
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 702</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 720</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_read_only_view identifier id'>read_only_view</span><span class='lparen token'>(</span><span class='rubyid_hash identifier id'>hash</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_jsonmodel_type identifier id'>jsonmodel_type</span> <span class='assign token'>=</span> <span class='rubyid_hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='string val'>&quot;jsonmodel_type&quot;</span><span class='rbrack token'>]</span>
@@ -641,23 +657,23 @@
       <pre class="lines">
 
 
-685
-686
-687
-688
-689
-690
-691
-692
-693
-694
-695
-696
-697
-698</pre>
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 685</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 703</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_readonly_context identifier id'>readonly_context</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_values_from identifier id'>values_from</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
   <span class='rubyid_context identifier id'>context</span> <span class='assign token'>=</span> <span class='rubyid_ReadOnlyContext constant id'>ReadOnlyContext</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_values_from identifier id'>values_from</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
@@ -694,13 +710,13 @@
       <pre class="lines">
 
 
-514
-515
-516
-517</pre>
+528
+529
+530
+531</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 528</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_templates identifier id'>templates</span>
   <span class='rubyid_@templates ivar id'>@templates</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -727,24 +743,6 @@
       <pre class="lines">
 
 
-656
-657
-658
-659
-660
-661
-662
-663
-664
-665
-666
-667
-668
-669
-670
-671
-672
-673
 674
 675
 676
@@ -754,10 +752,28 @@
 680
 681
 682
-683</pre>
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 656</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 674</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_templates_for_js identifier id'>templates_for_js</span><span class='lparen token'>(</span><span class='rubyid_jsonmodel_type identifier id'>jsonmodel_type</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_result identifier id'>result</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span>
@@ -808,18 +824,18 @@
       <pre class="lines">
 
 
-746
-747
-748
-749
-750
-751
-752
-753
-754</pre>
+764
+765
+766
+767
+768
+769
+770
+771
+772</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 746</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/helpers/aspace_form_helper.rb', line 764</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_monitor_params identifier id'>update_monitor_params</span><span class='lparen token'>(</span><span class='rubyid_record identifier id'>record</span><span class='rparen token'>)</span>
   <span class='lbrace token'>{</span>
@@ -841,9 +857,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:50 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:34 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

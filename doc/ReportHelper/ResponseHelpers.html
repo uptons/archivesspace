@@ -6,18 +6,18 @@
 <title>
   Module: ReportHelper::ResponseHelpers
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!ReportHelper/ResponseHelpers.html";
 </script>
 
 
@@ -111,7 +111,30 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#report_response-instance_method" title="#report_response (instance method)">- (Object) <strong>report_response</strong>(report, format) </a>
+      <a href="#report_header-instance_method" title="#report_header (instance method)">- (Object) <strong>report_header</strong>(report, format) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report_response-instance_method" title="#report_response (instance method)">- (Object) <strong>report_response</strong>(report, format, report_params = {}) </a>
     
 
     
@@ -141,9 +164,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="report_response-instance_method">
+  <h3 class="signature first" id="report_header-instance_method">
   
-    - (<tt>Object</tt>) <strong>report_response</strong>(report, format) 
+    - (<tt>Object</tt>) <strong>report_header</strong>(report, format) 
   
 
   
@@ -155,6 +178,8 @@
       <pre class="lines">
 
 
+24
+25
 26
 27
 28
@@ -162,42 +187,55 @@
 30
 31
 32
-33
-34
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/reports/report_helper.rb', line 24</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_report_header identifier id'>report_header</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_format identifier id'>format</span><span class='rparen token'>)</span> 
+  <span class='rubyid_headers identifier id'>headers</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span> 
+    <span class='string val'>&quot;csv&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;text/plain; charset=UTF-8&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.csv\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> 
+    <span class='string val'>&quot;xlsx&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.xlsx\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
+    <span class='string val'>&quot;html&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;text/html&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.html\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> 
+    <span class='string val'>&quot;pdf&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span>  <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;application/pdf&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.pdf\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> 
+    <span class='string val'>&quot;json&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;application/json; charset=UTF-8&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.json\&quot;&quot;</span> <span class='rbrace token'>}</span>
+  <span class='rbrace token'>}</span>
+  <span class='rubyid_headers identifier id'>headers</span><span class='lbrack token'>[</span><span class='rubyid_format identifier id'>format</span><span class='rbrack token'>]</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report_response-instance_method">
+  
+    - (<tt>Object</tt>) <strong>report_response</strong>(report, format, report_params = {}) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 35
 36
 37
 38
-39
-40
-41
-42
-43
-44
-45</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/reports/report_helper.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/reports/report_helper.rb', line 35</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_report_response identifier id'>report_response</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_format identifier id'>format</span><span class='rparen token'>)</span>
-  <span class='rubyid_@base_url ivar id'>@base_url</span> <span class='assign token'>=</span> <span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_base_url identifier id'>base_url</span>
-
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_format identifier id'>format</span> <span class='eq op'>==</span> <span class='string val'>&quot;csv&quot;</span>
-    <span class='lbrack token'>[</span><span class='integer val'>200</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;text/plain; charset=UTF-8&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.csv\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_CSVResponse constant id'>CSVResponse</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span><span class='rbrack token'>]</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_format identifier id'>format</span> <span class='eq op'>==</span> <span class='string val'>&quot;xlsx&quot;</span>
-    <span class='lbrack token'>[</span><span class='integer val'>200</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.xlsx\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_XLSXResponse constant id'>XLSXResponse</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_stream identifier id'>to_stream</span><span class='rbrack token'>]</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_format identifier id'>format</span> <span class='eq op'>==</span> <span class='string val'>&quot;html&quot;</span>
-    <span class='lbrack token'>[</span><span class='integer val'>200</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;text/html&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.html\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_erb identifier id'>erb</span><span class='lparen token'>(</span><span class='symbol val'>:'reports/report'</span><span class='comma token'>,</span> <span class='symbol val'>:locals</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:report</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_report identifier id'>report</span><span class='rbrace token'>}</span><span class='rparen token'>)</span><span class='rbrack token'>]</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_format identifier id'>format</span> <span class='eq op'>==</span> <span class='string val'>&quot;pdf&quot;</span>
-    <span class='lbrack token'>[</span>
-      <span class='integer val'>200</span><span class='comma token'>,</span>
-      <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;application/pdf&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.pdf\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
-      <span class='rubyid_PDFResponse constant id'>PDFResponse</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_erb identifier id'>erb</span><span class='lparen token'>(</span><span class='symbol val'>:'reports/report'</span><span class='comma token'>,</span> <span class='symbol val'>:locals</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:report</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_report identifier id'>report</span><span class='rbrace token'>}</span><span class='rparen token'>)</span><span class='comma token'>,</span>  <span class='rubyid_@base_url ivar id'>@base_url</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_generate identifier id'>generate</span>
-    <span class='rbrack token'>]</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='comment val'># default to json</span>
-    <span class='lbrack token'>[</span><span class='integer val'>200</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>&quot;Content-Type&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;application/json; charset=UTF-8&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Content-Disposition&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;attachment; filename=\&quot;#{report.class.name}.json\&quot;&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_JSONResponse constant id'>JSONResponse</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span><span class='rbrack token'>]</span>
-  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_report_response identifier id'>report_response</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_format identifier id'>format</span><span class='comma token'>,</span> <span class='rubyid_report_params identifier id'>report_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span> <span class='rparen token'>)</span>
+  <span class='rubyid_report_params identifier id'>report_params</span><span class='lbrack token'>[</span><span class='symbol val'>:base_url</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_base_url identifier id'>base_url</span>
+  <span class='rubyid_report_params identifier id'>report_params</span><span class='lbrack token'>[</span><span class='symbol val'>:html_report</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='rubyid_proc identifier id'>proc</span> <span class='lbrace token'>{</span>  <span class='rubyid_erb identifier id'>erb</span><span class='lparen token'>(</span><span class='symbol val'>:'reports/report'</span><span class='comma token'>,</span> <span class='symbol val'>:locals</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:report</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_report identifier id'>report</span><span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>    
+  <span class='lbrack token'>[</span><span class='integer val'>200</span><span class='comma token'>,</span> <span class='rubyid_report_header identifier id'>report_header</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_format identifier id'>format</span><span class='rparen token'>)</span> <span class='comma token'>,</span>  <span class='rubyid_ReportResponse constant id'>ReportResponse</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_format identifier id'>format</span><span class='comma token'>,</span> <span class='rubyid_report_params identifier id'>report_params</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_generate identifier id'>generate</span> <span class='rbrack token'>]</span> 
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -210,9 +248,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:48 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:18 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

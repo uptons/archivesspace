@@ -6,18 +6,18 @@
 <title>
   Module: TestUtils
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!TestUtils.html";
 </script>
 
 
@@ -585,7 +585,7 @@
   <span class='rubyid_java_opts identifier id'>java_opts</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;-Xmx256M -XX:MaxPermSize=128M -Daspace.config.backend_url=#{backend_url}&quot;</span>
   <span class='rubyid_java_opts identifier id'>java_opts</span> <span class='opasgn op'>+=</span> <span class='rubyid_build_config_string identifier id'>build_config_string</span><span class='lparen token'>(</span><span class='rubyid_config identifier id'>config</span><span class='rparen token'>)</span>
 
-  <span class='rubyid_pid identifier id'>pid</span> <span class='assign token'>=</span> <span class='rubyid_Process constant id'>Process</span><span class='dot token'>.</span><span class='rubyid_spawn identifier id'>spawn</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:JAVA_OPTS</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_java_opts identifier id'>java_opts</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
+  <span class='rubyid_pid identifier id'>pid</span> <span class='assign token'>=</span> <span class='rubyid_Process constant id'>Process</span><span class='dot token'>.</span><span class='rubyid_spawn identifier id'>spawn</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:JAVA_OPTS</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_java_opts identifier id'>java_opts</span><span class='comma token'>,</span> <span class='symbol val'>:TEST_MODE</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;true&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
                       <span class='dstring node'>&quot;#{base}/../build/run&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;frontend:devserver:integration&quot;</span><span class='comma token'>,</span>
                       <span class='dstring node'>&quot;-Daspace.frontend.port=#{port}&quot;</span><span class='rparen token'>)</span>
 
@@ -642,7 +642,7 @@
     <span class='rubyid_java_opts identifier id'>java_opts</span> <span class='opasgn op'>+=</span> <span class='dstring node'>&quot; -Daspace.config.#{key}=#{value}&quot;</span>
   <span class='rubyid_end end kw'>end</span>
 
-  <span class='rubyid_pid identifier id'>pid</span> <span class='assign token'>=</span> <span class='rubyid_Process constant id'>Process</span><span class='dot token'>.</span><span class='rubyid_spawn identifier id'>spawn</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:JAVA_OPTS</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_java_opts identifier id'>java_opts</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
+  <span class='rubyid_pid identifier id'>pid</span> <span class='assign token'>=</span> <span class='rubyid_Process constant id'>Process</span><span class='dot token'>.</span><span class='rubyid_spawn identifier id'>spawn</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:JAVA_OPTS</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_java_opts identifier id'>java_opts</span><span class='comma token'>,</span> <span class='symbol val'>:TEST_MODE</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;true&quot;</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
                       <span class='dstring node'>&quot;#{base}/../build/run&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;public:devserver:integration&quot;</span><span class='comma token'>,</span>
                       <span class='dstring node'>&quot;-Daspace.public.port=#{port}&quot;</span><span class='rparen token'>)</span>
 
@@ -724,9 +724,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:50 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:36 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

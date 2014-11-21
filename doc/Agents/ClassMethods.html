@@ -6,18 +6,18 @@
 <title>
   Module: Agents::ClassMethods
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Agents/ClassMethods.html";
 </script>
 
 
@@ -220,12 +220,12 @@
       <pre class="lines">
 
 
+26
 27
-28
-29</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 26</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_agent_relator_enum identifier id'>agent_relator_enum</span><span class='lparen token'>(</span><span class='rubyid_enum_name identifier id'>enum_name</span><span class='rparen token'>)</span>
   <span class='rubyid_@agent_relator_enum ivar id'>@agent_relator_enum</span> <span class='assign token'>=</span> <span class='rubyid_enum_name identifier id'>enum_name</span>
@@ -251,12 +251,12 @@
       <pre class="lines">
 
 
+22
 23
-24
-25</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 22</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_agent_role_enum identifier id'>agent_role_enum</span><span class='lparen token'>(</span><span class='rubyid_enum_name identifier id'>enum_name</span><span class='rparen token'>)</span>
   <span class='rubyid_@agent_role_enum ivar id'>@agent_role_enum</span> <span class='assign token'>=</span> <span class='rubyid_enum_name identifier id'>enum_name</span>
@@ -282,6 +282,7 @@
       <pre class="lines">
 
 
+31
 32
 33
 34
@@ -295,21 +296,28 @@
 42
 43
 44
-45</pre>
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 31</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize_enum identifier id'>initialize_enum</span><span class='lparen token'>(</span><span class='rubyid_clz identifier id'>clz</span><span class='rparen token'>)</span>
-  <span class='rubyid_role_enum identifier id'>role_enum</span> <span class='assign token'>=</span> <span class='rubyid_@agent_role_enum ivar id'>@agent_role_enum</span>
+  <span class='rubyid_role_enum identifier id'>role_enum</span> <span class='assign token'>=</span> <span class='rubyid_@agent_role_enum ivar id'>@agent_role_enum</span> <span class='rubyid_or or kw'>or</span> <span class='rubyid_raise identifier id'>raise</span> <span class='dstring node'>&quot;Missing agent_role_enum in #{self}&quot;</span>
   <span class='rubyid_relator_enum identifier id'>relator_enum</span> <span class='assign token'>=</span> <span class='rubyid_@agent_relator_enum ivar id'>@agent_relator_enum</span>
+
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_columns identifier id'>columns</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='symbol val'>:relator_id</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_relator_enum identifier id'>relator_enum</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
+    <span class='rubyid_raise identifier id'>raise</span> <span class='dstring node'>&quot;Missing agent_relator_enum in #{self}&quot;</span>
+  <span class='rubyid_end end kw'>end</span>
 
   <span class='rubyid_clz identifier id'>clz</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='rubyid_do do kw'>do</span>
     <span class='rubyid_include identifier id'>include</span> <span class='rubyid_DynamicEnums constant id'>DynamicEnums</span>
 
     <span class='rubyid_enums identifier id'>enums</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-    <span class='rubyid_enums identifier id'>enums</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:property</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'role'</span><span class='comma token'>,</span> <span class='symbol val'>:uses_enum</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_role_enum identifier id'>role_enum</span><span class='rbrace token'>}</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_role_enum identifier id'>role_enum</span>
-    <span class='rubyid_enums identifier id'>enums</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:property</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'relator'</span><span class='comma token'>,</span> <span class='symbol val'>:uses_enum</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_relator_enum identifier id'>relator_enum</span><span class='rbrace token'>}</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_relator_enum identifier id'>relator_enum</span>
+    <span class='rubyid_enums identifier id'>enums</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:property</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'role'</span><span class='comma token'>,</span> <span class='symbol val'>:uses_enum</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='rubyid_role_enum identifier id'>role_enum</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_role_enum identifier id'>role_enum</span>
+    <span class='rubyid_enums identifier id'>enums</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:property</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'relator'</span><span class='comma token'>,</span> <span class='symbol val'>:uses_enum</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='rubyid_relator_enum identifier id'>relator_enum</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_relator_enum identifier id'>relator_enum</span>
 
     <span class='rubyid_uses_enums identifier id'>uses_enums</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_enums identifier id'>enums</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
@@ -335,9 +343,6 @@
       <pre class="lines">
 
 
-48
-49
-50
 51
 52
 53
@@ -373,10 +378,22 @@
 83
 84
 85
-86</pre>
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/agents.rb', line 51</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize_terms identifier id'>initialize_terms</span><span class='lparen token'>(</span><span class='rubyid_clz identifier id'>clz</span><span class='rparen token'>)</span>
   <span class='rubyid_clz identifier id'>clz</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='rubyid_do do kw'>do</span>
@@ -395,6 +412,15 @@
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_values identifier id'>values</span><span class='rparen token'>)</span>
       <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
       <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:terms</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_values identifier id'>values</span><span class='lbrack token'>[</span><span class='string val'>'terms'</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
+
+
+    <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_handle_delete identifier id'>handle_delete</span><span class='lparen token'>(</span><span class='rubyid_ids_to_delete identifier id'>ids_to_delete</span><span class='rparen token'>)</span>
+      <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:linked_agent_term</span><span class='rbrack token'>]</span><span class='dot token'>.</span>
+           <span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:linked_agents_rlshp_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_ids_to_delete identifier id'>ids_to_delete</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+           <span class='rubyid_delete identifier id'>delete</span>
+
+      <span class='rubyid_super super kw'>super</span>
     <span class='rubyid_end end kw'>end</span>
 
 
@@ -428,9 +454,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:46 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:08:55 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

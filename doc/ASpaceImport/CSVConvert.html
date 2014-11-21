@@ -6,18 +6,18 @@
 <title>
   Module: ASpaceImport::CSVConvert
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!ASpaceImport/CSVConvert.html";
 </script>
 
 
@@ -655,7 +655,7 @@
   <span class='rubyid_@cell_handlers ivar id'>@cell_handlers</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
   <span class='rubyid_@proxies ivar id'>@proxies</span> <span class='assign token'>=</span> <span class='rubyid_ASpaceImport constant id'>ASpaceImport</span><span class='colon2 op'>::</span><span class='rubyid_RecordProxyMgr constant id'>RecordProxyMgr</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
 
-  <span class='rubyid_CSV constant id'>CSV</span><span class='dot token'>.</span><span class='rubyid_foreach identifier id'>foreach</span><span class='lparen token'>(</span><span class='rubyid_@input_file ivar id'>@input_file</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_row identifier id'>row</span><span class='bitor op'>|</span>
+  <span class='rubyid_CSV constant id'>CSV</span><span class='dot token'>.</span><span class='rubyid_foreach identifier id'>foreach</span><span class='lparen token'>(</span><span class='rubyid_@input_file ivar id'>@input_file</span><span class='comma token'>,</span> <span class='string val'>'r:bom|utf-8'</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_row identifier id'>row</span><span class='bitor op'>|</span>
 
     <span class='rubyid_if if kw'>if</span> <span class='rubyid_@cell_handlers ivar id'>@cell_handlers</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
       <span class='rubyid_@cell_handlers ivar id'>@cell_handlers</span><span class='comma token'>,</span> <span class='rubyid_bad_headers identifier id'>bad_headers</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_configure_cell_handlers identifier id'>configure_cell_handlers</span><span class='lparen token'>(</span><span class='rubyid_row identifier id'>row</span><span class='rparen token'>)</span>
@@ -717,9 +717,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:48 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:27 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

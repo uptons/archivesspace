@@ -6,18 +6,18 @@
 <title>
   Exception: JSONModel::ValidationException
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!JSONModel/ValidationException.html";
 </script>
 
 
@@ -168,6 +168,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#import_context-instance_method" title="#import_context (instance method)">- (Object) <strong>import_context</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute import_context.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#invalid_object-instance_method" title="#invalid_object (instance method)">- (Object) <strong>invalid_object</strong> </a>
     
 
@@ -186,6 +212,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Returns the value of attribute invalid_object.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#object_context-instance_method" title="#object_context (instance method)">- (Object) <strong>object_context</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute object_context.</p>
 </div></span>
   
 </li>
@@ -296,7 +348,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of ValidationException</p>
+    <p>Returns a new instance of ValidationException</p>
 
 
   </div>
@@ -310,18 +362,22 @@
       <pre class="lines">
 
 
-38
-39
 40
 41
-42</pre>
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel.rb', line 40</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
   <span class='rubyid_@invalid_object ivar id'>@invalid_object</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:invalid_object</span><span class='rbrack token'>]</span>
   <span class='rubyid_@errors ivar id'>@errors</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:errors</span><span class='rbrack token'>]</span>
+  <span class='rubyid_@import_context ivar id'>@import_context</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:import_context</span><span class='rbrack token'>]</span>
+  <span class='rubyid_@object_context ivar id'>@object_context</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:object_context</span><span class='rbrack token'>]</span>
   <span class='rubyid_@attribute_types ivar id'>@attribute_types</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:attribute_types</span><span class='rbrack token'>]</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -422,6 +478,49 @@
 </div>
     
       
+      <span id="import_context=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="import_context-instance_method">
+  
+    - (<tt>Object</tt>) <strong>import_context</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute import_context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel.rb', line 37</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_import_context identifier id'>import_context</span>
+  <span class='rubyid_@import_context ivar id'>@import_context</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="invalid_object=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="invalid_object-instance_method">
@@ -457,6 +556,49 @@
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_invalid_object identifier id'>invalid_object</span>
   <span class='rubyid_@invalid_object ivar id'>@invalid_object</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="object_context=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="object_context-instance_method">
+  
+    - (<tt>Object</tt>) <strong>object_context</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute object_context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel.rb', line 38</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_object_context identifier id'>object_context</span>
+  <span class='rubyid_@object_context ivar id'>@object_context</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -529,15 +671,21 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+48
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/jsonmodel.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'common/jsonmodel.rb', line 48</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_to_s identifier id'>to_s</span>
-  <span class='dstring node'>&quot;#&lt;:ValidationException: #{{:errors =&gt; @errors}.inspect}&gt;&quot;</span>
+   <span class='rubyid_msg identifier id'>msg</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span> <span class='symbol val'>:errors</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@errors ivar id'>@errors</span> <span class='rbrace token'>}</span> 
+   <span class='rubyid_msg identifier id'>msg</span><span class='lbrack token'>[</span><span class='symbol val'>:import_context</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_@import_context ivar id'>@import_context</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_@import_context ivar id'>@import_context</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> 
+   <span class='rubyid_msg identifier id'>msg</span><span class='lbrack token'>[</span><span class='symbol val'>:object_context</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_@object_context ivar id'>@object_context</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_@object_context ivar id'>@object_context</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> 
+   <span class='dstring node'>&quot;#&lt;:ValidationException: #{msg.inspect}&gt;&quot;</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -550,9 +698,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 15:00:03 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:11:23 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

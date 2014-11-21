@@ -6,18 +6,18 @@
 <title>
   Module: SequelColumnTypes
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!SequelColumnTypes.html";
 </script>
 
 
@@ -93,7 +93,25 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Sequel uses a nice DSL for creating tables but not for altering tables.  The
+definitions below try to provide a reasonable experience for both cases.
+Creation is the normal:</p>
 
+<p>HalfLongString :title, :null =&gt; true</p>
+
+<p>while altering is (to add a column):</p>
+
+<p>HalfLongString :title</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -158,6 +176,29 @@
   <span class="summary_signature">
     
       <a href="#BlobField-instance_method" title="#BlobField (instance method)">- (Object) <strong>BlobField</strong>(field, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_column-instance_method" title="#create_column (instance method)">- (Object) <strong>create_column</strong>(*column_def) </a>
     
 
     
@@ -339,20 +380,20 @@
       <pre class="lines">
 
 
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92</pre>
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 139</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_apply_mtime_columns identifier id'>apply_mtime_columns</span><span class='lparen token'>(</span><span class='rubyid_create_time identifier id'>create_time</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
   <span class='rubyid_String constant id'>String</span> <span class='symbol val'>:created_by</span>
@@ -386,18 +427,18 @@
       <pre class="lines">
 
 
-71
-72
-73
-74
-75
-76
-77
-78
-79</pre>
+128
+129
+130
+131
+132
+133
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 128</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_apply_name_columns identifier id'>apply_name_columns</span>
   <span class='rubyid_String constant id'>String</span> <span class='symbol val'>:authority_id</span><span class='comma token'>,</span> <span class='symbol val'>:null</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
@@ -429,26 +470,53 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
-45
-46
-47
-48
-49</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 112</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_BlobField constant id'>BlobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:postgres</span>
-    <span class='rubyid_Bytea constant id'>Bytea</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:h2</span>
-    <span class='rubyid_String constant id'>String</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:size</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>128000</span><span class='rparen token'>)</span>
+  <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_ColumnDefs constant id'>ColumnDefs</span><span class='dot token'>.</span><span class='rubyid_blobField identifier id'>blobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_column-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_column</strong>(*column_def) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 84</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_column_def identifier id'>column_def</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:column</span><span class='rparen token'>)</span>
+    <span class='rubyid_column identifier id'>column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_column_def identifier id'>column_def</span><span class='rparen token'>)</span>
   <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_Blob constant id'>Blob</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
+    <span class='rubyid_add_column identifier id'>add_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_column_def identifier id'>column_def</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -472,13 +540,13 @@
       <pre class="lines">
 
 
-65
-66
-67
-68</pre>
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 122</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_DynamicEnum constant id'>DynamicEnum</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_Integer constant id'>Integer</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
@@ -505,15 +573,15 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 102</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_HalfLongString constant id'>HalfLongString</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_String constant id'>String</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:size</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>8704</span><span class='rparen token'>)</span>
+  <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_ColumnDefs constant id'>ColumnDefs</span><span class='dot token'>.</span><span class='rubyid_halfLongString identifier id'>halfLongString</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -536,15 +604,15 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 98</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_LongString constant id'>LongString</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_String constant id'>String</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:size</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>17408</span><span class='rparen token'>)</span>
+  <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_ColumnDefs constant id'>ColumnDefs</span><span class='dot token'>.</span><span class='rubyid_longString identifier id'>longString</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -567,31 +635,15 @@
       <pre class="lines">
 
 
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 117</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_MediumBlobField constant id'>MediumBlobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:postgres</span>
-    <span class='rubyid_Bytea constant id'>Bytea</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:h2</span>
-    <span class='rubyid_String constant id'>String</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:size</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>128000</span><span class='rparen token'>)</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:mysql</span>
-    <span class='rubyid_MediumBlob constant id'>MediumBlob</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_Blob constant id'>Blob</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_ColumnDefs constant id'>ColumnDefs</span><span class='dot token'>.</span><span class='rubyid_mediumBlobField identifier id'>mediumBlobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -614,23 +666,15 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
-38</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 107</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_TextBlobField constant id'>TextBlobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:derby</span>
-    <span class='rubyid_Clob constant id'>Clob</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_BlobField constant id'>BlobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
-  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_ColumnDefs constant id'>ColumnDefs</span><span class='dot token'>.</span><span class='rubyid_textBlobField identifier id'>textBlobField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -653,23 +697,15 @@
       <pre class="lines">
 
 
-14
-15
-16
-17
-18
-19
-20</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'common/db/db_migrator.rb', line 93</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_TextField constant id'>TextField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_$db_type gvar id'>$db_type</span> <span class='eq op'>==</span> <span class='symbol val'>:derby</span>
-    <span class='rubyid_Clob constant id'>Clob</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_Text constant id'>Text</span> <span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span>
-  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_create_column identifier id'>create_column</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_ColumnDefs constant id'>ColumnDefs</span><span class='dot token'>.</span><span class='rubyid_textField identifier id'>textField</span><span class='lparen token'>(</span><span class='rubyid_field identifier id'>field</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -682,9 +718,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:51 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:40 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

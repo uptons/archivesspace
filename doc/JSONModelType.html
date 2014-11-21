@@ -6,18 +6,18 @@
 <title>
   Class: JSONModelType
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!JSONModelType.html";
 </script>
 
 
@@ -292,8 +292,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Return the type of this JSONModel class (a keyword like
-:archival_object).</p>
+    <span class="summary_desc"><div class='inline'><p>Return the type of this JSONModel class (a keyword like :archival_object).</p>
 </div></span>
   
 </li>
@@ -532,8 +531,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Validate the current JSONModel instance and return a list of exceptions
-produced.</p>
+    <span class="summary_desc"><div class='inline'><p>Validate the current JSONModel instance and return a list of exceptions produced.</p>
 </div></span>
   
 </li>
@@ -742,8 +740,7 @@ produced.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Replace the values of the current JSONModel instance with the contents
-of &#8216;params&#8217;, validating before accepting the replacement.</p>
+    <span class="summary_desc"><div class='inline'><p>Replace the values of the current JSONModel instance with the contents of &#8216;params&#8217;, validating before accepting the replacement.</p>
 </div></span>
   
 </li>
@@ -858,8 +855,7 @@ of &#8216;params&#8217;, validating before accepting the replacement.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update the values of the current JSONModel instance with the contents of
-&#8216;params&#8217;, validating before accepting the update.</p>
+    <span class="summary_desc"><div class='inline'><p>Update the values of the current JSONModel instance with the contents of &#8216;params&#8217;, validating before accepting the update.</p>
 </div></span>
   
 </li>
@@ -882,7 +878,7 @@ of &#8216;params&#8217;, validating before accepting the replacement.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of JSONModelType</p>
+    <p>Returns a new instance of JSONModelType</p>
 
 
   </div>
@@ -1174,7 +1170,7 @@ of &#8216;params&#8217;, validating before accepting the replacement.</p>
   <div class="discussion">
     <p>The inverse of uri_for:</p>
 
-<pre class="code ruby18"><code>JSONModel(:archival_object).id_for(&quot;/repositories/123/archival_objects/500&quot;, :repo_id =&gt; 123)
+<pre class="code ruby18"><code class="ruby18">JSONModel(:archival_object).id_for(&quot;/repositories/123/archival_objects/500&quot;, :repo_id =&gt; 123)
 </code></pre>
 
 <p>might yield 500</p>
@@ -1611,7 +1607,7 @@ of &#8216;params&#8217;, validating before accepting the replacement.</p>
     <p>Given a numeric internal ID and additional options produce a pair containing a URI reference.
 For example:</p>
 
-<pre class="code ruby18"><code>JSONModel(:archival_object).uri_for(500, :repo_id =&gt; 123)
+<pre class="code ruby18"><code class="ruby18">JSONModel(:archival_object).uri_for(500, :repo_id =&gt; 123)
 </code></pre>
 
 <p>might yield &#8220;/repositories/123/archival_objects/500&#8221;</p>
@@ -2376,7 +2372,7 @@ that don&#8217;t appear in the JSON schema will not appear in the result.</p>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update identifier id'>update</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
   <span class='rubyid_@validated ivar id'>@validated</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
-  <span class='rubyid_replace identifier id'>replace</span><span class='lparen token'>(</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='dot token'>.</span><span class='rubyid_deep_merge identifier id'>deep_merge</span><span class='lparen token'>(</span><span class='rubyid_@data ivar id'>@data</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_replace identifier id'>replace</span><span class='lparen token'>(</span><span class='rubyid_ASUtils constant id'>ASUtils</span><span class='dot token'>.</span><span class='rubyid_deep_merge identifier id'>deep_merge</span><span class='lparen token'>(</span><span class='rubyid_@data ivar id'>@data</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -2389,9 +2385,9 @@ that don&#8217;t appear in the JSON schema will not appear in the result.</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 15:00:04 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:11:25 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

@@ -6,18 +6,18 @@
 <title>
   Module: ASModel::CRUD::ClassMethods
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!ASModel/CRUD/ClassMethods.html";
 </script>
 
 
@@ -245,6 +245,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#handle_delete-instance_method" title="#handle_delete (instance method)">- (Object) <strong>handle_delete</strong>(ids_to_delete) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#has_jsonmodel%3F-instance_method" title="#has_jsonmodel? (instance method)">- (Boolean) <strong>has_jsonmodel?</strong> </a>
     
 
@@ -269,6 +292,29 @@
   <span class="summary_signature">
     
       <a href="#high_priority%3F-instance_method" title="#high_priority? (instance method)">- (Boolean) <strong>high_priority?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_relationship%3F-instance_method" title="#is_relationship? (instance method)">- (Boolean) <strong>is_relationship?</strong> </a>
     
 
     
@@ -337,29 +383,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#prepare_for_deletion-instance_method" title="#prepare_for_deletion (instance method)">- (Object) <strong>prepare_for_deletion</strong>(dataset) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#repo_unique_constraint-instance_method" title="#repo_unique_constraint (instance method)">- (Object) <strong>repo_unique_constraint</strong>(property, constraints) </a>
     
 
@@ -406,7 +429,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sequel_to_jsonmodel-instance_method" title="#sequel_to_jsonmodel (instance method)">- (Object) <strong>sequel_to_jsonmodel</strong>(obj, opts = {}) </a>
+      <a href="#sequel_to_jsonmodel-instance_method" title="#sequel_to_jsonmodel (instance method)">- (Object) <strong>sequel_to_jsonmodel</strong>(objs, opts = {}) </a>
     
 
     
@@ -496,23 +519,23 @@
       <pre class="lines">
 
 
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418</pre>
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 405</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 435</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_corresponds_to identifier id'>corresponds_to</span><span class='lparen token'>(</span><span class='rubyid_jsonmodel identifier id'>jsonmodel</span><span class='rparen token'>)</span>
   <span class='rubyid_@jsonmodel ivar id'>@jsonmodel</span> <span class='assign token'>=</span> <span class='rubyid_jsonmodel identifier id'>jsonmodel</span>
@@ -522,7 +545,7 @@
   <span class='rubyid_enums identifier id'>enums</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
   <span class='rubyid_@jsonmodel ivar id'>@jsonmodel</span><span class='dot token'>.</span><span class='rubyid_schema identifier id'>schema</span><span class='lbrack token'>[</span><span class='string val'>'properties'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_prop identifier id'>prop</span><span class='comma token'>,</span> <span class='rubyid_defn identifier id'>defn</span><span class='bitor op'>|</span>
     <span class='rubyid_if if kw'>if</span> <span class='rubyid_defn identifier id'>defn</span><span class='lbrack token'>[</span><span class='string val'>&quot;dynamic_enum&quot;</span><span class='rbrack token'>]</span>
-      <span class='rubyid_enums identifier id'>enums</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:property</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_prop identifier id'>prop</span><span class='comma token'>,</span> <span class='symbol val'>:uses_enum</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_defn identifier id'>defn</span><span class='lbrack token'>[</span><span class='string val'>'dynamic_enum'</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
+      <span class='rubyid_enums identifier id'>enums</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:property</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_prop identifier id'>prop</span><span class='comma token'>,</span> <span class='symbol val'>:uses_enum</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='rubyid_defn identifier id'>defn</span><span class='lbrack token'>[</span><span class='string val'>'dynamic_enum'</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
     <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_end end kw'>end</span>
 
@@ -560,28 +583,29 @@ nested record instances that it contains.</p>
       <pre class="lines">
 
 
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315</pre>
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 330</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_create_from_json identifier id'>create_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_extra_values identifier id'>extra_values</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_strict_param_setting identifier id'>strict_param_setting</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
@@ -600,6 +624,7 @@ nested record instances that it contains.</p>
 
   <span class='rubyid_fire_update identifier id'>fire_update</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='rparen token'>)</span>
 
+  <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_refresh identifier id'>refresh</span>
   <span class='rubyid_obj identifier id'>obj</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -664,18 +689,18 @@ include them in the response.</p>
       <pre class="lines">
 
 
-373
-374
-375
-376
-377
-378
-379
-380
-381</pre>
+403
+404
+405
+406
+407
+408
+409
+410
+411</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 373</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 403</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_def_nested_record identifier id'>def_nested_record</span><span class='lparen token'>(</span><span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
   <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_association_reflection identifier id'>association_reflection</span><span class='lparen token'>(</span><span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:corresponding_to_association</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
@@ -717,33 +742,25 @@ include them in the response.</p>
       <pre class="lines">
 
 
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337</pre>
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 358</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_fire_update identifier id'>fire_update</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_sequel_obj identifier id'>sequel_obj</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_high_priority? fid id'>high_priority?</span>
-    <span class='rubyid_sequel_obj identifier id'>sequel_obj</span><span class='dot token'>.</span><span class='rubyid_refresh identifier id'>refresh</span>
-
-    <span class='comment val'># Manually set any DB hooked values</span>
-    <span class='rubyid_CRUD constant id'>CRUD</span><span class='dot token'>.</span><span class='rubyid_set_audit_fields identifier id'>set_audit_fields</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_sequel_obj identifier id'>sequel_obj</span><span class='rparen token'>)</span>
-
-    <span class='rubyid_hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span>
+    <span class='rubyid_model identifier id'>model</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span>
     <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_sequel_obj identifier id'>sequel_obj</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span>
+    <span class='rubyid_hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_to_jsonmodel identifier id'>to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_sequel_obj identifier id'>sequel_obj</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span><span class='lparen token'>(</span><span class='symbol val'>:trusted</span><span class='rparen token'>)</span>
     <span class='rubyid_DB constant id'>DB</span><span class='dot token'>.</span><span class='rubyid_after_commit identifier id'>after_commit</span> <span class='rubyid_do do kw'>do</span>
       <span class='rubyid_RealtimeIndexing constant id'>RealtimeIndexing</span><span class='dot token'>.</span><span class='rubyid_record_update identifier id'>record_update</span><span class='lparen token'>(</span><span class='rubyid_hash identifier id'>hash</span><span class='comma token'>,</span> <span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
     <span class='rubyid_end end kw'>end</span>
@@ -770,17 +787,17 @@ include them in the response.</p>
       <pre class="lines">
 
 
-384
-385
-386
-387
-388
-389
-390
-391</pre>
+414
+415
+416
+417
+418
+419
+420
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 384</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 414</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_nested_graph identifier id'>get_nested_graph</span>
   <span class='rubyid_Hash constant id'>Hash</span><span class='lbrack token'>[</span><span class='rubyid_nested_records identifier id'>nested_records</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='bitor op'>|</span>
@@ -811,18 +828,18 @@ include them in the response.</p>
       <pre class="lines">
 
 
-394
-395
-396
-397
-398
-399
-400
-401
-402</pre>
+424
+425
+426
+427
+428
+429
+430
+431
+432</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 424</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_or_die identifier id'>get_or_die</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_model_scope identifier id'>model_scope</span> <span class='eq op'>==</span> <span class='symbol val'>:repository</span>
@@ -832,6 +849,37 @@ include them in the response.</p>
         <span class='rubyid_end end kw'>end</span>
 
   <span class='rubyid_obj identifier id'>obj</span> <span class='rubyid_or or kw'>or</span> <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_NotFoundException constant id'>NotFoundException</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{self} not found&quot;</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>handle_delete</strong>(ids_to_delete) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+487
+488
+489</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 487</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_handle_delete identifier id'>handle_delete</span><span class='lparen token'>(</span><span class='rubyid_ids_to_delete identifier id'>ids_to_delete</span><span class='rparen token'>)</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_ids_to_delete identifier id'>ids_to_delete</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -877,12 +925,12 @@ include them in the response.</p>
       <pre class="lines">
 
 
-422
-423
-424</pre>
+452
+453
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 422</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 452</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_has_jsonmodel? fid id'>has_jsonmodel?</span>
   <span class='notop op'>!</span><span class='rubyid_@jsonmodel ivar id'>@jsonmodel</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
@@ -931,15 +979,69 @@ include them in the response.</p>
       <pre class="lines">
 
 
-318
-319
-320</pre>
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 318</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 352</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_high_priority? fid id'>high_priority?</span>
   <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:is_high_priority</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_relationship?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_relationship?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+511
+512
+513</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 511</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_is_relationship? fid id'>is_relationship?</span>
+  <span class='rubyid_false false kw'>false</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -972,12 +1074,12 @@ include them in the response.</p>
       <pre class="lines">
 
 
-428
-429
-430</pre>
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 428</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 458</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_my_jsonmodel identifier id'>my_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_ok_if_missing identifier id'>ok_if_missing</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
   <span class='rubyid_@jsonmodel ivar id'>@jsonmodel</span> <span class='rubyid_or or kw'>or</span> <span class='lparen token'>(</span><span class='rubyid_ok_if_missing identifier id'>ok_if_missing</span> <span class='integer val'>? </span><span class='rubyid_nil nil kw'>nil</span> <span class='colon op'>:</span> <span class='rubyid_raise identifier id'>raise</span><span class='lparen token'>(</span><span class='dstring node'>&quot;No corresponding JSONModel set for model #{self.inspect}&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -1003,48 +1105,15 @@ include them in the response.</p>
       <pre class="lines">
 
 
-340
-341
-342</pre>
+370
+371
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 340</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 370</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_nested_records identifier id'>nested_records</span>
   <span class='rubyid_@nested_records ivar id'>@nested_records</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="prepare_for_deletion-instance_method">
-  
-    - (<tt>Object</tt>) <strong>prepare_for_deletion</strong>(dataset) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-482
-483
-484
-485</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 482</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_prepare_for_deletion identifier id'>prepare_for_deletion</span><span class='lparen token'>(</span><span class='rubyid_dataset identifier id'>dataset</span><span class='rparen token'>)</span>
-  <span class='comment val'># Provide a hook for models to do something in response to a dataset being deleted.</span>
-  <span class='comment val'># We won't do anything here, but mixins can add to this.</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1067,13 +1136,13 @@ include them in the response.</p>
       <pre class="lines">
 
 
-501
-502
-503
-504</pre>
+505
+506
+507
+508</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 501</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 505</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_repo_unique_constraint identifier id'>repo_unique_constraint</span><span class='lparen token'>(</span><span class='rubyid_property identifier id'>property</span><span class='comma token'>,</span> <span class='rubyid_constraints identifier id'>constraints</span><span class='rparen token'>)</span>
   <span class='rubyid_@repo_unique_constraints ivar id'>@repo_unique_constraints</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -1100,12 +1169,12 @@ include them in the response.</p>
       <pre class="lines">
 
 
-496
-497
-498</pre>
+500
+501
+502</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 496</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 500</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_repo_unique_constraints identifier id'>repo_unique_constraints</span>
   <span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_@repo_unique_constraints ivar id'>@repo_unique_constraints</span><span class='rparen token'>)</span>
@@ -1119,7 +1188,7 @@ include them in the response.</p>
       <div class="method_details ">
   <h3 class="signature " id="sequel_to_jsonmodel-instance_method">
   
-    - (<tt>Object</tt>) <strong>sequel_to_jsonmodel</strong>(obj, opts = {}) 
+    - (<tt>Object</tt>) <strong>sequel_to_jsonmodel</strong>(objs, opts = {}) 
   
 
   
@@ -1131,65 +1200,15 @@ include them in the response.</p>
       <pre class="lines">
 
 
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460</pre>
+463
+464
+465</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 433</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 463</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_json identifier id'>json</span> <span class='assign token'>=</span> <span class='rubyid_my_jsonmodel identifier id'>my_jsonmodel</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_map_db_types_to_json identifier id'>map_db_types_to_json</span><span class='lparen token'>(</span><span class='rubyid_my_jsonmodel identifier id'>my_jsonmodel</span><span class='dot token'>.</span><span class='rubyid_schema identifier id'>schema</span><span class='comma token'>,</span>
-                                               <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_reject identifier id'>reject</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_k identifier id'>k</span><span class='comma token'>,</span> <span class='rubyid_v identifier id'>v</span><span class='bitor op'>|</span> <span class='rubyid_v identifier id'>v</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-
-  <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:repo_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_active_repository identifier id'>active_repository</span><span class='rparen token'>)</span>
-  <span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_uri identifier id'>uri</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_uri identifier id'>uri</span>
-
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_model_scope identifier id'>model_scope</span> <span class='eq op'>==</span> <span class='symbol val'>:repository</span>
-    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='string val'>'repository'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'ref'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:repository</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_active_repository identifier id'>active_repository</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
-  <span class='rubyid_end end kw'>end</span>
-
-  <span class='comment val'># If there are nested records for this class, grab their URI references too</span>
-  <span class='rubyid_nested_records identifier id'>nested_records</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='bitor op'>|</span>
-    <span class='rubyid_model identifier id'>model</span> <span class='assign token'>=</span> <span class='rubyid_Kernel constant id'>Kernel</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:class_name</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-
-    <span class='rubyid_records identifier id'>records</span> <span class='assign token'>=</span> <span class='rubyid_Array constant id'>Array</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:name</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_linked_obj identifier id'>linked_obj</span><span class='bitor op'>|</span>
-      <span class='rubyid_model identifier id'>model</span><span class='dot token'>.</span><span class='rubyid_to_jsonmodel identifier id'>to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_linked_obj identifier id'>linked_obj</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span><span class='lparen token'>(</span><span class='symbol val'>:trusted</span><span class='rparen token'>)</span>
-    <span class='rbrace token'>}</span>
-
-    <span class='rubyid_is_array identifier id'>is_array</span> <span class='assign token'>=</span> <span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:is_array</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='notop op'>!</span><span class='lbrack token'>[</span><span class='symbol val'>:many_to_one</span><span class='comma token'>,</span> <span class='symbol val'>:one_to_one</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:association</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-
-    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='rubyid_nested_record identifier id'>nested_record</span><span class='lbrack token'>[</span><span class='symbol val'>:json_property</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='rubyid_is_array identifier id'>is_array</span> <span class='integer val'>? </span><span class='rubyid_records identifier id'>records</span> <span class='colon op'>:</span> <span class='rubyid_records identifier id'>records</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-  <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_CRUD constant id'>CRUD</span><span class='dot token'>.</span><span class='rubyid_set_audit_fields identifier id'>set_audit_fields</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='rparen token'>)</span>
-
-  <span class='rubyid_json identifier id'>json</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_objs identifier id'>objs</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_NestedRecordResolver constant id'>NestedRecordResolver</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_nested_records identifier id'>nested_records</span><span class='comma token'>,</span> <span class='rubyid_objs identifier id'>objs</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_resolve identifier id'>resolve</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1212,11 +1231,6 @@ include them in the response.</p>
       <pre class="lines">
 
 
-463
-464
-465
-466
-467
 468
 469
 470
@@ -1228,10 +1242,15 @@ include them in the response.</p>
 476
 477
 478
-479</pre>
+479
+480
+481
+482
+483
+484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 463</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 468</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_to_jsonmodel identifier id'>to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span> <span class='rubyid_Integer constant id'>Integer</span>
@@ -1248,7 +1267,7 @@ include them in the response.</p>
     <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_eagerly_load! fid id'>eagerly_load!</span>
   <span class='rubyid_end end kw'>end</span>
 
-  <span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
+  <span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='rubyid_obj identifier id'>obj</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1271,15 +1290,15 @@ include them in the response.</p>
       <pre class="lines">
 
 
-488
-489
-490
-491
 492
-493</pre>
+493
+494
+495
+496
+497</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 488</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/ASModel_crud.rb', line 492</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_mtime_for_ids identifier id'>update_mtime_for_ids</span><span class='lparen token'>(</span><span class='rubyid_ids identifier id'>ids</span><span class='rparen token'>)</span>
   <span class='rubyid_now identifier id'>now</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
@@ -1298,9 +1317,9 @@ include them in the response.</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:45 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:08:52 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

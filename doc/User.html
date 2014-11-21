@@ -6,18 +6,18 @@
 <title>
   Class: User
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!User.html";
 </script>
 
 
@@ -178,7 +178,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#become_user-class_method" title="become_user (class method)">+ (Object) <strong>become_user</strong>(session, username) </a>
+      <a href="#become_user-class_method" title="become_user (class method)">+ (Object) <strong>become_user</strong>(context, username) </a>
     
 
     
@@ -247,7 +247,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#establish_session-class_method" title="establish_session (class method)">+ (Object) <strong>establish_session</strong>(session, backend_session, username) </a>
+      <a href="#establish_session-class_method" title="establish_session (class method)">+ (Object) <strong>establish_session</strong>(context, backend_session, username) </a>
     
 
     
@@ -339,7 +339,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#refresh_permissions-class_method" title="refresh_permissions (class method)">+ (Object) <strong>refresh_permissions</strong>(session) </a>
+      <a href="#refresh_permissions-class_method" title="refresh_permissions (class method)">+ (Object) <strong>refresh_permissions</strong>(context) </a>
     
 
     
@@ -385,7 +385,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sequel_to_jsonmodel-class_method" title="sequel_to_jsonmodel (class method)">+ (Object) <strong>sequel_to_jsonmodel</strong>(obj, opts = {}) </a>
+      <a href="#sequel_to_jsonmodel-class_method" title="sequel_to_jsonmodel (class method)">+ (Object) <strong>sequel_to_jsonmodel</strong>(objs, opts = {}) </a>
     
 
     
@@ -409,6 +409,29 @@
   <span class="summary_signature">
     
       <a href="#STAFF_USERNAME-class_method" title="STAFF_USERNAME (class method)">+ (Object) <strong>STAFF_USERNAME</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#store_permissions-class_method" title="store_permissions (class method)">+ (Object) <strong>store_permissions</strong>(permissions, context) </a>
     
 
     
@@ -680,7 +703,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="ASModel.html" title="ASModel (module)">ASModel</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ASModel.html#all_models-class_method" title="ASModel.all_models (method)">all_models</a></span>, <span class='object_link'><a href="ASModel.html#included-class_method" title="ASModel.included (method)">included</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ASModel.html#all_models-class_method" title="ASModel.all_models (method)">all_models</a></span>, <span class='object_link'><a href="ASModel.html#included-class_method" title="ASModel.included (method)">included</a></span>, <span class='object_link'><a href="ASModel.html#update_publish_flag-class_method" title="ASModel.update_publish_flag (method)">update_publish_flag</a></span>, <span class='object_link'><a href="ASModel.html#update_suppressed_flag-class_method" title="ASModel.update_suppressed_flag (method)">update_suppressed_flag</a></span></p>
 
   
   
@@ -691,7 +714,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="JSONModel.html" title="JSONModel (module)">JSONModel</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="JSONModel.html#JSONModel-class_method" title="JSONModel.JSONModel (method)">JSONModel</a></span>, <span class='object_link'><a href="JSONModel.html#JSONModel-instance_method" title="JSONModel#JSONModel (method)">#JSONModel</a></span>, <span class='object_link'><a href="JSONModel.html#add_error_handler-class_method" title="JSONModel.add_error_handler (method)">add_error_handler</a></span>, <span class='object_link'><a href="JSONModel.html#all-class_method" title="JSONModel.all (method)">all</a></span>, <span class='object_link'><a href="JSONModel.html#allow_unmapped_enum_value-class_method" title="JSONModel.allow_unmapped_enum_value (method)">allow_unmapped_enum_value</a></span>, <span class='object_link'><a href="JSONModel.html#backend_url-class_method" title="JSONModel.backend_url (method)">backend_url</a></span>, <span class='object_link'><a href="JSONModel.html#client_mode%3F-class_method" title="JSONModel.client_mode? (method)">client_mode?</a></span>, <span class='object_link'><a href="JSONModel.html#custom_validations-class_method" title="JSONModel.custom_validations (method)">custom_validations</a></span>, <span class='object_link'><a href="JSONModel.html#deep_merge-class_method" title="JSONModel.deep_merge (method)">deep_merge</a></span>, <span class='object_link'><a href="JSONModel.html#destroy_model-class_method" title="JSONModel.destroy_model (method)">destroy_model</a></span>, <span class='object_link'><a href="JSONModel.html#enum_default_value-class_method" title="JSONModel.enum_default_value (method)">enum_default_value</a></span>, <span class='object_link'><a href="JSONModel.html#enum_values-class_method" title="JSONModel.enum_values (method)">enum_values</a></span>, <span class='object_link'><a href="JSONModel.html#handle_error-class_method" title="JSONModel.handle_error (method)">handle_error</a></span>, <span class='object_link'><a href="JSONModel.html#init-class_method" title="JSONModel.init (method)">init</a></span>, <span class='object_link'><a href="JSONModel.html#load_schema-class_method" title="JSONModel.load_schema (method)">load_schema</a></span>, <span class='object_link'><a href="JSONModel.html#models-instance_method" title="JSONModel#models (method)">#models</a></span>, <span class='object_link'><a href="JSONModel.html#parse_jsonmodel_ref-class_method" title="JSONModel.parse_jsonmodel_ref (method)">parse_jsonmodel_ref</a></span>, <span class='object_link'><a href="JSONModel.html#parse_reference-class_method" title="JSONModel.parse_reference (method)">parse_reference</a></span>, <span class='object_link'><a href="JSONModel.html#repository-class_method" title="JSONModel.repository (method)">repository</a></span>, <span class='object_link'><a href="JSONModel.html#repository_for-class_method" title="JSONModel.repository_for (method)">repository_for</a></span>, <span class='object_link'><a href="JSONModel.html#schema_src-class_method" title="JSONModel.schema_src (method)">schema_src</a></span>, <span class='object_link'><a href="JSONModel.html#set_repository-class_method" title="JSONModel.set_repository (method)">set_repository</a></span>, <span class='object_link'><a href="JSONModel.html#strict_mode-instance_method" title="JSONModel#strict_mode (method)">#strict_mode</a></span>, <span class='object_link'><a href="JSONModel.html#strict_mode%3F-class_method" title="JSONModel.strict_mode? (method)">strict_mode?</a></span>, <span class='object_link'><a href="JSONModel.html#with_repository-class_method" title="JSONModel.with_repository (method)">with_repository</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="JSONModel.html#JSONModel-class_method" title="JSONModel.JSONModel (method)">JSONModel</a></span>, <span class='object_link'><a href="JSONModel.html#JSONModel-instance_method" title="JSONModel#JSONModel (method)">#JSONModel</a></span>, <span class='object_link'><a href="JSONModel.html#add_error_handler-class_method" title="JSONModel.add_error_handler (method)">add_error_handler</a></span>, <span class='object_link'><a href="JSONModel.html#all-class_method" title="JSONModel.all (method)">all</a></span>, <span class='object_link'><a href="JSONModel.html#allow_unmapped_enum_value-class_method" title="JSONModel.allow_unmapped_enum_value (method)">allow_unmapped_enum_value</a></span>, <span class='object_link'><a href="JSONModel.html#backend_url-class_method" title="JSONModel.backend_url (method)">backend_url</a></span>, <span class='object_link'><a href="JSONModel.html#client_mode%3F-class_method" title="JSONModel.client_mode? (method)">client_mode?</a></span>, <span class='object_link'><a href="JSONModel.html#custom_validations-class_method" title="JSONModel.custom_validations (method)">custom_validations</a></span>, <span class='object_link'><a href="JSONModel.html#destroy_model-class_method" title="JSONModel.destroy_model (method)">destroy_model</a></span>, <span class='object_link'><a href="JSONModel.html#enum_default_value-class_method" title="JSONModel.enum_default_value (method)">enum_default_value</a></span>, <span class='object_link'><a href="JSONModel.html#enum_values-class_method" title="JSONModel.enum_values (method)">enum_values</a></span>, <span class='object_link'><a href="JSONModel.html#handle_error-class_method" title="JSONModel.handle_error (method)">handle_error</a></span>, <span class='object_link'><a href="JSONModel.html#init-class_method" title="JSONModel.init (method)">init</a></span>, <span class='object_link'><a href="JSONModel.html#load_schema-class_method" title="JSONModel.load_schema (method)">load_schema</a></span>, <span class='object_link'><a href="JSONModel.html#models-instance_method" title="JSONModel#models (method)">#models</a></span>, <span class='object_link'><a href="JSONModel.html#parse_jsonmodel_ref-class_method" title="JSONModel.parse_jsonmodel_ref (method)">parse_jsonmodel_ref</a></span>, <span class='object_link'><a href="JSONModel.html#parse_reference-class_method" title="JSONModel.parse_reference (method)">parse_reference</a></span>, <span class='object_link'><a href="JSONModel.html#repository-class_method" title="JSONModel.repository (method)">repository</a></span>, <span class='object_link'><a href="JSONModel.html#repository_for-class_method" title="JSONModel.repository_for (method)">repository_for</a></span>, <span class='object_link'><a href="JSONModel.html#schema_src-class_method" title="JSONModel.schema_src (method)">schema_src</a></span>, <span class='object_link'><a href="JSONModel.html#set_repository-class_method" title="JSONModel.set_repository (method)">set_repository</a></span>, <span class='object_link'><a href="JSONModel.html#strict_mode-instance_method" title="JSONModel#strict_mode (method)">#strict_mode</a></span>, <span class='object_link'><a href="JSONModel.html#strict_mode%3F-class_method" title="JSONModel.strict_mode? (method)">strict_mode?</a></span>, <span class='object_link'><a href="JSONModel.html#with_repository-class_method" title="JSONModel.with_repository (method)">with_repository</a></span></p>
 
   
 
@@ -714,12 +737,12 @@
       <pre class="lines">
 
 
-89
 90
-91</pre>
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 90</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_ADMIN_USERNAME constant id'>ADMIN_USERNAME</span>
   <span class='string val'>&quot;admin&quot;</span>
@@ -733,7 +756,7 @@
       <div class="method_details ">
   <h3 class="signature " id="become_user-class_method">
   
-    + (<tt>Object</tt>) <strong>become_user</strong>(session, username) 
+    + (<tt>Object</tt>) <strong>become_user</strong>(context, username) 
   
 
   
@@ -745,12 +768,6 @@
       <pre class="lines">
 
 
-38
-39
-40
-41
-42
-43
 44
 45
 46
@@ -759,12 +776,18 @@
 49
 50
 51
-52</pre>
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 44</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_become_user identifier id'>become_user</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='comma token'>,</span> <span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_become_user identifier id'>become_user</span><span class='lparen token'>(</span><span class='rubyid_context identifier id'>context</span><span class='comma token'>,</span> <span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
   <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{username}/become-user&quot;</span><span class='rparen token'>)</span>
 
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_HTTP constant id'>HTTP</span><span class='dot token'>.</span><span class='rubyid_post_form identifier id'>post_form</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
@@ -772,7 +795,7 @@
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_code identifier id'>code</span> <span class='eq op'>==</span> <span class='string val'>'200'</span>
     <span class='rubyid_backend_session identifier id'>backend_session</span> <span class='assign token'>=</span> <span class='rubyid_ASUtils constant id'>ASUtils</span><span class='dot token'>.</span><span class='rubyid_json_parse identifier id'>json_parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
 
-    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_establish_session identifier id'>establish_session</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='comma token'>,</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='comma token'>,</span> <span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
+    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_establish_session identifier id'>establish_session</span><span class='lparen token'>(</span><span class='rubyid_context identifier id'>context</span><span class='comma token'>,</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='comma token'>,</span> <span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
 
     <span class='rubyid_true true kw'>true</span>
   <span class='rubyid_else else kw'>else</span>
@@ -800,12 +823,12 @@
       <pre class="lines">
 
 
-84
 85
-86</pre>
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 85</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_broadcast_changes identifier id'>broadcast_changes</span>
   <span class='rubyid_Notifications constant id'>Notifications</span><span class='dot token'>.</span><span class='rubyid_notify identifier id'>notify</span><span class='lparen token'>(</span><span class='string val'>&quot;REFRESH_ACLS&quot;</span><span class='rparen token'>)</span>
@@ -886,7 +909,7 @@
       <div class="method_details ">
   <h3 class="signature " id="establish_session-class_method">
   
-    + (<tt>Object</tt>) <strong>establish_session</strong>(session, backend_session, username) 
+    + (<tt>Object</tt>) <strong>establish_session</strong>(context, backend_session, username) 
   
 
   
@@ -904,17 +927,19 @@
 9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 6</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_establish_session identifier id'>establish_session</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='comma token'>,</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='comma token'>,</span> <span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
-  <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:session</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='lbrack token'>[</span><span class='string val'>&quot;session&quot;</span><span class='rbrack token'>]</span>
-  <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:permissions</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Permissions constant id'>Permissions</span><span class='dot token'>.</span><span class='rubyid_pack identifier id'>pack</span><span class='lparen token'>(</span><span class='rubyid_backend_session identifier id'>backend_session</span><span class='lbrack token'>[</span><span class='string val'>&quot;user&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;permissions&quot;</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-  <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:last_permission_refresh</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
-  <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user_uri</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='lbrack token'>[</span><span class='string val'>&quot;user&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;uri&quot;</span><span class='rbrack token'>]</span>
-  <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_username identifier id'>username</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_establish_session identifier id'>establish_session</span><span class='lparen token'>(</span><span class='rubyid_context identifier id'>context</span><span class='comma token'>,</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='comma token'>,</span> <span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
+  <span class='rubyid_context identifier id'>context</span><span class='dot token'>.</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:session</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='lbrack token'>[</span><span class='string val'>&quot;session&quot;</span><span class='rbrack token'>]</span>
+
+  <span class='rubyid_store_permissions identifier id'>store_permissions</span><span class='lparen token'>(</span><span class='rubyid_backend_session identifier id'>backend_session</span><span class='lbrack token'>[</span><span class='string val'>&quot;user&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;permissions&quot;</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_context identifier id'>context</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_context identifier id'>context</span><span class='dot token'>.</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user_uri</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_backend_session identifier id'>backend_session</span><span class='lbrack token'>[</span><span class='string val'>&quot;user&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;uri&quot;</span><span class='rbrack token'>]</span>
+  <span class='rubyid_context identifier id'>context</span><span class='dot token'>.</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:user</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_username identifier id'>username</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -937,20 +962,20 @@
       <pre class="lines">
 
 
-25
-26
-27
-28
-29
-30
 31
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 31</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_login identifier id'>login</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='comma token'>,</span> <span class='rubyid_password identifier id'>password</span><span class='rparen token'>)</span>
   <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{username}/login&quot;</span><span class='rparen token'>)</span>
@@ -1061,12 +1086,12 @@
       <pre class="lines">
 
 
-99
 100
-101</pre>
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 100</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_PUBLIC_USERNAME constant id'>PUBLIC_USERNAME</span>
   <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:public_username</span><span class='rbrack token'>]</span>
@@ -1080,7 +1105,7 @@
       <div class="method_details ">
   <h3 class="signature " id="refresh_permissions-class_method">
   
-    + (<tt>Object</tt>) <strong>refresh_permissions</strong>(session) 
+    + (<tt>Object</tt>) <strong>refresh_permissions</strong>(context) 
   
 
   
@@ -1092,7 +1117,6 @@
       <pre class="lines">
 
 
-15
 16
 17
 18
@@ -1102,14 +1126,13 @@
 22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 16</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_refresh_permissions identifier id'>refresh_permissions</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_refresh_permissions identifier id'>refresh_permissions</span><span class='lparen token'>(</span><span class='rubyid_context identifier id'>context</span><span class='rparen token'>)</span>
   <span class='rubyid_user identifier id'>user</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'current-user'</span><span class='rparen token'>)</span>
 
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_user identifier id'>user</span>
-    <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:permissions</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Permissions constant id'>Permissions</span><span class='dot token'>.</span><span class='rubyid_pack identifier id'>pack</span><span class='lparen token'>(</span><span class='rubyid_user identifier id'>user</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span><span class='rparen token'>)</span>
-    <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:last_permission_refresh</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
+    <span class='rubyid_store_permissions identifier id'>store_permissions</span><span class='lparen token'>(</span><span class='rubyid_user identifier id'>user</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span><span class='comma token'>,</span> <span class='rubyid_context identifier id'>context</span><span class='rparen token'>)</span>
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -1133,12 +1156,12 @@
       <pre class="lines">
 
 
-94
 95
-96</pre>
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 95</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_SEARCH_USERNAME constant id'>SEARCH_USERNAME</span>
   <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:search_username</span><span class='rbrack token'>]</span>
@@ -1152,7 +1175,7 @@
       <div class="method_details ">
   <h3 class="signature " id="sequel_to_jsonmodel-class_method">
   
-    + (<tt>Object</tt>) <strong>sequel_to_jsonmodel</strong>(obj, opts = {}) 
+    + (<tt>Object</tt>) <strong>sequel_to_jsonmodel</strong>(objs, opts = {}) 
   
 
   
@@ -1176,23 +1199,25 @@
 78
 79
 80
-81</pre>
+81
+82</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 69</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_json identifier id'>json</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_sequel_to_jsonmodel identifier id'>sequel_to_jsonmodel</span><span class='lparen token'>(</span><span class='rubyid_objs identifier id'>objs</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_jsons identifier id'>jsons</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
 
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_agent_record_id identifier id'>agent_record_id</span>
-    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='string val'>'agent_record'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'ref'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_agent_record_type identifier id'>agent_record_type</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_agent_record_id identifier id'>agent_record_id</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+  <span class='rubyid_jsons identifier id'>jsons</span><span class='dot token'>.</span><span class='rubyid_zip identifier id'>zip</span><span class='lparen token'>(</span><span class='rubyid_objs identifier id'>objs</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='bitor op'>|</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_agent_record_id identifier id'>agent_record_id</span>
+      <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='string val'>'agent_record'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'ref'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_uri_for identifier id'>uri_for</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_agent_record_type identifier id'>agent_record_type</span><span class='comma token'>,</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_agent_record_id identifier id'>agent_record_id</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:administer_system</span><span class='rparen token'>)</span>
+      <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='string val'>'is_admin'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+    <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_obj identifier id'>obj</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:administer_system</span><span class='rparen token'>)</span>
-    <span class='rubyid_json identifier id'>json</span><span class='lbrack token'>[</span><span class='string val'>'is_admin'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-  <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_json identifier id'>json</span>
+  <span class='rubyid_jsons identifier id'>jsons</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1215,15 +1240,48 @@
       <pre class="lines">
 
 
-104
 105
-106</pre>
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 105</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_STAFF_USERNAME constant id'>STAFF_USERNAME</span>
   <span class='rubyid_AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:staff_username</span><span class='rbrack token'>]</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="store_permissions-class_method">
+  
+    + (<tt>Object</tt>) <strong>store_permissions</strong>(permissions, context) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/user.rb', line 25</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_store_permissions identifier id'>store_permissions</span><span class='lparen token'>(</span><span class='rubyid_permissions identifier id'>permissions</span><span class='comma token'>,</span> <span class='rubyid_context identifier id'>context</span><span class='rparen token'>)</span>
+  <span class='rubyid_context identifier id'>context</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:cookies</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_signed identifier id'>signed</span><span class='lbrack token'>[</span><span class='symbol val'>:archivesspace_permissions</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_ASUtils constant id'>ASUtils</span><span class='dot token'>.</span><span class='rubyid_to_json identifier id'>to_json</span><span class='lparen token'>(</span><span class='rubyid_Permissions constant id'>Permissions</span><span class='dot token'>.</span><span class='rubyid_pack identifier id'>pack</span><span class='lparen token'>(</span><span class='rubyid_permissions identifier id'>permissions</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_context identifier id'>context</span><span class='dot token'>.</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:last_permission_refresh</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1246,12 +1304,12 @@
       <pre class="lines">
 
 
-109
 110
-111</pre>
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 110</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_unlisted_user_ids identifier id'>unlisted_user_ids</span>
   <span class='rubyid_@@unlisted_user_ids ivar id'>@@unlisted_user_ids</span> <span class='opasgn op'>||=</span> <span class='rubyid_User constant id'>User</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:is_hidden_user</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>1</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_user identifier id'>user</span><span class='bitor op'>|</span> <span class='rubyid_user identifier id'>user</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rbrace token'>}</span>
@@ -1283,7 +1341,6 @@
       <pre class="lines">
 
 
-211
 212
 213
 214
@@ -1295,10 +1352,11 @@
 220
 221
 222
-223</pre>
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 211</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 212</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_to_groups identifier id'>add_to_groups</span><span class='lparen token'>(</span><span class='rubyid_groups identifier id'>groups</span><span class='comma token'>,</span> <span class='rubyid_delete_all_for_repo_id identifier id'>delete_all_for_repo_id</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
 
@@ -1357,12 +1415,12 @@
       <pre class="lines">
 
 
-127
 128
-129</pre>
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 128</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_anonymous? fid id'>anonymous?</span>
   <span class='rubyid_false false kw'>false</span>
@@ -1388,14 +1446,14 @@
       <pre class="lines">
 
 
-114
 115
 116
 117
-118</pre>
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 115</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_before_save identifier id'>before_save</span>
   <span class='rubyid_super super kw'>super</span>
@@ -1446,7 +1504,6 @@
       <pre class="lines">
 
 
-150
 151
 152
 153
@@ -1469,10 +1526,11 @@
 170
 171
 172
-173</pre>
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 151</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='rubyid_permission_code identifier id'>permission_code</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_derived_permissions identifier id'>derived_permissions</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_permission_code identifier id'>permission_code</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='rparen token'>)</span>
@@ -1542,7 +1600,6 @@
       <pre class="lines">
 
 
-226
 227
 228
 229
@@ -1554,16 +1611,27 @@
 235
 236
 237
-238</pre>
+238
+239
+240
+241
+242
+243
+244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 227</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete identifier id'>delete</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_AccessDeniedException constant id'>AccessDeniedException</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;Can't delete system user&quot;</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_is_system_user identifier id'>is_system_user</span> <span class='eq op'>==</span> <span class='integer val'>1</span>
 
   <span class='rubyid_DBAuth constant id'>DBAuth</span><span class='dot token'>.</span><span class='rubyid_delete_user identifier id'>delete_user</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
-
+ 
+  <span class='comment val'># transfer all import jobs to the admin user</span>
+  <span class='rubyid_admin_user identifier id'>admin_user</span> <span class='assign token'>=</span> <span class='rubyid_User constant id'>User</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span><span class='lparen token'>(</span><span class='symbol val'>:id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_where identifier id'>where</span><span class='lparen token'>(</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;admin&quot;</span> <span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span>
+  <span class='rubyid_ImportJob constant id'>ImportJob</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:owner_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_update identifier id'>update</span><span class='lparen token'>(</span> <span class='symbol val'>:owner_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_admin_user identifier id'>admin_user</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span> <span class='rparen token'>)</span>
+  
+  <span class='rubyid_Preference constant id'>Preference</span><span class='dot token'>.</span><span class='rubyid_filter identifier id'>filter</span><span class='lparen token'>(</span><span class='symbol val'>:user_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_remove_all_group identifier id'>remove_all_group</span>
 
   <span class='rubyid_super super kw'>super</span>
@@ -1593,7 +1661,6 @@
       <pre class="lines">
 
 
-132
 133
 134
 135
@@ -1604,10 +1671,11 @@
 140
 141
 142
-143</pre>
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 133</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_derived_permissions identifier id'>derived_permissions</span>
   <span class='rubyid_actual_permissions identifier id'>actual_permissions</span> <span class='assign token'>=</span>
@@ -1642,7 +1710,6 @@
       <pre class="lines">
 
 
-176
 177
 178
 179
@@ -1674,10 +1741,11 @@
 205
 206
 207
-208</pre>
+208
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 177</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_permissions identifier id'>permissions</span>
   <span class='rubyid_result identifier id'>result</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -1766,13 +1834,13 @@
       <pre class="lines">
 
 
-121
 122
 123
-124</pre>
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/user.rb', line 122</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_validate identifier id'>validate</span>
   <span class='rubyid_validates_unique identifier id'>validates_unique</span><span class='lparen token'>(</span><span class='symbol val'>:username</span><span class='comma token'>,</span>
@@ -1789,9 +1857,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:53 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:58 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

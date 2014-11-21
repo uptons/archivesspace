@@ -6,18 +6,18 @@
 <title>
   Class: RESTHelpers::Endpoint
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!RESTHelpers/Endpoint.html";
 </script>
 
 
@@ -598,7 +598,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of Endpoint</p>
+    <p>Returns a new instance of Endpoint</p>
 
 
   </div>
@@ -1261,7 +1261,12 @@
 236
 237
 238
-239</pre>
+239
+240
+241
+242
+243
+244</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 176</span>
@@ -1313,16 +1318,21 @@
       <span class='rubyid_end end kw'>end</span>
 
       <span class='rubyid_DB constant id'>DB</span><span class='dot token'>.</span><span class='rubyid_open identifier id'>open</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='rubyid_use_transaction identifier id'>use_transaction</span> <span class='eq op'>==</span> <span class='symbol val'>:unspecified</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='rubyid_true true kw'>true</span> <span class='colon op'>:</span> <span class='rubyid_use_transaction identifier id'>use_transaction</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span>
-
         <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_put identifier id'>put</span><span class='lparen token'>(</span><span class='symbol val'>:current_username</span><span class='comma token'>,</span> <span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
 
         <span class='comment val'># If the current user is a manager, show them suppressed records</span>
         <span class='comment val'># too.</span>
         <span class='rubyid_if if kw'>if</span> <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:repo_id</span><span class='rparen token'>)</span>
-          <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_put identifier id'>put</span><span class='lparen token'>(</span><span class='symbol val'>:enforce_suppression</span><span class='comma token'>,</span>
-                             <span class='notop op'>!</span><span class='lparen token'>(</span><span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:manage_repository</span><span class='rparen token'>)</span> <span class='orop op'>||</span>
-                               <span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:view_suppressed</span><span class='rparen token'>)</span> <span class='orop op'>||</span>
-                               <span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:suppress_archival_record</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+          <span class='rubyid_if if kw'>if</span> <span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:index_system</span><span class='rparen token'>)</span>
+            <span class='comment val'># Don't mess with the search user</span>
+            <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_put identifier id'>put</span><span class='lparen token'>(</span><span class='symbol val'>:enforce_suppression</span><span class='comma token'>,</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
+          <span class='rubyid_else else kw'>else</span>
+            <span class='rubyid_RequestContext constant id'>RequestContext</span><span class='dot token'>.</span><span class='rubyid_put identifier id'>put</span><span class='lparen token'>(</span><span class='symbol val'>:enforce_suppression</span><span class='comma token'>,</span>
+                               <span class='notop op'>!</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:manage_repository</span><span class='rparen token'>)</span> <span class='orop op'>||</span>
+                                  <span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:view_suppressed</span><span class='rparen token'>)</span> <span class='orop op'>||</span>
+                                  <span class='rubyid_current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='rubyid_can? fid id'>can?</span><span class='lparen token'>(</span><span class='symbol val'>:suppress_archival_record</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span>
+                                 <span class='rubyid_Preference constant id'>Preference</span><span class='dot token'>.</span><span class='rubyid_defaults identifier id'>defaults</span><span class='lbrack token'>[</span><span class='string val'>'show_suppressed'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+          <span class='rubyid_end end kw'>end</span>
         <span class='rubyid_end end kw'>end</span>
 
         <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span>
@@ -1403,9 +1413,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:52 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:50 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>

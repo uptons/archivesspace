@@ -6,18 +6,18 @@
 <title>
   Module: Notes
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Notes.html";
 </script>
 
 
@@ -155,7 +155,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#publish%21-instance_method" title="#publish! (instance method)">- (Object) <strong>publish!</strong> </a>
+      <a href="#persistent_id_context-instance_method" title="#persistent_id_context (instance method)">- (Object) <strong>persistent_id_context</strong> </a>
     
 
     
@@ -222,14 +222,22 @@
       <pre class="lines">
 
 
-3
-4
-5</pre>
+7
+8
+9
+10
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/notes.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/notes.rb', line 7</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_included identifier id'>included</span><span class='lparen token'>(</span><span class='rubyid_base identifier id'>base</span><span class='rparen token'>)</span>
+  <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_one_to_many identifier id'>one_to_many</span> <span class='symbol val'>:note</span>
+
+  <span class='rubyid_Note constant id'>Note</span><span class='dot token'>.</span><span class='rubyid_many_to_one identifier id'>many_to_one</span> <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_table_name identifier id'>table_name</span>
+
   <span class='rubyid_base identifier id'>base</span><span class='dot token'>.</span><span class='rubyid_extend identifier id'>extend</span><span class='lparen token'>(</span><span class='rubyid_ClassMethods constant id'>ClassMethods</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -245,9 +253,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="publish!-instance_method">
+  <h3 class="signature first" id="persistent_id_context-instance_method">
   
-    - (<tt>Object</tt>) <strong>publish!</strong> 
+    - (<tt>Object</tt>) <strong>persistent_id_context</strong> 
   
 
   
@@ -259,33 +267,31 @@
       <pre class="lines">
 
 
-16
-17
-18
-19
-20
-21
 22
 23
 24
 25
 26
-27</pre>
+27
+28
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/notes.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/notes.rb', line 22</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_publish! fid id'>publish!</span>
-  <span class='rubyid_updated_notes identifier id'>updated_notes</span> <span class='assign token'>=</span> <span class='rubyid_ASUtils constant id'>ASUtils</span><span class='dot token'>.</span><span class='rubyid_json_parse identifier id'>json_parse</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span> <span class='orop op'>||</span> <span class='string val'>&quot;[]&quot;</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_not not kw'>not</span> <span class='rubyid_updated_notes identifier id'>updated_notes</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
-    <span class='rubyid_updated_notes identifier id'>updated_notes</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_note identifier id'>note</span><span class='bitor op'>|</span>
-      <span class='rubyid_note identifier id'>note</span><span class='lbrack token'>[</span><span class='string val'>&quot;publish&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-    <span class='rubyid_end end kw'>end</span>
-
-    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='lparen token'>(</span><span class='rubyid_updated_notes identifier id'>updated_notes</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_persistent_id_context identifier id'>persistent_id_context</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:root_record_id</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_root_record_id identifier id'>root_record_id</span>
+    <span class='rubyid_parent_id identifier id'>parent_id</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_root_record_id identifier id'>root_record_id</span>
+    <span class='rubyid_parent_type identifier id'>parent_type</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_root_record_type identifier id'>root_record_type</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
+  <span class='rubyid_else else kw'>else</span>
+    <span class='rubyid_parent_id identifier id'>parent_id</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span>
+    <span class='rubyid_parent_type identifier id'>parent_type</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_my_jsonmodel identifier id'>my_jsonmodel</span><span class='dot token'>.</span><span class='rubyid_record_type identifier id'>record_type</span>
   <span class='rubyid_end end kw'>end</span>
 
-  <span class='rubyid_super super kw'>super</span>
+  <span class='lbrack token'>[</span><span class='rubyid_parent_id identifier id'>parent_id</span><span class='comma token'>,</span> <span class='rubyid_parent_type identifier id'>parent_type</span><span class='rbrack token'>]</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -308,21 +314,17 @@
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13</pre>
+16
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/notes.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'backend/app/model/mixins/notes.rb', line 16</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_from_json identifier id'>update_from_json</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span> <span class='rubyid_opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
-  <span class='rubyid_super super kw'>super</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='comma token'>,</span>
-        <span class='rubyid_opts identifier id'>opts</span><span class='dot token'>.</span><span class='rubyid_merge identifier id'>merge</span><span class='lparen token'>(</span><span class='string val'>'notes'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_JSON constant id'>JSON</span><span class='lparen token'>(</span><span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_notes identifier id'>notes</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-                   <span class='string val'>'notes_json_schema_version'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_json identifier id'>json</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_schema_version identifier id'>schema_version</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-        <span class='rubyid_apply_nested_records identifier id'>apply_nested_records</span><span class='rparen token'>)</span>
+  <span class='rubyid_obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='rubyid_super super kw'>super</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_apply_notes identifier id'>apply_notes</span><span class='lparen token'>(</span><span class='rubyid_obj identifier id'>obj</span><span class='comma token'>,</span> <span class='rubyid_json identifier id'>json</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -335,9 +337,9 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version NO VERSION Documentation Generated on Fri Jan 17 14:59:45 2014 by
+  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:08:52 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
   </body>
 </html>
