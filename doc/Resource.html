@@ -509,7 +509,11 @@
 8
 9
 10
-11</pre>
+11
+12
+13
+14
+15</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'frontend/app/models/resource.rb', line 3</span>
@@ -519,6 +523,10 @@
 
   <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span> <span class='orop op'>||</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
     <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:extent</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='dot token'>.</span><span class='rubyid__always_valid! fid id'>_always_valid!</span><span class='rbrack token'>]</span>
+  <span class='rubyid_end end kw'>end</span>
+  
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dates identifier id'>dates</span> <span class='orop op'>||</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dates identifier id'>dates</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
+    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dates identifier id'>dates</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:date</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='dot token'>.</span><span class='rubyid__always_valid! fid id'>_always_valid!</span><span class='rbrack token'>]</span>
   <span class='rubyid_end end kw'>end</span>
 
   <span class='rubyid_self self kw'>self</span>
@@ -590,10 +598,6 @@
       <pre class="lines">
 
 
-14
-15
-16
-17
 18
 19
 20
@@ -636,10 +640,18 @@
 57
 58
 59
-60</pre>
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'frontend/app/models/resource.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'frontend/app/models/resource.rb', line 18</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_populate_from_accession identifier id'>populate_from_accession</span><span class='lparen token'>(</span><span class='rubyid_accession identifier id'>accession</span><span class='rparen token'>)</span>
   <span class='rubyid_values identifier id'>values</span> <span class='assign token'>=</span> <span class='rubyid_accession identifier id'>accession</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span><span class='lparen token'>(</span><span class='symbol val'>:raw</span><span class='rparen token'>)</span>
@@ -687,6 +699,10 @@
   <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span> <span class='orop op'>||</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
     <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_extents identifier id'>extents</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:extent</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='dot token'>.</span><span class='rubyid__always_valid! fid id'>_always_valid!</span><span class='rbrack token'>]</span>
   <span class='rubyid_end end kw'>end</span>
+  
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dates identifier id'>dates</span> <span class='orop op'>||</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dates identifier id'>dates</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
+    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_dates identifier id'>dates</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rubyid_JSONModel constant id'>JSONModel</span><span class='lparen token'>(</span><span class='symbol val'>:date</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='dot token'>.</span><span class='rubyid__always_valid! fid id'>_always_valid!</span><span class='rbrack token'>]</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -699,7 +715,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:10:10 2014 by
+  ArchivesSpace Version v1.1.1 Documentation Generated on Mon Jan 12 22:24:43 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

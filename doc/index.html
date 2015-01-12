@@ -68,9 +68,11 @@
 
     <div id="content"><div id='filecontents'><h2 id="archivesspace-readme">ArchivesSpace README</h2>
 
-<p><a href="http://54.187.182.145:8080/job/ArchivesSpace/"><img src="http://54.187.182.145:8080/buildStatus/icon?job=ArchivesSpace" alt="Build Status" /></a><a href="https://codeclimate.com/github/archivesspace/archivesspace"><img src="https://codeclimate.com/github/archivesspace/archivesspace.png" alt="Code Climate" /></a></p>
+<p><a href="https://travis-ci.org/archivesspace/archivesspace.svg"><img src="https://travis-ci.org/archivesspace/archivesspace.svg" alt="Build Status" /></a><a href="https://codeclimate.com/github/archivesspace/archivesspace"><img src="https://codeclimate.com/github/archivesspace/archivesspace.png" alt="Code Climate" /></a></p>
 
 <p><a href="http://archivesspace.org">http://archivesspace.org</a></p>
+
+<p>IRC: #archivesspace ( chat.freenode.net )</p>
 
 <h1 id="system-requirements">System requirements</h1>
 
@@ -142,6 +144,15 @@ repositories&#8221; at the top right hand side of the screen.  From the
 &#8220;System&#8221; menu, you can perform a variety of administrative tasks, such
 as creating and modifying user accounts.  <strong>Be sure to change the
 &#8220;admin&#8221; user&#8217;s password at this time.</strong></p>
+
+<h1 id="configuring-archivesspace">Configuring ArchivesSpace</h1>
+
+<p>The primary configuration for ArchivesSpace is done in the config/config.rb
+file. By default, this file contains the default settings, which are indicated
+by commented out lines ( indicated by the &#8220;#&#8221; in the file ). You can adjust these 
+settings by adding new lines that change the default and restarting 
+ArchivesSpace. Be sure that your new settings are not commented out 
+( i.e. do NOT start with a &#8220;#&#8221; ), otherwise the settings will not take effect. </p>
 
 <h1 id="running-archivesspace-as-a-unix-daemon">Running ArchivesSpace as a Unix daemon</h1>
 
@@ -625,6 +636,10 @@ at <a href="https://github.com/archivesspace/archivesspace/blob/master/ARCHITECT
 architecture notes, is published at
 <a href="http://archivesspace.github.com/archivesspace/doc/">http://archivesspace.github.io/archivesspace/doc</a>.</p>
 
+<h1 id="contributing">Contributing</h1>
+
+<p>Contributors are welcome! Please read about our <a href="https://github.com/archivesspace/archivesspace/tree/master/contributing">Contributor License Agreement</a> for more information. </p>
+
 <h1 id="license">License</h1>
 
 <p>ArchivesSpace is released under the <a href="http://opensource.org/licenses/ecl2.php">Educational Community License,
@@ -641,7 +656,7 @@ LYRASIS, and contributions from diverse persons in the archives community.</p>
 </div></div>
 
     <div id="footer">
-  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:08:30 2014 by
+  ArchivesSpace Version v1.1.1 Documentation Generated on Mon Jan 12 22:23:15 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

@@ -283,7 +283,8 @@
 24
 25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/AS_fop.rb', line 22</span>
@@ -292,7 +293,8 @@
  <span class='rubyid_@source ivar id'>@source</span> <span class='assign token'>=</span> <span class='rubyid_source identifier id'>source</span>
  <span class='rubyid_@xslt ivar id'>@xslt</span> <span class='assign token'>=</span> <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_read identifier id'>read</span><span class='lparen token'>(</span> <span class='rubyid_StaticAssetFinder constant id'>StaticAssetFinder</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>'stylesheets'</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'as-ead-pdf.xsl'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> 
  <span class='comment val'># WHAT A HACK! but you can't pass in a URI as a variable? jeezus.  </span>
- <span class='rubyid_@xslt ivar id'>@xslt</span><span class='dot token'>.</span><span class='rubyid_gsub! fid id'>gsub!</span><span class='lparen token'>(</span><span class='string val'>'&lt;xsl:include href=&quot;as-helper-functions.xsl&quot;/&gt;'</span><span class='comma token'>,</span> <span class='dstring node'>&quot;&lt;xsl:include href='#{File.join(ASUtils.find_base_directory, 'stylesheets', 'as-helper-functions.xsl')}'/&gt;&quot;</span> <span class='rparen token'>)</span> 
+ <span class='rubyid_filepath identifier id'>filepath</span> <span class='assign token'>=</span>  <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='rubyid_ASUtils constant id'>ASUtils</span><span class='dot token'>.</span><span class='rubyid_find_base_directory identifier id'>find_base_directory</span><span class='comma token'>,</span> <span class='string val'>'stylesheets'</span><span class='comma token'>,</span> <span class='string val'>'as-helper-functions.xsl'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>&quot;\\&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;/&quot;</span> <span class='rparen token'>)</span>
+ <span class='rubyid_@xslt ivar id'>@xslt</span><span class='dot token'>.</span><span class='rubyid_gsub! fid id'>gsub!</span><span class='lparen token'>(</span><span class='string val'>'&lt;xsl:include href=&quot;as-helper-functions.xsl&quot;/&gt;'</span><span class='comma token'>,</span> <span class='dstring node'>&quot;&lt;xsl:include href='#{filepath}'/&gt;&quot;</span> <span class='rparen token'>)</span> 
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -413,13 +415,13 @@
       <pre class="lines">
 
 
-30
 31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/AS_fop.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/AS_fop.rb', line 31</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_to_fo identifier id'>to_fo</span>
   <span class='rubyid_transformer identifier id'>transformer</span> <span class='assign token'>=</span> <span class='rubyid_Saxon constant id'>Saxon</span><span class='dot token'>.</span><span class='rubyid_XSLT constant id'>XSLT</span><span class='lparen token'>(</span><span class='rubyid_@xslt ivar id'>@xslt</span><span class='rparen token'>)</span>
@@ -446,7 +448,6 @@
       <pre class="lines">
 
 
-35
 36
 37
 38
@@ -463,10 +464,11 @@
 49
 50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/AS_fop.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/AS_fop.rb', line 36</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_to_pdf identifier id'>to_pdf</span>
   <span class='rubyid_begin begin kw'>begin</span> 
@@ -497,7 +499,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:54 2014 by
+  ArchivesSpace Version v1.1.1 Documentation Generated on Mon Jan 12 22:24:26 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

@@ -364,7 +364,7 @@
         <span class='rubyid_end end kw'>end</span>
       <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_ImportCanceled constant id'>ImportCanceled</span>
         <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Sequel constant id'>Sequel</span><span class='colon2 op'>::</span><span class='rubyid_Rollback constant id'>Rollback</span>
-      <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_ValidationException constant id'>ValidationException</span><span class='comma token'>,</span> <span class='rubyid_ImportException constant id'>ImportException</span><span class='comma token'>,</span> <span class='rubyid_Sequel constant id'>Sequel</span><span class='colon2 op'>::</span><span class='rubyid_ValidationFailed constant id'>ValidationFailed</span><span class='comma token'>,</span> <span class='rubyid_ReferenceError constant id'>ReferenceError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
+      <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_JSONModel constant id'>JSONModel</span><span class='colon2 op'>::</span><span class='rubyid_ValidationException constant id'>ValidationException</span><span class='comma token'>,</span> <span class='rubyid_ImportException constant id'>ImportException</span><span class='comma token'>,</span> <span class='rubyid_Converter constant id'>Converter</span><span class='colon2 op'>::</span><span class='rubyid_ConverterMappingError constant id'>ConverterMappingError</span><span class='comma token'>,</span> <span class='rubyid_Sequel constant id'>Sequel</span><span class='colon2 op'>::</span><span class='rubyid_ValidationFailed constant id'>ValidationFailed</span><span class='comma token'>,</span> <span class='rubyid_ReferenceError constant id'>ReferenceError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
         <span class='comment val'># Note: we deliberately don't catch Sequel::DatabaseError here.  The</span>
         <span class='comment val'># outer call to DB.open will catch that exception and retry the</span>
         <span class='comment val'># import for us.</span>
@@ -423,7 +423,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:10:40 2014 by
+  ArchivesSpace Version v1.1.1 Documentation Generated on Mon Jan 12 22:25:16 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

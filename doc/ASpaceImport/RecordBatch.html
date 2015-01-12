@@ -187,6 +187,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#each_open_file_path-instance_method" title="#each_open_file_path (instance method)">- (Object) <strong>each_open_file_path</strong> {|@working_file.path| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#flush-instance_method" title="#flush (instance method)">- (Object) <strong>flush</strong> </a>
     
 
@@ -505,6 +528,62 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="each_open_file_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>each_open_file_path</strong> {|@working_file.path| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>@working_file.path</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/parse_queue.rb', line 84</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_open_file_path identifier id'>each_open_file_path</span>
+  <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_@working_file ivar id'>@working_file</span><span class='dot token'>.</span><span class='rubyid_path identifier id'>path</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_@working_file ivar id'>@working_file</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_@working_file ivar id'>@working_file</span><span class='dot token'>.</span><span class='rubyid_path identifier id'>path</span>
+  <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_@batch_file ivar id'>@batch_file</span><span class='dot token'>.</span><span class='rubyid_path identifier id'>path</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_@batch_file ivar id'>@batch_file</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_@batch_file ivar id'>@batch_file</span><span class='dot token'>.</span><span class='rubyid_path identifier id'>path</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="flush-instance_method">
   
     - (<tt>Object</tt>) <strong>flush</strong> 
@@ -637,12 +716,12 @@ is what puts that here&#8230;</p>
       <pre class="lines">
 
 
-84
-85
-86</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/parse_queue.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'backend/app/converters/lib/parse_queue.rb', line 90</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_record_filter= identifier id'>record_filter=</span><span class='lparen token'>(</span><span class='rubyid_predicate identifier id'>predicate</span><span class='rparen token'>)</span>
   <span class='rubyid_@record_filter ivar id'>@record_filter</span> <span class='assign token'>=</span> <span class='rubyid_predicate identifier id'>predicate</span>
@@ -689,7 +768,7 @@ is what puts that here&#8230;</p>
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:10:47 2014 by
+  ArchivesSpace Version v1.1.1 Documentation Generated on Mon Jan 12 22:25:24 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

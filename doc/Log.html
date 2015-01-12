@@ -112,7 +112,7 @@
         <dt id="logger-classvariable" class="">@@logger =
           
         </dt>
-        <dd><pre class="code"><span class='rubyid_Logger constant id'>Logger</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_$stderr gvar id'>$stderr</span><span class='rparen token'>)</span>
+        <dd><pre class="code"><span class='rubyid_ASpaceLogger constant id'>ASpaceLogger</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_$stderr gvar id'>$stderr</span><span class='rparen token'>)</span>
 </pre></dd>
       
     </dl>
@@ -131,6 +131,29 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backlog-class_method" title="backlog (class method)">+ (Object) <strong>backlog</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>this gets the backlog and starts the recording timer.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -349,7 +372,48 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="debug-class_method">
+  <h3 class="signature first" id="backlog-class_method">
+  
+    + (<tt>Object</tt>) <strong>backlog</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>this gets the backlog and starts the recording timer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/logging.rb', line 30</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_backlog identifier id'>backlog</span>
+  <span class='rubyid_@@logger ivar id'>@@logger</span><span class='dot token'>.</span><span class='rubyid_backlog_and_flush identifier id'>backlog_and_flush</span> 
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="debug-class_method">
   
     + (<tt>Object</tt>) <strong>debug</strong>(s) 
   
@@ -450,10 +514,6 @@
       <pre class="lines">
 
 
-30
-31
-32
-33
 34
 35
 36
@@ -464,10 +524,14 @@
 41
 42
 43
-44</pre>
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/logging.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/logging.rb', line 34</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_filter_passwords identifier id'>filter_passwords</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_params identifier id'>params</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span> <span class='rubyid_String constant id'>String</span>
@@ -644,7 +708,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version 20141120-1311 Documentation Generated on Fri Nov 21 10:09:58 2014 by
+  ArchivesSpace Version v1.1.1 Documentation Generated on Mon Jan 12 22:24:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>
