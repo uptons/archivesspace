@@ -109,12 +109,6 @@
   
     <dl class="constants">
       
-        <dt id="running-classvariable" class="">@@running =
-          
-        </dt>
-        <dd><pre class="code"><span class='rubyid_false false kw'>false</span>
-</pre></dd>
-      
         <dt id="klasses-classvariable" class="">@@klasses =
           
         </dt>
@@ -264,8 +258,7 @@
 26
 27
 28
-29
-30</pre>
+29</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/resequencer.rb', line 19</span>
@@ -275,10 +268,9 @@
   <span class='rubyid_repos identifier id'>repos</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_r identifier id'>r</span><span class='bitor op'>|</span>
     <span class='rubyid_DB constant id'>DB</span><span class='dot token'>.</span><span class='rubyid_attempt identifier id'>attempt</span> <span class='lbrace token'>{</span>
       <span class='rubyid_Kernel constant id'>Kernel</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='rubyid_klass identifier id'>klass</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_resequence identifier id'>resequence</span><span class='lparen token'>(</span><span class='rubyid_r identifier id'>r</span><span class='rparen token'>)</span>
-       <span class='rubyid_return return kw'>return</span>
     <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_and_if_constraint_fails identifier id'>and_if_constraint_fails</span> <span class='lbrace token'>{</span>
-      <span class='comment val'># if there's a failure, just keep going.  </span>
       <span class='rubyid_return return kw'>return</span> 
+      <span class='comment val'># if there's a failure, just keep going.  </span>
     <span class='rbrace token'>}</span> 
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
@@ -303,14 +295,14 @@
       <pre class="lines">
 
 
+31
 32
 33
 34
-35
-36</pre>
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/resequencer.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/resequencer.rb', line 31</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_resequence_all identifier id'>resequence_all</span>
   <span class='rubyid_@@klasses ivar id'>@@klasses</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_klass identifier id'>klass</span><span class='bitor op'>|</span>
@@ -338,6 +330,7 @@
       <pre class="lines">
 
 
+38
 39
 40
 41
@@ -348,21 +341,46 @@
 46
 47
 48
-49</pre>
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/resequencer.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/resequencer.rb', line 38</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_run identifier id'>run</span><span class='lparen token'>(</span><span class='rubyid_klasses identifier id'>klasses</span> <span class='assign token'>=</span> <span class='rubyid_@@klasses ivar id'>@@klasses</span> <span class='rparen token'>)</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*&quot;</span> <span class='mult op'>*</span> <span class='integer val'>100</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*\t\t STARTING RESEQUENCER  \t\t*&quot;</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*\t\t This is a utility that will organize and compact objects trees to ensure their validity. \t\t *&quot;</span> 
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*\t\t Duration of this process depends on the size of your data. \t\t *&quot;</span> 
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*\t\t It should NOT be used on every startup and instead should only be run in rare occassions that require data maintance. \t\t *&quot;</span> 
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*&quot;</span> <span class='mult op'>*</span> <span class='integer val'>100</span>
   <span class='rubyid_begin begin kw'>begin</span>
-    <span class='rubyid_@@running ivar id'>@@running</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span> 
+    <span class='rubyid_@running ivar id'>@running</span><span class='dot token'>.</span><span class='rubyid_update identifier id'>update</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_r identifier id'>r</span><span class='bitor op'>|</span> <span class='rubyid_r identifier id'>r</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span> <span class='rbrace token'>}</span>  
     <span class='rubyid_klasses identifier id'>klasses</span> <span class='assign token'>=</span> <span class='rubyid_klasses identifier id'>klasses</span> <span class='bitand op'>&amp;</span> <span class='rubyid_@@klasses ivar id'>@@klasses</span> 
+    <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='rubyid_klasses identifier id'>klasses</span> 
     <span class='rubyid_klasses identifier id'>klasses</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_klass identifier id'>klass</span><span class='bitor op'>|</span>
-        <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_resequence identifier id'>resequence</span><span class='lparen token'>(</span><span class='rubyid_klass identifier id'>klass</span><span class='rparen token'>)</span> 
+      <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='rubyid_klass identifier id'>klass</span>
+      <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_resequence identifier id'>resequence</span><span class='lparen token'>(</span><span class='rubyid_klass identifier id'>klass</span><span class='rparen token'>)</span> 
     <span class='rubyid_end end kw'>end</span> 
   <span class='rubyid_ensure ensure kw'>ensure</span>
-    <span class='rubyid_@@running ivar id'>@@running</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
+    <span class='rubyid_@running ivar id'>@running</span><span class='dot token'>.</span><span class='rubyid_update identifier id'>update</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_r identifier id'>r</span><span class='bitor op'>|</span> <span class='rubyid_r identifier id'>r</span> <span class='assign token'>=</span>  <span class='rubyid_false false kw'>false</span> <span class='rbrace token'>}</span> 
   <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*&quot;</span> <span class='mult op'>*</span> <span class='integer val'>100</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*\t\t RESEQUENCER COMPLETE  \t\t*&quot;</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*\t\t Be sure to set the AppConfig[:resequence_on_startup] to false to ensure quicker startups in the future. \t\t*&quot;</span>
+  <span class='rubyid_$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;*&quot;</span> <span class='mult op'>*</span> <span class='integer val'>100</span>
+
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -416,7 +434,7 @@
       <pre class="code"><span class="info file"># File 'backend/app/lib/resequencer.rb', line 15</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_running? fid id'>running?</span>
-  <span class='rubyid_@@running ivar id'>@@running</span>
+  <span class='rubyid_@running ivar id'>@running</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -429,7 +447,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.1.1 Documentation Generated on Tue Jan 13 11:53:06 2015 by
+  ArchivesSpace Version tomcat Documentation Generated on Wed Feb  4 02:19:57 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

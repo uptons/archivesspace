@@ -680,7 +680,8 @@
 101
 102
 103
-104</pre>
+104
+105</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 92</span>
@@ -693,6 +694,7 @@
         <span class='symbol val'>:description</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@description ivar id'>@description</span><span class='comma token'>,</span>
         <span class='symbol val'>:method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@method ivar id'>@method</span><span class='comma token'>,</span>
         <span class='symbol val'>:params</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@required_params ivar id'>@required_params</span><span class='comma token'>,</span>
+        <span class='symbol val'>:paginated</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@paginated ivar id'>@paginated</span><span class='comma token'>,</span>
         <span class='symbol val'>:returns</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@returns ivar id'>@returns</span>
       <span class='rbrace token'>}</span>
     <span class='rubyid_end end kw'>end</span>
@@ -719,10 +721,10 @@
       <pre class="lines">
 
 
-109</pre>
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 110</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:delete</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -746,10 +748,10 @@
       <pre class="lines">
 
 
-107</pre>
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 108</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:get</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -796,12 +798,12 @@
       <pre class="lines">
 
 
-117
 118
-119</pre>
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 118</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_is_potentially_destructive_request? fid id'>is_potentially_destructive_request?</span><span class='lparen token'>(</span><span class='rubyid_env identifier id'>env</span><span class='rparen token'>)</span>
   <span class='rubyid_env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>&quot;REQUEST_METHOD&quot;</span><span class='rbrack token'>]</span> <span class='neq op'>!=</span> <span class='string val'>&quot;GET&quot;</span>
@@ -850,12 +852,12 @@
       <pre class="lines">
 
 
-113
 114
-115</pre>
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 114</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_is_toplevel_request? fid id'>is_toplevel_request?</span><span class='lparen token'>(</span><span class='rubyid_env identifier id'>env</span><span class='rparen token'>)</span>
   <span class='rubyid_env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>&quot;ASPACE_REENTRANT&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
@@ -881,10 +883,10 @@
       <pre class="lines">
 
 
-110</pre>
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 111</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='rubyid_method identifier id'>method</span><span class='rparen token'>)</span> <span class='rubyid_Endpoint constant id'>Endpoint</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_method identifier id'>method</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -908,10 +910,10 @@
       <pre class="lines">
 
 
-108</pre>
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 109</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_post identifier id'>post</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_method identifier id'>method</span><span class='lparen token'>(</span><span class='symbol val'>:post</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_uri identifier id'>uri</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -976,10 +978,10 @@
       <pre class="lines">
 
 
-123</pre>
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 124</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_description identifier id'>description</span><span class='lparen token'>(</span><span class='rubyid_description identifier id'>description</span><span class='rparen token'>)</span> <span class='rubyid_@description ivar id'>@description</span> <span class='assign token'>=</span> <span class='rubyid_description identifier id'>description</span><span class='semicolon token'>;</span> <span class='rubyid_self self kw'>self</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -1003,14 +1005,14 @@
       <pre class="lines">
 
 
-162
 163
 164
 165
-166</pre>
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 163</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_paginated identifier id'>paginated</span><span class='lparen token'>(</span><span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='rubyid_@paginated ivar id'>@paginated</span> <span class='assign token'>=</span> <span class='rubyid_val identifier id'>val</span>
@@ -1038,7 +1040,6 @@
       <pre class="lines">
 
 
-145
 146
 147
 148
@@ -1052,10 +1053,11 @@
 156
 157
 158
-159</pre>
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 146</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_params identifier id'>params</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
   <span class='rubyid_@required_params ivar id'>@required_params</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_p identifier id'>p</span><span class='bitor op'>|</span>
@@ -1093,7 +1095,6 @@
       <pre class="lines">
 
 
-127
 128
 129
 130
@@ -1101,10 +1102,11 @@
 132
 133
 134
-135</pre>
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 128</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_permissions identifier id'>permissions</span><span class='lparen token'>(</span><span class='rubyid_permissions identifier id'>permissions</span><span class='rparen token'>)</span>
   <span class='rubyid_@has_permissions ivar id'>@has_permissions</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
@@ -1136,10 +1138,10 @@
       <pre class="lines">
 
 
-124</pre>
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 125</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_preconditions identifier id'>preconditions</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_preconditions identifier id'>preconditions</span><span class='rparen token'>)</span> <span class='rubyid_@preconditions ivar id'>@preconditions</span> <span class='opasgn op'>+=</span> <span class='rubyid_preconditions identifier id'>preconditions</span><span class='semicolon token'>;</span> <span class='rubyid_self self kw'>self</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -1163,14 +1165,14 @@
       <pre class="lines">
 
 
-138
 139
 140
 141
-142</pre>
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 139</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_request_context identifier id'>request_context</span><span class='lparen token'>(</span><span class='rubyid_hash identifier id'>hash</span><span class='rparen token'>)</span>
   <span class='rubyid_@request_context_keyvals ivar id'>@request_context_keyvals</span> <span class='assign token'>=</span> <span class='rubyid_hash identifier id'>hash</span>
@@ -1198,7 +1200,6 @@
       <pre class="lines">
 
 
-176
 177
 178
 179
@@ -1266,10 +1267,11 @@
 241
 242
 243
-244</pre>
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 177</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_returns identifier id'>returns</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_returns identifier id'>returns</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='dstring node'>&quot;No .permissions declaration for endpoint #{@method.to_s.upcase} #{@uri}&quot;</span> <span class='rubyid_if if_mod kw'>if</span> <span class='notop op'>!</span><span class='rubyid_@has_permissions ivar id'>@has_permissions</span>
@@ -1361,10 +1363,10 @@
       <pre class="lines">
 
 
-122</pre>
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 123</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_uri identifier id'>uri</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='rubyid_@uri ivar id'>@uri</span> <span class='assign token'>=</span> <span class='rubyid_uri identifier id'>uri</span><span class='semicolon token'>;</span> <span class='rubyid_self self kw'>self</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -1388,14 +1390,14 @@
       <pre class="lines">
 
 
-169
 170
 171
 172
-173</pre>
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'backend/app/lib/rest.rb', line 170</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_use_transaction identifier id'>use_transaction</span><span class='lparen token'>(</span><span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='rubyid_@use_transaction ivar id'>@use_transaction</span> <span class='assign token'>=</span> <span class='rubyid_val identifier id'>val</span>
@@ -1413,7 +1415,7 @@
 </div>
 
     <div id="footer">
-  ArchivesSpace Version v1.1.1 Documentation Generated on Tue Jan 13 11:52:46 2015 by
+  ArchivesSpace Version tomcat Documentation Generated on Wed Feb  4 02:19:55 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>
