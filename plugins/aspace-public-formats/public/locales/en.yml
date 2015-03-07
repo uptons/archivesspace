@@ -6,5 +6,5 @@ en:
       html: HTML
       marcxml: MARCXML
       mets: METS
-      ead_pdf: EAD-PDF
+      ead_pdf: Save EAD in PDF
       mods: MODS
