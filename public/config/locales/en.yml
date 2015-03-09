@@ -89,7 +89,7 @@ en:
     "false": "No"
 
   navbar:
-    search_placeholder: Enter your search terms
+    search_placeholder: Use quotes to contain phrases or full names…
     search_all: All Records
 
   advanced_search:
