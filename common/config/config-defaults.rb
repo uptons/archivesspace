@@ -5,7 +5,7 @@ AppConfig[:solr_index_directory] = proc { File.join(AppConfig[:data_directory], 
 AppConfig[:solr_home_directory] = proc { File.join(AppConfig[:data_directory], "solr_home") }
 AppConfig[:solr_indexing_frequency_seconds] = 30
 
-AppConfig[:default_page_size] = 10
+AppConfig[:default_page_size] = 20
 AppConfig[:max_page_size] = 250
 
 # Log level for the backend, values: (everything) debug, info, warn, error, fatal (severe only)
@@ -84,8 +84,10 @@ AppConfig[:jetty_shutdown_path] = "/xkcd"
 #
 AppConfig[:backend_instance_urls] = proc { [AppConfig[:backend_url]] }
 
-AppConfig[:frontend_theme] = "default"
-AppConfig[:public_theme] = "default"
+#AppConfig[:frontend_theme] = "default"
+#AppConfig[:public_theme] = "default"
+AppConfig[:public_theme] = "ricefon"
+AppConfig[:frontend_theme] = "ricefon"
 
 AppConfig[:session_expire_after_seconds] = 3600
 
@@ -122,7 +124,7 @@ AppConfig[:plugins] = ['local', 'aspace_feedback', 'aspace-public-formats']
 # 
 # The following are used by the aspace-public-formats plugin
 # https://github.com/archivesspace/aspace-public-formats
-AppConfig[:public_formats_resource_links] = []
+AppConfig[:public_formats_resource_links] = ['ead_pdf']
 AppConfig[:public_formats_digital_object_links] = []
 AppConfig[:xsltproc_path] = nil
 AppConfig[:xslt_path] = nil
