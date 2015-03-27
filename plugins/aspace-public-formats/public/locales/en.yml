@@ -6,5 +6,5 @@ en:
       html: HTML
       marcxml: MARCXML
       mets: METS
-      ead_pdf: Inventory PDF
+      ead_pdf: Printer friendly version
       mods: MODS
